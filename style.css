@@ -1,0 +1,14 @@
+body {
+	background:#000;
+}
+
+#header {
+	height:100px;
+}
+
+#wrapper {
+	border:1px solid #999;
+	margin:auto;
+	width:650px;
+	height:650px;
+}
