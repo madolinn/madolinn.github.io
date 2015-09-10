@@ -25,7 +25,7 @@ physics.tocomponents = function(vec) {
 	return c;
 }
 
-phsysics.addvectors = function(arr) {
+physics.addvectors = function(arr) {
 	if (!Array.isArray(arr)) { console.log("physics.addvectors : ["+arr+"] was not an array."); return; }
 	
 	var xcomp = 0;
