@@ -31,7 +31,8 @@ celestials = function(kind) {
 	this.createMesh();
 }
 
-celestials.prototype.createMesh = function( notasun = true ) {
+celestials.prototype.createMesh = function(notasun) {
+	notasun = notasun || true;
 	if (!notasun) {
 		alert("It's a sun.");
 		return;
