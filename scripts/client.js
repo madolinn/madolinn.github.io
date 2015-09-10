@@ -46,9 +46,13 @@ step = function() {
 	}
 	
 	for (var i = 0; i < l.length; i++) {
-		l[i].pos[0] += Math.cos(l[i].forces[0][1])*(l[i].forces[0][0]/l[i].mass)/_g.worldScale;
-		l[i].pos[1] += Math.sin(l[i].forces[0][1])*(l[i].forces[0][0]/l[i].mass)/_g.worldScale;
-		console.log(l[i].forces[0][0]);
+		l[i].forces.push(l[i].vel);
+		l[i].vel = physics.addvectors(l[i].forces);
+	}
+	
+	for (var i = 0; i < l.length; i++) {
+		l[i].pos[0] += Math.cos(l[i].vel[1])*l[i].vel[0];
+		l[i].pos[1] += Math.sin(l[i].vel[1])*l[i].vel[0];
 	}	
 	
 	for (var i = 0; i < l.length; i++) {

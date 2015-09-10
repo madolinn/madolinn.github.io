@@ -5,6 +5,7 @@ celestials = function(kind) {
 	this.size = 10;
 	this.forces = [];
 	this.pos = [50,50];
+	this.vel = [0,0];
 	
 	switch (kind) {
 		case "sun":

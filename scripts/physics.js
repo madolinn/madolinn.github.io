@@ -9,9 +9,38 @@ physics.gravity = function(ba, bb) {
 	
 	var dir = Math.atan2((bb.pos[1]-ba.pos[1]),(bb.pos[0]-ba.pos[0]));
 	
-	if (f > 2e40) { f = 2e40; }
+	if (f > 8e40) { f = 8e40; }
 	
 	var vec = [f,dir];
+	
+	return vec;
+	
+}
+
+physics.tocomponents = function(vec) {
+	var x = Math.cos(vec[1])*vec[0];
+	var y = Math.sin(vec[1])*vec[0];
+	var c = [x,y];
+	
+	return c;
+}
+
+phsysics.addvectors = function(arr) {
+	if (!Array.isArray(arr)) { console.log("physics.addvectors : ["+arr+"] was not an array.") return; }
+	
+	var xcomp = 0;
+	var ycomp = 0;
+	
+	for (var i = 0; i < arr.length; i++) {
+		var c = physics.tocomponents(arr[i]);
+		xcomp += c[0];
+		ycomp += c[1];
+	}
+	
+	var mag = Math.sqrt(Math.pow(xcomp,2) + Math.pow(ycomp,2));
+	var dir = Math.atan2(ycomp,xcomp);
+	
+	var vec = [mag,dir];
 	
 	return vec;
 	
