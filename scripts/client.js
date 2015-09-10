@@ -4,7 +4,7 @@ moduLoad("physics")
 moduLoad("draw")
 moduLoad("celestials")
 
-_g = { players: [] , worldScale: 1e15 };
+_g = { players: [] , worldScale: 60e15 };
 
 _cv.setupAll = function() {
 	$("canvas").each(function(ind) {
@@ -18,7 +18,7 @@ moduLoad.ready = function() {
 	_cv.setupAll();
 	new celestials("sun");
 	_g.players[0] = new celestials();
-	console.log(physics.gravity(celestials.list[0],celestials.list[1]));
+	new celestials("jup");
 	
 	$("canvas").click(function(e) {
 		var o = $(this).offset();
@@ -26,7 +26,7 @@ moduLoad.ready = function() {
 		_g.players[0].pos[1] = e.pageY - o.top;
 	});
 	
-	step();
+	setInterval(function() { step(); },1000/30);//step();
 	
 }
 
@@ -48,18 +48,17 @@ step = function() {
 	for (var i = 0; i < l.length; i++) {
 		l[i].forces.push(l[i].vel);
 		l[i].vel = physics.addvectors(l[i].forces);
+		console.log(i + " : " +(l[i].vel[0]/l[i].mass/_g.worldScale));
 	}
 	
 	for (var i = 0; i < l.length; i++) {
-		l[i].pos[0] += Math.cos(l[i].vel[1])*l[i].vel[0];
-		l[i].pos[1] += Math.sin(l[i].vel[1])*l[i].vel[0];
+		l[i].pos[0] += Math.cos(l[i].vel[1])*l[i].vel[0]/l[i].mass/_g.worldScale;
+		l[i].pos[1] += Math.sin(l[i].vel[1])*l[i].vel[0]/l[i].mass/_g.worldScale;
 	}	
 	
 	for (var i = 0; i < l.length; i++) {
 		draw.planet(l[i]);
 		l[i].forces = [];
 	}
-	
-	setTimeout(function() { step(); },100);
 	
 }

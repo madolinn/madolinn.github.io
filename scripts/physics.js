@@ -1,4 +1,4 @@
-physics = { G : "6.674e-11", fScale : 0 };
+physics = { G : 6.674e-11, fScale : 0 };
 
 physics.gravity = function(ba, bb) {
 	
@@ -9,7 +9,7 @@ physics.gravity = function(ba, bb) {
 	
 	var dir = Math.atan2((bb.pos[1]-ba.pos[1]),(bb.pos[0]-ba.pos[0]));
 	
-	if (f > 8e40) { f = 8e40; }
+	//if (f > 8e40) { f = 8e40; }
 	
 	var vec = [f,dir];
 	

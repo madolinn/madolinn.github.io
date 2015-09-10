@@ -5,17 +5,27 @@ celestials = function(kind) {
 	this.size = 10;
 	this.forces = [];
 	this.pos = [50,50];
-	this.vel = [0,0];
+	this.vel = [1,1];
 	
 	switch (kind) {
 		case "sun":
-			this.mass = "1.989e30";
+			this.mass = 1.989e30;
 			this.pos = [325,250];
 			this.size = 40;
 			break;
-			
+		case "jup":
+			this.mass = 5.972e25;
+			this.vel = [-1e18,0];
+			this.mass = 5.102;
+			this.pos = [325,350];
+			this.size = 15;
+			break;
+		
 		default:
-			this.mass = "5.972e24";
+			this.mass = 5.972e24;
+			this.vel = [1e18,0];
+			this.mass = 5.102;
+			this.pos = [325,100];
 	}
 	
 	this.createMesh();
