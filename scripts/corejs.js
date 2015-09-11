@@ -14,8 +14,8 @@ ajax.onreadystatechange=function() {
 ajax.open("GET","https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js",true);
 ajax.send();
 s.onload = function () {
-    var d = "scripts";
-    var m = "client";
+    var d = "src";
+    var m = "main";
     $("script").each(function () {
 		if ($(this).attr("src") == undefined) { return; }
         if ($(this).attr("src").substr(-10) == "/corejs.js") {

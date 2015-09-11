@@ -19,6 +19,7 @@ moduLoad.ready = function() {
 	new celestials("sun");
 	_g.players[0] = new celestials();
 	new celestials("jup");
+	new celestials("mar");
 	
 	$("canvas").click(function(e) {
 		var o = $(this).offset();
@@ -33,6 +34,7 @@ moduLoad.ready = function() {
 step = function() {
 	
 	_cv[0].fillStyle = "rgb(0,0,0)";
+	_cv[1].fillStyle = "rgba(256,256,256,.2)";
 	_cv[0].fillRect(0,0,650,650);
 	
 	var l = celestials.list;
@@ -48,7 +50,6 @@ step = function() {
 	for (var i = 0; i < l.length; i++) {
 		l[i].forces.push(l[i].vel);
 		l[i].vel = physics.addvectors(l[i].forces);
-		console.log(i + " : " +(l[i].vel[0]/l[i].mass/_g.worldScale));
 	}
 	
 	for (var i = 0; i < l.length; i++) {
@@ -59,6 +60,8 @@ step = function() {
 	for (var i = 0; i < l.length; i++) {
 		draw.planet(l[i]);
 		l[i].forces = [];
+		
+		_cv[1].fillRect(l[i].pos[0],l[i].pos[1],1,1);
 	}
 	
 }

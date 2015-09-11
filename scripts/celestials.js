@@ -2,30 +2,34 @@ celestials = function(kind) {
 	
 	celestials.list.push(this);
 	this.mass = 1;
-	this.size = 10;
+	this.size = 3;
 	this.forces = [];
 	this.pos = [50,50];
 	this.vel = [1,1];
+	this.name = kind || "Earth";
 	
 	switch (kind) {
 		case "sun":
 			this.mass = 1.989e30;
 			this.pos = [325,250];
-			this.size = 40;
+			this.size = 20;
 			break;
 		case "jup":
 			this.mass = 5.972e25;
-			this.vel = [-1e18,0];
-			this.mass = 5.102;
+			this.vel = [-2e43,0];
 			this.pos = [325,350];
-			this.size = 15;
+			this.size = 5;
 			break;
-		
+		case "mar":
+			this.mass = 7.222e26;
+			this.vel = [3e44,0];
+			this.pos = [325,175];
+			this.size = 7;
+			break;
 		default:
 			this.mass = 5.972e24;
-			this.vel = [1e18,0];
-			this.mass = 5.102;
-			this.pos = [325,100];
+			this.vel = [1.5e42,0];
+			this.pos = [300,100];
 	}
 	
 	this.createMesh();
