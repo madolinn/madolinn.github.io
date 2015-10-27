@@ -1,0 +1,125 @@
+body {
+	background:linear-gradient(180deg, #111, #000);
+	height:100%;
+	padding:0px;
+	margin:0px;
+}
+
+#header {
+	height:30px;
+	width:100%;
+	background:#222;
+	border-bottom: 1px solid #333;
+}
+
+#loading {
+	height:100%;
+	width:100%;
+	background:#222;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+#loadingSpinner {
+	width:103px;
+	height:103px;
+	position:relative;
+	top:50%;
+	left:50%;
+}
+
+#loadingSpinner > img {
+	position:relative;
+	top:-51px;
+	left:-51px;
+}
+
+.button {
+	display:inline-block;
+	background:linear-gradient(180deg, #CCC, #555);
+	height:20px;
+	line-height:19px;
+	padding:0 4px;
+	border-radius:2px;
+	font-family:Tahoma;
+	color:#222;
+	font-size:12px;
+	font-weight:bold;
+	margin:5px;
+	text-shadow: 1px 1px rgba(255,255,255,0.1);
+	cursor:pointer;
+}
+
+.button:hover {
+	box-shadow:1px 2px 3px 1px rgba(0,0,0,0.2) inset;
+	line-height:21px;
+}
+
+.board {
+	background:rgba(255,255,255,0.05);
+	min-height:100px;
+	width:100px;
+	border:1px solid #333;
+	margin:10px 20px;
+	float:left;
+}
+
+.boardHeader {
+	background:rgba(255,255,255,0.03);
+	height:20px;
+	width:100%;
+	border-bottom:1px solid #333;
+	cursor:grab;
+}
+
+.boardClose {
+	float:right;
+	border-left:1px solid #333;
+	width:20px;
+}
+
+.boardAdd {
+	margin:0px;
+}
+
+.boardClose::before {
+	content: "x";
+	font-family:Tahoma;
+	font-weight:bold;
+	color:#999;
+	line-height:15px;
+	padding-left:5px;
+	cursor:pointer;
+}
+
+.note {
+	width:100px;
+	padding:5px;
+	background:rgba(255,255,255,0.5);
+	border-bottom:1px solid #333;
+	font-family:Tahoma;
+	font-size:14px;
+	cursor:pointer;
+	min-height:25px;
+}
+
+#wrapper {
+	position:relative;
+	border:1px solid #999;
+	margin:auto;
+	width:650px;
+	height:650px;
+}
+
+canvas {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+textarea {
+	background:none;
+	width:100%;
+	border-width:1px;
+}
