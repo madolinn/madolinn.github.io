@@ -1,0 +1,95 @@
+body {
+	background:#000;
+}
+
+#wrapper {
+	width:800px;
+	height:600px;
+	margin:auto;
+	border:1px solid #999;
+	
+}
+
+#game_text_wrapper {
+	width:398px;
+	height:348px;
+	float:left;
+	border:1px solid #999;
+	color:#CCC;
+	position:relative;
+}
+
+#game_text_continue {
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	width:100px;
+	height:25px;
+	border:1px solid #999;
+	text-align:center;
+	display:none;
+	cursor:pointer;
+}
+
+#game_graphics {
+	width:398px;
+	height:348px;
+	float:left;
+	border:1px solid #999;
+	color:#999;
+}
+
+#game_compass {
+	width:198px;
+	height:248px;
+	float:left;
+	border:1px solid #999;
+}
+
+#game_portrait {
+	width:148px;
+	height:248px;
+	float:left;
+	border:1px solid #999;
+}
+
+#game_room_objects {
+	width:148px;
+	height:248px;
+	float:left;
+	border:1px solid #999;
+}
+
+.objects_entry {
+	color:#339933;
+	margin-left:2px;
+	margin-right:2px;
+	border-bottom:1px solid #999;
+	cursor:pointer;
+}
+
+#game_room_characters {
+	width:148px;
+	height:248px;
+	float:left;
+	border:1px solid #999;
+}
+
+.characters_entry {
+	color:#339933;
+	margin-left:2px;
+	margin-right:2px;
+	border-bottom:1px solid #999;
+	cursor:pointer;
+}
+
+#game_inventory {
+	width:148px;
+	height:248px;
+	float:left;
+	border:1px solid #999;
+}
+
+span.object {
+	color:#339933;
+}
