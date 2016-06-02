@@ -24,3 +24,8 @@ body {
 	height:48px;
 	float:left;
 }
+
+a:link, a:visited, a:hover, a:active {
+	text-decoration:none;
+	color:inherit;
+}

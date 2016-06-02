@@ -163,6 +163,9 @@ moduLoad.ready = function() {
 	
 	$("#wrapper").css("color",c);
 	
-	$("#wrapper").html(gems[r]);
+	var link = gems[r];
+	var link = link.replace("/ /g","_");
+	
+	$("#wrapper").html("<a href = 'http://pathofexile.gamepedia.com/"+link+"'>"+gems[r]+"</a>");
 
 }
