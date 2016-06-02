@@ -1,0 +1,21 @@
+body {
+	background:linear-gradient(180deg, #111, #000);
+	height:100%;
+	padding:0px;
+	margin:0px;
+}
+
+#wrapper {
+	border:1px solid #999;
+	margin:auto;
+	width:500px;
+	height:150px;
+	padding:50px;
+	color:#999;
+}
+
+input {
+	border:1px solid #999;
+	background:none;
+	color:#999;
+}

@@ -2,6 +2,8 @@ character = { };
 
 character.set = function(chrs) {
 	
+	$("#game_room_characters").html("");
+	
 	for (var i = 0; i < chrs.length; i++) {
 		
 		character.makeEntry(chrs[i]);

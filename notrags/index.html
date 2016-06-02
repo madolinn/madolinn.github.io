@@ -3,11 +3,6 @@
 <title>Not RAGS</title>
 <link rel='stylesheet' type='text/css' href='style.css'>
 <script src='./scripts/corejs.js' type = "text/javascript" main = 'client' dir = 'scripts'></script>
-<style>
-body {
-	background:black;
-}
-</style>
 </head>
 <body>
 
@@ -15,7 +10,20 @@ body {
 
 <div id = "game_text_wrapper"><div id = "game_text"></div><div id = "game_text_continue">Continue</div></div>
 <div id = "game_graphics"></div>
-<div id = "game_compass"></div>
+
+<div id = "game_compass">
+	<br>
+	<div id = "compass_n">N</div>
+	<div style = "margin:auto; height:22px; width:144px;">
+		<div id = "compass_w">W</div>
+		<div id = "compass_e">E</div>
+	</div>
+	<div id = "compass_s">S</div>
+	<br>
+	<div id = "compass_u">U</div>
+	<div id = "compass_d">D</div>
+</div>
+
 <div id = "game_portrait"></div>
 <div id = "game_room_objects"></div>
 <div id = "game_room_characters"></div>

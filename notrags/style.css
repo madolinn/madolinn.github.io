@@ -44,6 +44,70 @@ body {
 	height:248px;
 	float:left;
 	border:1px solid #999;
+	position:relative;
+}
+
+#compass_n {
+	margin:auto;
+	height:60px;
+	width:20px;
+	border:1px solid #999;
+	color:#999;
+	text-align:center;
+	cursor:pointer;
+}
+
+#compass_e {
+	margin:auto;
+	height:20px;
+	width:70px;
+	border:1px solid #999;
+	float:left;
+	color:#999;
+	text-align:right;
+	cursor:pointer;
+}
+
+#compass_s {
+	margin:auto;
+	height:60px;
+	width:20px;
+	border:1px solid #999;
+	color:#999;
+	text-align:center;
+	line-height:100px;
+	cursor:pointer;
+}
+
+#compass_w {
+	margin:auto;
+	height:20px;
+	width:70px;
+	border:1px solid #999;
+	float:left;
+	color:#999;
+	text-align:left;
+	cursor:pointer;
+}
+
+#compass_u {
+	margin:auto;
+	height:20px;
+	width:70px;
+	border:1px solid #999;
+	color:#999;
+	text-align:center;
+	cursor:pointer;
+}
+
+#compass_d {
+	margin:auto;
+	height:20px;
+	width:70px;
+	border:1px solid #999;
+	color:#999;
+	text-align:center;
+	cursor:pointer;
 }
 
 #game_portrait {
