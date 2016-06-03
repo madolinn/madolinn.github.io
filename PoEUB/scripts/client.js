@@ -180,7 +180,7 @@ var chosengems = [];
 
 moduLoad.ready = function() {
 
-	randomgem(maingems, 67);
+	randomgem(maingems);
 	
 	var r = 4;
 	while ((Math.random()*r) <= 4) {
