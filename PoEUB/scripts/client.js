@@ -220,6 +220,14 @@ randomgem = function(type) {
 		gem.color = "white";
 	}
 	
+	for (var i = 0; i < chosengems.length; i++) {
+		if (gem.type == chosengems[i].type) {
+			if (gem.id == chosengems[i].id) {
+				return;
+			}
+		}
+	}
+	
 	chosengems.push(gem);
 	
 }
