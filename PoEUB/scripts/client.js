@@ -1,31 +1,16 @@
-
-var gems = ["Abyssal Cry",
+var maingems = ["Abyssal Cry",
 "Ancestral Protector",
-"Anger",
 "Animate Guardian",
 "Cleave",
-"Decoy Totem",
-"Determination",
-"Devouring Totem",
-"Dominating Blow",
-"Earthquake",
-"Enduring Cry",
-"Flame Totem",
-"Glacial Hammer",
+"Dominating Blow","Earthquake","Flame Totem","Glacial Hammer",
 "Ground Slam",
 "Heavy Strike",
-"Herald of Ash",
 "Ice Crash",
-"Immortal Call",
 "Infernal Blow",
 "Leap Slam",
 "Molten Shell",
 "Molten Strike",
-"Punishment",
-"Purity of Fire",
-"Rallying Cry",
 "Reckoning",
-"Rejuvenation Totem",
 "Searing Bond",
 "Shield Charge",
 "Shockwave Totem",
@@ -36,17 +21,13 @@ var gems = ["Abyssal Cry",
 "Sweep",
 "Vengeance",
 "Vigilant Strike",
-"Vitality",
-"Warlord's Mark",
 "Animate Weapon",
-"Arctic Armour",
 "Barrage",
 "Bear Trap",
 "Blade Vortex",
 "Bladefall",
 "Blast Rain",
 "Blink Arrow",
-"Blood Rage",
 "Burning Arrow",
 "Caustic Arrow",
 "Cyclone",
@@ -62,20 +43,13 @@ var gems = ["Abyssal Cry",
 "Freeze Mine",
 "Frenzy",
 "Frost Blades",
-"Grace",
-"Haste",
-"Hatred",
-"Herald of Ice",
 "Ice Shot",
 "Ice Trap",
 "Lightning Arrow",
 "Lightning Strike",
 "Mirror Arrow",
 "Phase Run",
-"Poacher's Mark",
-"Projectile Weakness",
 "Puncture",
-"Purity of Ice",
 "Rain of Arrows",
 "Reave",
 "Riposte",
@@ -85,7 +59,6 @@ var gems = ["Abyssal Cry",
 "Spectral Throw",
 "Split Arrow",
 "Summon Ice Golem",
-"Temporal Chains",
 "Tornado Shot",
 "Viper Strike",
 "Whirling Blades",
@@ -93,19 +66,11 @@ var gems = ["Abyssal Cry",
 "Ancestral Warchief",
 "Arc",
 "Arctic Breath",
-"Assassin's Mark",
 "Ball Lightning",
-"Bone Offering",
-"Clarity",
 "Cold Snap",
-"Conductivity",
 "Contagion",
 "Conversion Trap",
-"Convocation",
 "Discharge",
-"Discipline",
-"Elemental Weakness",
-"Enfeeble",
 "Essence Drain",
 "Fire Nova Mine",
 "Fireball",
@@ -113,15 +78,12 @@ var gems = ["Abyssal Cry",
 "Flame Dash",
 "Flame Surge",
 "Flameblast",
-"Flammability",
-"Flesh Offering",
 "Freezing Pulse",
 "Frost Bomb",
 "Frost Wall",
 "Frostbite",
 "Frostbolt",
 "Glacial Cascade",
-"Herald of Thunder",
 "Ice Nova",
 "Ice Spear",
 "Incinerate",
@@ -133,39 +95,131 @@ var gems = ["Abyssal Cry",
 "Magma Orb",
 "Orb of Storms",
 "Power Siphon",
-"Purity of Elements",
-"Purity of Lightning",
 "Raise Spectre",
 "Raise Zombie",
 "Righteous Fire",
 "Shock Nova",
 "Spark",
-"Spirit Offering",
 "Storm Call",
 "Summon Chaos Golem",
 "Summon Lightning Golem",
 "Summon Raging Spirit",
 "Summon Skeletons",
 "Tempest Shield",
-"Vortex",
+"Vortex"];
+
+var supgems = ["Anger",
+"Decoy Totem",
+"Devouring Totem",
+"Determination",
+"Enduring Cry",
+"Herald of Ash",
+"Immortal Call",
+"Punishment",
+"Purity of Fire",
+"Rallying Cry",
+"Rejuvenation Totem",
+"Vitality",
+"Warlord's Mark",
+"Arctic Armour",
+"Blood Rage",
+"Grace",
+"Haste",
+"Hatred",
+"Herald of Ice",
+"Poacher's Mark",
+"Projectile Weakness",
+"Purity of Ice",
+"Temporal Chains",
+"Assassin's Mark",
+"Bone Offering",
+"Clarity",
+"Conductivity",
+"Convocation",
+"Discipline",
+"Elemental Weakness",
+"Enfeeble",
+"Flammability",
+"Flesh Offering",
+"Herald of Thunder",
+"Purity of Elements",
+"Purity of Lightning",
+"Spirit Offering",
 "Vulnerability",
 "Wither",
 "Wrath"];
 
+var keystones = ["Acrobatics",
+"Ancestral Bond",
+"Arrow Dancing",
+"Avatar of Fire",
+"Blood Magic",
+"Chaos Inoculation",
+"Conduit",
+"Eldritch Battery",
+"Elemental Equilibrium",
+"Elemental Overload",
+"Ghost Reaver",
+"Iron Grip",
+"Iron Reflexes",
+"Mind Over Matter",
+"Minion Instability",
+"Necromantic Aegis",
+"Pain Attunement",
+"Phase Acrobatics",
+"Point Blank",
+"Resolute Technique",
+"Unwavering Stance",
+"Vaal Pact",
+"Zealot's Oath"];
+
+var chosengems = [];
+
 moduLoad.ready = function() {
 
-	var r = Math.floor(Math.random()*gems.length);
+	randomgem(maingems);
 	
-	var c = "#22F";
+	var r = 4;
+	while ((Math.random()*r) <= 4) {
+		randomgem();
+		r*=2;
+	}
 	
-	if (r < 91) { c = "#2F2"; }
-	if (r < 39) { c = "#F22"; }
+	randomgem(keystones)
 	
-	$("#wrapper").css("color",c);
+	for (var i = 0; i < chosengems.length; i++) {
+		$("#wrapper").append($("<div>", { class : "gem "+chosengems[i].color, html : "<a href = 'http://pathofexile.gamepedia.com/"+chosengems[i].linkname+"'>"+chosengems[i].name+"</a></div>"}));
+	}
 	
-	var link = gems[r];
-	var link = link.replace("/ /g","_");
 	
-	$("#wrapper").html("<a href = 'http://pathofexile.gamepedia.com/"+link+"'>"+gems[r]+"</a>");
+}
 
+randomgem = function(type) {
+	
+	type = type || supgems;
+	
+	if (type == keystones) {
+		if (Math.random()*10 < 5) { return; }
+	}
+	
+	var gem = {};
+	
+	gem.type = type;
+	gem.id = Math.floor(Math.random()*type.length);
+	gem.name = type[gem.id];
+	gem.linkname = gem.name.replace("/ /g","_");
+	
+	gem.color = "blue";
+	if (type == supgems) {
+		if (gem.id < 23) { gem.color = "green"; }
+		if (gem.id < 13) { gem.color = "red"; }
+	} else if (type == maingems) {
+		if (gem.id < 65) { gem.color = "green"; }
+		if (gem.id < 23) { gem.color = "red"; }
+	} else {
+		gem.color = "white";
+	}
+	
+	chosengems.push(gem);
+	
 }
