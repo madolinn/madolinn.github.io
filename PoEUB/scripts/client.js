@@ -2,7 +2,10 @@ var maingems = ["Abyssal Cry",
 "Ancestral Protector",
 "Animate Guardian",
 "Cleave",
-"Dominating Blow","Earthquake","Flame Totem","Glacial Hammer",
+"Dominating Blow",
+"Earthquake",
+"Flame Totem",
+"Glacial Hammer",
 "Ground Slam",
 "Heavy Strike",
 "Ice Crash",
@@ -177,7 +180,7 @@ var chosengems = [];
 
 moduLoad.ready = function() {
 
-	randomgem(maingems);
+	randomgem(maingems, 67);
 	
 	var r = 4;
 	while ((Math.random()*r) <= 4) {
@@ -194,7 +197,7 @@ moduLoad.ready = function() {
 	
 }
 
-randomgem = function(type) {
+randomgem = function(type, id) {
 	
 	type = type || supgems;
 	
@@ -205,7 +208,7 @@ randomgem = function(type) {
 	var gem = {};
 	
 	gem.type = type;
-	gem.id = Math.floor(Math.random()*type.length);
+	gem.id = id || Math.floor(Math.random()*type.length);
 	gem.name = type[gem.id];
 	gem.linkname = gem.name.replace("/ /g","_");
 	
@@ -214,8 +217,8 @@ randomgem = function(type) {
 		if (gem.id < 23) { gem.color = "green"; }
 		if (gem.id < 13) { gem.color = "red"; }
 	} else if (type == maingems) {
-		if (gem.id < 65) { gem.color = "green"; }
-		if (gem.id < 23) { gem.color = "red"; }
+		if (gem.id < 68) { gem.color = "green"; }
+		if (gem.id < 26) { gem.color = "red"; }
 	} else {
 		gem.color = "white";
 	}
