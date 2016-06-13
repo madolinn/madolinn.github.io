@@ -14,6 +14,7 @@ board.create = function() {
 	$("#wrapper").append(ma);
 	
 	bind.slots();
+	bind.clears();
 	
 }
 
@@ -26,6 +27,16 @@ bind.newBoard = function() {
 	
 }
 
+bind.clears = function() {
+	
+	$(".clearboard").unbind("click");
+	
+	$(".clearboard").click(function() {
+		bind.clearBoard(this);
+	});
+	
+}
+
 bind.slots = function() {
 	
 	$(".slot").unbind("click");
@@ -33,6 +44,12 @@ bind.slots = function() {
 	$(".slot").click(function() {
 		bind.clickSlot(this);
 	});
+	
+}
+
+bind.clearBoard = function(obj) {
+	
+	$(obj).parent().children(".slot").css("background","none");
 	
 }
 
