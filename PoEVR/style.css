@@ -1,0 +1,118 @@
+body {
+	background:#000;
+	height:100%;
+	padding:0px;
+	margin:0px;
+	margin-top:50px;
+	overflow:hidden;
+}
+
+#wrapper {
+	margin:auto;
+	width:551px;
+}
+
+#newboard {
+	width:100px;
+	height:20px;
+	background:#999;
+	color:#000;
+	font-family:Tahoma;
+	font-weight:bold;
+	text-align:center;
+	float:right;
+	position:relative;
+	top:-20px;
+}
+
+.board {
+	position:relative;
+	border:1px solid #999;
+	width:549px;
+	height:383px;
+	background:url("./background.png");
+	margin-bottom:50px;
+}
+
+#master {
+	display:none;
+}
+
+.slot {
+	position:absolute;
+	width:100px;
+	height:100px;
+	float:left;
+	opacity:.3;
+	border-radius:5px;
+}
+
+.ringa {
+	left:164px;
+	top:228px;
+	height:46px;
+	width:46px;
+}
+
+.ringb {
+	left:337px;
+	top:228px;
+	height:46px;
+	width:46px;
+}
+
+.neck {
+	left:337px;
+	top:173px;
+	height:46px;
+	width:46px;
+}
+
+.weapona {
+	left:56px;
+	top:96px;
+	height:178px;
+	width:90px;
+}
+
+.weaponb {
+	left:400px;
+	top:96px;
+	height:178px;
+	width:90px;
+}
+
+.belt {
+	left:228px;
+	top:326px;
+	height:46px;
+	width:90px;
+}
+
+.boots {
+	left:337px;
+	top:283px;
+	height:89px;
+	width:89px;
+}
+
+.hands {
+	left:121px;
+	top:283px;
+	height:89px;
+	width:89px;
+}
+
+.chest {
+	left:228px;
+	top:185px;
+	height:130px;
+	width:90px;
+}
+
+.helm {
+	left:228px;
+	top:85px;
+	height:90px;
+	width:90px;
+}
