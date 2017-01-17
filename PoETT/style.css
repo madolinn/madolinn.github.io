@@ -1,0 +1,22 @@
+@font-face {
+	font-family: 'Fontin';
+	src: url('./fontin/Fontin-SmallCaps.ttf');
+}
+
+body {
+	background:linear-gradient(180deg, #111, #000);
+	height:100%;
+	padding:0px;
+	margin:0px;
+	margin-top:50px;
+}
+
+#wrapper {
+	position:relative;
+	border:1px solid #999;
+	margin:auto;
+	text-align:center;
+	font-size:50px;
+	font-family:Tahoma;
+	font-weight:bold;
+}

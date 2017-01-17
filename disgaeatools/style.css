@@ -1,0 +1,79 @@
+body {
+	background:linear-gradient(180deg, #111, #000);
+	height:100%;
+	padding:0px;
+	margin:0px;
+}
+
+#header {
+	width:0px;
+	height:100px;
+}
+
+#wrapper {
+	width:400px;
+	min-height:400px;
+	margin:auto;
+	background:rgba(255,255,255,.1);
+	border:1px solid rgba(255,255,255,.3);
+	padding:5px;
+}
+
+#monsterEntries {
+	border-bottom:1px solid #999;
+	padding-bottom:5px;
+}
+
+.monEntry {
+	padding:5px;
+	color:#CCC;
+}
+
+.monEntry > span.xp {
+	font-weight:bold;
+}
+
+input {
+	width:70px;
+	background:rgba(255,255,255,.15);
+	border:1px solid #CCC;
+	color:#CCC;
+}
+
+#monstersMerged, #monstersTotal{
+	position:relative;
+	width:150px;
+	height:50px;
+	border:1px solid #CCC;
+	display:inline-block;
+	margin:10px 20px;
+}
+
+.monstersTitle {
+	color:#CCC;
+	font-family:Tahoma;
+	font-weight:bold;
+	font-size:10px;
+	padding:1px;
+}
+
+#monstersMerged > span.xp, #monstersTotal > span.xp {
+	display:block;
+	width:130px;
+	margin:auto;
+	color:#CCC;
+	font-weight:bold;
+	text-align:center;
+}
+
+#mergedClass {
+	display:flex;
+	width:130px;
+	margin:auto;
+	color:#CCC;
+	font-weight:bold;
+	text-align:center;
+	justify-content:center;
+	font-size:10px;
+	text-transform:capitalize;
+}
