@@ -1,0 +1,79 @@
+body {
+	background:url('background.png');
+}
+
+.bold {
+	font-weight:bold;
+}
+
+#alertContainer {
+	width:592px;
+	min-height:700px;
+	background:rgba(255,255,255,.1);
+	border:2px solid rgba(255,255,255,.5);
+	padding:10px;
+}
+
+#alertHeader {
+	font-family:Roboto;
+	font-size:18px;
+	font-weight:bold;
+	color:#FFF;
+	border-bottom:2px solid #FFF;
+	padding-bottom:8px;
+	margin-bottom:8px;
+}
+
+.alertEntry {
+	background:rgba(0,0,0,.5);
+	border:2px solid rgba(255,255,255,.5);
+	width:570px;
+	height:126px;
+	font-family:Droid Sans;
+	font-weight:400;
+	margin:4px 0px;
+}
+
+.alertImage {
+	width:108px;
+	height:72px;
+	float:left;
+}
+
+.alertData {
+	float:left;
+	color:#FFF;
+	font-size:17px;
+	padding-left:7px;
+	width:200px;
+	overflow:display;
+	white-space:nowrap;
+}
+
+.alertFaction {
+	width:108px;
+	height:72px;
+	background:black;
+	float:right;
+	opacity:.5;
+}
+
+.alertDataWrapper {
+	width:546px;
+	height:72px;
+	border-bottom:2px solid rgba(255,255,255,.1);
+	padding:8px 12px;
+}
+
+.alertExpireTime {
+	width:570px;
+	color:white;
+	text-align:center;
+	padding:8px 0px;
+}
+
+.inlineImage {
+	display:inline;
+	vertical-align:middle;
+	padding-right:3px;
+}
