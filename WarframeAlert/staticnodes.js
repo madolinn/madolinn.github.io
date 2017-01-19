@@ -460,4 +460,15 @@ staticnodes = {"SolNode94" : ["Mercury","Apollodorus","Survival","Grineer","1 - 
  "? - 138" : ["Phobos","","Assassination","Grineer","1 - 1","20 - 50","0.30000001","3"],
  "ClanNode11" : ["Phobos","Zeugma","MT_EXCAVATE","Grineer","22 - 32","20 - 50","0.30000001","3"],
  "SolNode407" : ["Void","Oxomoco","MT_TERRITORY","Orokin","","","",""],
- "SolNode406" : ["Void","Ukko","MT_TERRITORY","Orokin","","","",""]}
+ "SolNode406" : ["Void","Ukko","MT_TERRITORY","Orokin","","","",""],
+ "SolNode401" : ["Void","Hepit","Defense","Orokin","","","",""],
+ "SolNode400" : ["Void","Teshub","Defense","Orokin","","","",""],
+ "SolNode402" : ["Void","Taranis","Defense","Orokin","","","",""],
+ "SolNode403" : ["Void","Tiwaz","Defense","Orokin","","","",""],
+ "SolNode404" : ["Void","Stribog","Defense","Orokin","","","",""],
+ "SolNode405" : ["Void","Ani","Defense","Orokin","","","",""],
+ "SolNode408" : ["Void","Belenus","Defense","Orokin","","","",""],
+ "SolNode409" : ["Void","Mot","Defense","Orokin","","","",""],
+ "SolNode410" : ["Void","Aten","Defense","Orokin","","","",""],
+ "SolNode411" : ["Void","Marduk","Defense","Orokin","","","",""],
+ "SolNode412" : ["Void","Mithra","Defense","Orokin","","","",""]}

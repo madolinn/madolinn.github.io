@@ -1,6 +1,8 @@
 moduLoad("ajax");
 moduLoad("staticnodes");
 moduLoad("parse");
+moduLoad("ExportManifest");
+moduLoad("languages");
 
 moduLoad.ready = function() {
 	
@@ -17,7 +19,8 @@ addEntry = function(data, kind) {
 
 	var elem = $("<div>", { "class" : "alertEntry" , "data-seed" : data.seed });
 	var wrap = $("<div>", { "class" : "alertDataWrapper" }).appendTo(elem);
-	$("<div>", { "class" : "alertImage" }).css("background","url('"+data.image+"')").appendTo(wrap);
+	var blue = $("<div>", { "class" : "alertImageBlueprint" }).css("background",data.blueprint).appendTo(wrap);
+	$("<div>", { "class" : "alertImage" }).css("background","url('"+data.image+"')").appendTo(blue);
 	$("<div>", { "class" : "alertFaction" }).css("background","url('"+data.faction.toLowerCase()+".png')").appendTo(wrap);
 	$("<div>", { "class" : "alertData" ,
 		html : '<span class = "bold">'+data.planet+'</span> Level '+data.levelmin+'-'+data.levelmax+'<br><span class = "bold">'+data.mode+' - '+data.faction+'</span><br>Reward: <img class = "inlineImage" src = "credits.png">'+data.reward
@@ -47,7 +50,7 @@ incrementTime = function(inc) {
 	
 		var t = $(e).html();
 		
-		if (t ==  "Expired") { return; }
+		if (t ==  "Expired") { $(e).parent().fadeOut(5000,function() { $(this).remove(); }); return; }
 		
 		t = t.split(/[a-z] /);
 		t[2] = t[2].substring(0,t[2].length-1);

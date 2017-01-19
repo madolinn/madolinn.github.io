@@ -34,10 +34,16 @@ body {
 	margin:4px 0px;
 }
 
-.alertImage {
+.alertImageBlueprint {
 	width:108px;
 	height:72px;
 	float:left;
+}
+
+.alertImage {
+	width:108px;
+	height:72px;
+	background-size:108px 72px !important;
 }
 
 .alertData {
