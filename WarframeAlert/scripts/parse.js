@@ -109,7 +109,7 @@ parse.parseReward = function(reward) {
 			
 			if (itemImageName.search("Blueprint") > -1) {
 				itemImageName = itemImageName.replace("Blueprint","");
-				blueprint = "url('blueprint.png')";
+				blueprint = "url('./images/blueprint.png')";
 			}
 			
 			//if (itemImageName.search("Systems
@@ -134,7 +134,7 @@ parse.parseReward = function(reward) {
 			
 		}
 	} else {
-		image = "creditsBig.png";
+		image = "./images/creditsBig.png";
 	}
 	
 	return [rewardText, image, blueprint];
@@ -167,16 +167,16 @@ parse.parseExpire = function(expire) {
 }
 
 parse.countedItems = {};
-parse.countedItems["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" , image : "nitainBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/VoidTearDrop"] = { text : "VOID TRACES (%c)" , image : "voidtracesBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" , image : "argonBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/AlloyPlate"] = { text : "ALLOY PLATE (%c)" , image : "alloyBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/Neurode"] = { text : "NEURODE (%c)" , image : "neurodeBig.png" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" , image : "./images/nitainBig.png" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/VoidTearDrop"] = { text : "VOID TRACES (%c)" , image : "./images/voidtracesBig.png" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" , image : "./images/argonBig.png" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/AlloyPlate"] = { text : "ALLOY PLATE (%c)" , image : "./images/alloyBig.png" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/Neurode"] = { text : "NEURODE (%c)" , image : "./images/neurodeBig.png" };
 
 parse.items = {};
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "endo.png">150' , image : "endoBig.png" };
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "endo.png">100' , image : "endoBig.png" };
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "endo.png">80' , image : "endoBig.png" };
+parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "endo.png">150' , image : "./images/endoBig.png" };
+parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "endo.png">100' , image : "./images/endoBig.png" };
+parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "endo.png">80' , image : "./images/endoBig.png" };
 
 parse.nameCorrections = {};
 parse.nameCorrections["Trapper"] = "VAUBAN";

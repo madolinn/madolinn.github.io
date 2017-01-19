@@ -21,9 +21,9 @@ addEntry = function(data, kind) {
 	var wrap = $("<div>", { "class" : "alertDataWrapper" }).appendTo(elem);
 	var blue = $("<div>", { "class" : "alertImageBlueprint" }).css("background",data.blueprint).appendTo(wrap);
 	$("<div>", { "class" : "alertImage" }).css("background","url('"+data.image+"')").appendTo(blue);
-	$("<div>", { "class" : "alertFaction" }).css("background","url('"+data.faction.toLowerCase()+".png')").appendTo(wrap);
+	$("<div>", { "class" : "alertFaction" }).css("background","url('./images/"+data.faction.toLowerCase()+".png')").appendTo(wrap);
 	$("<div>", { "class" : "alertData" ,
-		html : '<span class = "bold">'+data.planet+'</span> Level '+data.levelmin+'-'+data.levelmax+'<br><span class = "bold">'+data.mode+' - '+data.faction+'</span><br>Reward: <img class = "inlineImage" src = "credits.png">'+data.reward
+		html : '<span class = "bold">'+data.planet+'</span> Level '+data.levelmin+'-'+data.levelmax+'<br><span class = "bold">'+data.mode+' - '+data.faction+'</span><br>Reward: <img class = "inlineImage" src = "./images/credits.png">'+data.reward
 	}).appendTo(wrap);
 	$("<div>", { "class" : "alertExpireTime" , html : data.expire }).appendTo(elem);
 	
