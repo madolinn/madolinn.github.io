@@ -66,15 +66,22 @@ parse.parseFaction = function(faction) {
 parse.parseReward = function(reward) {
 
 	var rewardText = parseInt(reward.credits).toLocaleString();
-	var image = "none.png";
-	var blueprint = "none.png";
+	var image = "./images/none.png";
+	var blueprint = "./images/none.png";
 
 	if (reward.hasOwnProperty('countedItems')) {
 		if (parse.countedItems.hasOwnProperty(reward.countedItems.ItemType)) {
 		
 			var formatted = parse.countedItems[reward.countedItems.ItemType].text.replace(/\%c/g,reward.countedItems.ItemCount);
 			rewardText += ' + ' + formatted;
-			image = parse.countedItems[reward.countedItems.ItemType].image;
+			
+			var i = reward.countedItems.ItemType.lastIndexOf("/");
+			var item = item.substr(i+1);
+			
+			
+			if (ExportManifest.hasOwnProperty(item)) {
+				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
+			}
 		
 		} else {
 		
@@ -94,6 +101,13 @@ parse.parseReward = function(reward) {
 		
 			rewardText += ' + ' +parse.items[reward.items].text;;
 			image = parse.items[reward.items].image;
+			
+			var i = reward.items.lastIndexOf("/");
+			var item = reward.items.substr(i+1);
+			
+			if (ExportManifest.hasOwnProperty(item)) {
+				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
+			}
 		
 		} else {
 		
@@ -167,16 +181,17 @@ parse.parseExpire = function(expire) {
 }
 
 parse.countedItems = {};
-parse.countedItems["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" , image : "./images/nitainBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/VoidTearDrop"] = { text : "VOID TRACES (%c)" , image : "./images/voidtracesBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" , image : "./images/argonBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/AlloyPlate"] = { text : "ALLOY PLATE (%c)" , image : "./images/alloyBig.png" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/Neurode"] = { text : "NEURODE (%c)" , image : "./images/neurodeBig.png" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/VoidTearDrop"] = { text : "VOID TRACES (%c)" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/AlloyPlate"] = { text : "ALLOY PLATE (%c)" };
+parse.countedItems["/Lotus/Types/Items/MiscItems/Neurode"] = { text : "NEURODE (%c)" };
 
 parse.items = {};
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "endo.png">150' , image : "./images/endoBig.png" };
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "endo.png">100' , image : "./images/endoBig.png" };
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "endo.png">80' , image : "./images/endoBig.png" };
+parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "./images/endo.png">150' };
+parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "./images/endo.png">100' };
+parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "./images/endo.png">80' };
+parse.items["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" };
 
 parse.nameCorrections = {};
 parse.nameCorrections["Trapper"] = "VAUBAN";
