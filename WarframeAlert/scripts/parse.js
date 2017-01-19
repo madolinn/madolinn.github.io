@@ -76,8 +76,7 @@ parse.parseReward = function(reward) {
 			rewardText += ' + ' + formatted;
 			
 			var i = reward.countedItems.ItemType.lastIndexOf("/");
-			var item = item.substr(i+1);
-			
+			var item = reward.countedItems.ItemType.substr(i+1);
 			
 			if (ExportManifest.hasOwnProperty(item)) {
 				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
@@ -89,6 +88,13 @@ parse.parseReward = function(reward) {
 			var i = item.lastIndexOf("/");
 			item = item.substr(i+1);
 			item = item.replace(/([^A-Z])([A-Z][^A-Z])/g,'$1 $2');
+			
+			var i = reward.countedItems.ItemType.lastIndexOf("/");
+			var item = reward.countedItems.ItemType.substr(i+1);
+			
+			if (ExportManifest.hasOwnProperty(item)) {
+				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
+			}
 			
 			for (key in parse.nameCorrections) {
 				item = item.replace(key, parse.nameCorrections[key]);
