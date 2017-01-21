@@ -1,6 +1,5 @@
 ajax = {};
 
-
 ajax.getAlerts = function() {
 	$.getJSON("http://query.yahooapis.com/v1/public/yql",
 		{
@@ -8,15 +7,47 @@ ajax.getAlerts = function() {
 			format: "json"
 		},
 	function(data) {
-		ajax.parseData(data);
+		ajax.getRSS(data);
+		//ajax.parseData(data);
 	});
 
 }
 
-ajax.parseData = function(data) {
+ajax.getRSS = function(alerts) {
 
-	for (var i = 0; i < data.query.results.json.Alerts.length; i++) {
-		parse.parseAlert(data.query.results.json.Alerts[i]);
+	$.getJSON("http://query.yahooapis.com/v1/public/yql",
+		{
+			q: " select * from rss where url='http://content.warframe.com/alerts.xml'",
+			format: "json"
+		},
+	function(rss) {
+		ajax.parseData(alerts, rss);
+	});
+
+}
+
+ajax.parseData = function(alerts, rss) {
+
+	console.log(alerts, rss);
+
+	var rssData = false;
+
+	for (var i = 0; i < alerts.query.results.json.Alerts.length; i++) {
+	
+		for (var x = rss.query.results.item.length-1; x > -1; x--) {
+		
+			var ex = new Date(alerts.query.results.json.Alerts[i].Expiry.sec*1000);
+			var exT = ex.toUTCString();
+			exT = exT.substr(0,exT.length-4)+" +0000";
+			
+			if (exT == rss.query.results.item[x].expiry) {
+				rssData = rss.query.results.item[x];
+				break;
+			}
+		
+		}
+	
+		parse.parseAlert(alerts.query.results.json.Alerts[i], rssData);
 	}
 
 }

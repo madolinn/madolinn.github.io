@@ -1,10 +1,8 @@
 parse = {};
 
-parse.parseAlert = function(data) {
+parse.parseAlert = function(data, rssData) {
 
 	var entry = {};
-	
-	console.log(data);
 	
 	entry.planet = tryProp('location', data.MissionInfo) || 'TestNode215';
 	entry.levelmin = tryProp('minEnemyLevel', data.MissionInfo) || '-1';
@@ -15,13 +13,12 @@ parse.parseAlert = function(data) {
 	entry.expire = tryProp('sec', data.Expiry) || 'Test';
 	entry.seed = tryProp('seed', data.MissionInfo) || 'TestSeed';
 	
-	
 	entry.planet = parse.parsePlanet(entry.planet);
 	entry.mode = parse.parseMode(entry.mode);
 	entry.faction = parse.parseFaction(entry.faction);
 	entry.expire = parse.parseExpire(entry.expire);
 	
-	var reward = parse.parseReward(entry.reward);
+	var reward = parse.parseReward(entry.reward, rssData);
 	entry.reward = reward[0];
 	entry.image = reward[1];
 	entry.blueprint = reward[2];
@@ -63,103 +60,62 @@ parse.parseFaction = function(faction) {
 
 }
 
-parse.parseReward = function(reward) {
+parse.parseReward = function(reward, rssData) {
 
-	var rewardText = parseInt(reward.credits).toLocaleString();
-	var image = "./images/none.png";
+	var image = "./images/creditsBig.png";
 	var blueprint = "./images/none.png";
-
+	var fullItem = "";
+	var item = "";
+	var itemCount = 1;
+	var rewardText = parseInt(reward.credits).toLocaleString();
+	
 	if (reward.hasOwnProperty('countedItems')) {
-		if (parse.countedItems.hasOwnProperty(reward.countedItems.ItemType)) {
-		
-			var formatted = parse.countedItems[reward.countedItems.ItemType].text.replace(/\%c/g,reward.countedItems.ItemCount);
-			rewardText += ' + ' + formatted;
-			
-			var i = reward.countedItems.ItemType.lastIndexOf("/");
-			var item = reward.countedItems.ItemType.substr(i+1);
-			
-			if (ExportManifest.hasOwnProperty(item)) {
-				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
-			}
-		
-		} else {
-		
-			var item = reward.countedItems.ItemType;
-			var i = item.lastIndexOf("/");
-			item = item.substr(i+1);
-			item = item.replace(/([^A-Z])([A-Z][^A-Z])/g,'$1 $2');
-			
-			var i = reward.countedItems.ItemType.lastIndexOf("/");
-			var item = reward.countedItems.ItemType.substr(i+1);
-			
-			if (ExportManifest.hasOwnProperty(item)) {
-				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
-			}
-			
-			for (key in parse.nameCorrections) {
-				item = item.replace(key, parse.nameCorrections[key]);
-			}
-			
-			rewardText += ' + ' + item.toUpperCase() + ' ('+reward.countedItems.ItemCount+')';
-		}
-	} else if (reward.hasOwnProperty('items')) {
-		if (parse.items.hasOwnProperty(reward.items)) {
-		
-			rewardText += ' + ' +parse.items[reward.items].text;;
-			image = parse.items[reward.items].image;
-			
-			var i = reward.items.lastIndexOf("/");
-			var item = reward.items.substr(i+1);
-			
-			if (ExportManifest.hasOwnProperty(item)) {
-				image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
-			}
-		
-		} else {
-		
-			var item = reward.items;
-			
-			var type = item.match(/.*\/(.*)\//)[1];
-			
-			var i = item.lastIndexOf("/");
-			item = item.substr(i+1);
-			
-			var itemImageName = item;
-			var itemTextName = item;
-			
-			if (itemImageName.search("Blueprint") > -1) {
-				itemImageName = itemImageName.replace("Blueprint","");
-				blueprint = "url('./images/blueprint.png')";
-			}
-			
-			//if (itemImageName.search("Systems
-			
-			if (itemImageName.search("Statless") > -1) {
-				itemImageName = itemImageName.replace("Statless","");
-				itemImageName += "Statless";
-			}
-			
-			if (type == "WarframeRecipes") {
-				itemImageName += "Component";
-				itemTextName = parse.findRealName(itemTextName);
-			}
-			
-			if (ExportManifest.hasOwnProperty(itemImageName)) {
-				image = "http://content.warframe.com/MobileExport"+ExportManifest[itemImageName].textureLocation;
-			}
-			
-			itemTextName = itemTextName.replace(/([^A-Z])([A-Z][^A-Z])/g,'$1 $2');
-			
-			rewardText += ' + ' + itemTextName.toUpperCase();
-			
-		}
-	} else {
-		image = "./images/creditsBig.png";
+		fullItem = reward.countedItems.ItemType;
+		itemCount = reward.countedItems.ItemCount;
+	}
+	else if (reward.hasOwnProperty('items')) {
+		fullItem = reward.items;
 	}
 	
-	return [rewardText, image, blueprint];
+	var type = fullItem.match(/.*\/(.*)\//)[1];
+	
+	var i = fullItem.lastIndexOf("/");
+	item = fullItem.substr(i+1);
+	
+	if (item.search("Blueprint") > -1) {
+		item = item.replace("Blueprint","");
+		blueprint = "url('./images/blueprint.png')";
+	}
+	
+	if (ExportManifest.hasOwnProperty(item)) {
+	
+		var modifiedImageName = item;
+		
+		if (type == "WarframeRecipes") {
+			modifiedImageName = item+"Component";
+		}
+		
+		image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
+	}
+	
+	if (parse.items.hasOwnProperty(item)) {
+		rewardText += ' + ' + parse.items[item].text.replace(/\%c/g,itemCount);
+	} else {
+		var rssText = rssData.title;
+		rssText = rssText.split(" - ");
+	
+		if (rssText[rssText.length-1].search(/\d*?cr/) == -1) {
+			var formattedText = rssText[rssText.length-1];
+			formattedText = formattedText.replace(/\(Blueprint\)/,"Blueprint");
+			formattedText = formattedText.replace(/\(Resource\)/,"");
+			rewardText += ' + ' +formattedText.toUpperCase();
+		}
+	}
 
+	return [rewardText, image, blueprint];
+	
 }
+
 
 parse.findRealName = function(name) {
 
@@ -186,18 +142,15 @@ parse.parseExpire = function(expire) {
 
 }
 
-parse.countedItems = {};
-parse.countedItems["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/VoidTearDrop"] = { text : "VOID TRACES (%c)" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/AlloyPlate"] = { text : "ALLOY PLATE (%c)" };
-parse.countedItems["/Lotus/Types/Items/MiscItems/Neurode"] = { text : "NEURODE (%c)" };
-
 parse.items = {};
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "./images/endo.png">150' };
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "./images/endo.png">100' };
-parse.items["/Lotus/StoreItems/Upgrades/Mods/FusionBundles/AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "./images/endo.png">80' };
-parse.items["/Lotus/Types/Items/MiscItems/Alertium"] = { text : "NITAIN EXTRACT" };
+parse.items["Alertium"] = { text : "NITAIN EXTRACT" };
+parse.items["VoidTearDrop"] = { text : "VOID TRACES (%c)" };
+parse.items["ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" };
+parse.items["AlloyPlate"] = { text : "ALLOY PLATE (%c)" };
+parse.items["Neurode"] = { text : "NEURODE (%c)" };
+parse.items["AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "./images/endo.png">150' };
+parse.items["AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "./images/endo.png">100' };
+parse.items["AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "./images/endo.png">80' };
 
 parse.nameCorrections = {};
 parse.nameCorrections["Trapper"] = "VAUBAN";
