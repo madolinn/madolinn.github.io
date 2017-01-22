@@ -2,6 +2,9 @@ parse = {};
 
 parse.parseAlert = function(data, rssData) {
 
+	if (!rssData) { return; }
+	console.log(data, rssData);
+
 	var entry = {};
 	
 	entry.planet = tryProp('location', data.MissionInfo) || 'TestNode215';
@@ -77,7 +80,8 @@ parse.parseReward = function(reward, rssData) {
 		fullItem = reward.items;
 	}
 	
-	var type = fullItem.match(/.*\/(.*)\//)[1];
+	var type = fullItem.match(/.*\/(.*)\//);
+	type = ( type != null ) ? type[type.length-1] : false;
 	
 	var i = fullItem.lastIndexOf("/");
 	item = fullItem.substr(i+1);

@@ -28,8 +28,6 @@ ajax.getRSS = function(alerts) {
 
 ajax.parseData = function(alerts, rss) {
 
-	console.log(alerts, rss);
-
 	var rssData = false;
 
 	for (var i = 0; i < alerts.query.results.json.Alerts.length; i++) {
