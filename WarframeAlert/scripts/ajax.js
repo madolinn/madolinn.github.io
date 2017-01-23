@@ -28,9 +28,9 @@ ajax.getRSS = function(alerts) {
 
 ajax.parseData = function(alerts, rss) {
 
-	var rssData = false;
-
 	for (var i = 0; i < alerts.query.results.json.Alerts.length; i++) {
+	
+		var rssData = false;
 	
 		for (var x = rss.query.results.item.length-1; x > -1; x--) {
 		

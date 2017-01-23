@@ -65,7 +65,7 @@ parse.parseFaction = function(faction) {
 
 parse.parseReward = function(reward, rssData) {
 
-	var image = "./images/creditsBig.png";
+	var image = "./images/missingBig.png";
 	var blueprint = "./images/none.png";
 	var fullItem = "";
 	var item = "";
@@ -86,7 +86,7 @@ parse.parseReward = function(reward, rssData) {
 	var i = fullItem.lastIndexOf("/");
 	item = fullItem.substr(i+1);
 	
-	if (item.search("Blueprint") > -1) {
+	if (item.includes("Blueprint")) {
 		item = item.replace("Blueprint","");
 		blueprint = "url('./images/blueprint.png')";
 	}
@@ -107,15 +107,25 @@ parse.parseReward = function(reward, rssData) {
 	} else {
 		var rssText = rssData.title;
 		rssText = rssText.split(" - ");
-	
-		if (rssText[rssText.length-1].search(/\d*?cr/) == -1) {
+		console.log(rssText);
+		if (rssText[rssText.length-1].search(/\d+?cr/) == -1) {
 			var formattedText = rssText[rssText.length-1];
+			if (formattedText.search(/\d+?X /) > -1) {
+				formattedText = formattedText.replace(/\d+?X /,"");
+				formattedText += " ("+itemCount+")";
+			}
 			formattedText = formattedText.replace(/\(Blueprint\)/,"Blueprint");
 			formattedText = formattedText.replace(/\(Resource\)/,"");
 			rewardText += ' + ' +formattedText.toUpperCase();
 		}
 	}
 
+	console.log(rewardText);
+	
+	if (!rewardText.includes(' + ')) {
+		image = "./images/creditsBig.png";
+	}
+	
 	return [rewardText, image, blueprint];
 	
 }
