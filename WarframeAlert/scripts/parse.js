@@ -109,8 +109,8 @@ parse.parseReward = function(reward, rssData) {
 		rssText = rssText.split(" - ");
 		if (rssText[rssText.length-1].search(/\d+?cr/) == -1) {
 			var formattedText = rssText[rssText.length-1];
-			if (formattedText.search(/\d+?X /) > -1) {
-				formattedText = formattedText.replace(/\d+?X /,"");
+			if (formattedText.search(/\d+?x /) > -1) {
+				formattedText = formattedText.replace(/\d+?x /,"");
 				formattedText += " ("+itemCount+")";
 			}
 			formattedText = formattedText.replace(/\(Blueprint\)/,"Blueprint");
