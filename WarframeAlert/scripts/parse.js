@@ -88,16 +88,16 @@ parse.parseReward = function(reward, rssData) {
 	
 	if (item.includes("Blueprint")) {
 		item = item.replace("Blueprint","");
+		item = item.replace("StatlessV2","");
+		item = item.replace("Statless","");
 		blueprint = "url('./images/blueprint.png')";
 	}
 	
-	if (ExportManifest.hasOwnProperty(item)) {
+	if (type == "WarframeRecipes") {
+		item = item+"Component";
+	}
 	
-		var modifiedImageName = item;
-		
-		if (type == "WarframeRecipes") {
-			modifiedImageName = item+"Component";
-		}
+	if (ExportManifest.hasOwnProperty(item)) {
 		
 		image = "http://content.warframe.com/MobileExport"+ExportManifest[item].textureLocation;
 	}
@@ -107,7 +107,6 @@ parse.parseReward = function(reward, rssData) {
 	} else {
 		var rssText = rssData.title;
 		rssText = rssText.split(" - ");
-		console.log(rssText);
 		if (rssText[rssText.length-1].search(/\d+?cr/) == -1) {
 			var formattedText = rssText[rssText.length-1];
 			if (formattedText.search(/\d+?X /) > -1) {
@@ -119,8 +118,6 @@ parse.parseReward = function(reward, rssData) {
 			rewardText += ' + ' +formattedText.toUpperCase();
 		}
 	}
-
-	console.log(rewardText);
 	
 	if (!rewardText.includes(' + ')) {
 		image = "./images/creditsBig.png";
