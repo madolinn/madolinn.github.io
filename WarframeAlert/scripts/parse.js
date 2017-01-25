@@ -170,7 +170,9 @@ parse.findRealName = function(name) {
 
 }*/
 
-parse.parseExpire = function(expire, days = false) {
+parse.parseExpire = function(expire, days) {
+
+	days = days || false;
 
 	var comp = new DateC("now",expire);
 	if (comp.expired) {

@@ -34,7 +34,9 @@ DateC.minute = function() {
 	return 60;
 }
 
-DateC.prototype.compare = function(format = "h m s") {
+DateC.prototype.compare = function(format) {
+
+	format = format || "h m s";
 
 	//"d h m s"
 	var timeList = [DateC.year(), DateC.month(), DateC.day(), DateC.hour(), DateC.minute(), 1];
