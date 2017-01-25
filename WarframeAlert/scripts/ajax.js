@@ -47,6 +47,11 @@ ajax.parseData = function(alerts, rss) {
 	
 		parse.parseAlert(alerts.query.results.json.Alerts[i], rssData);
 	}
+	
+	parse.parseVoidTrader(alerts.query.results.json.VoidTraders);
+	
+	setInterval(function() { incrementTime(5); }, 5000);
+	setInterval(function() { ajax.getAlerts() }, 1000*60*5);
 
 }
 

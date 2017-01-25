@@ -12,6 +12,7 @@ body {
 	background:rgba(255,255,255,.1);
 	border:2px solid rgba(255,255,255,.5);
 	padding:10px;
+	float:left;
 }
 
 #alertHeader {
@@ -82,4 +83,38 @@ body {
 	display:inline;
 	vertical-align:middle;
 	padding-right:3px;
+}
+
+#voidContainer {
+	float:left;
+	background:rgba(255,255,255,.1);
+	border:2px solid rgba(255,255,255,.5);
+	padding:10px;
+	width:300px;
+	margin-left:10px;
+}
+
+#voidHeader {
+	font-family:Roboto;
+	font-size:18px;
+	font-weight:bold;
+	color:#FFF;
+	border-bottom:2px solid #FFF;
+	padding-bottom:6px;
+}
+
+#voidExpand {
+	display:inline-block;
+	border:1px solid #FFF;
+	width:23px;
+	text-align:center;
+	cursor:pointer;
+}
+
+#voidExpand:hover {
+	background:rgba(255,255,255,.5);
+}
+
+.voidDepart {
+	display:none;
 }

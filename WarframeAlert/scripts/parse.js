@@ -1,5 +1,18 @@
 parse = {};
 
+parse.parseVoidTrader = function(data) {
+
+	var arrival = parse.parseExpire(data.Activation.sec, true);
+	var depart = parse.parseExpire(data.Expiry.sec, true);
+	if (arrival == "Expired") {
+		$("#voidTimer.voidArrive").css("display","none");
+	}
+	
+	$("#voidTimer.voidArrive").html(arrival);
+	$("#voidTimer.voidDepart").html(depart);
+
+}
+
 parse.parseAlert = function(data, rssData) {
 
 	if (!rssData) { return; }
@@ -138,7 +151,7 @@ parse.findRealName = function(name) {
 
 }
 
-parse.parseExpire = function(expire) {
+parse.parseExpire = function(expire, days = false) {
 
 	var ex = new Date(expire*1000);
 	var ti = new Date();
@@ -147,7 +160,11 @@ parse.parseExpire = function(expire) {
 	
 	var dif = new Date(ex-ti);
 	
-	var expireText = Math.max(dif.getHours()-19,0)+'h '+dif.getMinutes()+'m '+dif.getSeconds()+'s';
+	if (!days) {
+		var expireText = Math.max(dif.getHours()-19,0)+'h '+dif.getMinutes()+'m '+dif.getSeconds()+'s';
+	} else {
+		var expireText = Math.max(dif.getDay()-4,0)+'d '+Math.max(dif.getHours()-19,0)+'h '+dif.getMinutes()+'m '+dif.getSeconds()+'s';
+	}
 
 	return expireText;
 

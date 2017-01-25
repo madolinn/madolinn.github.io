@@ -7,8 +7,6 @@ moduLoad("languages");
 moduLoad.ready = function() {
 	
 	ajax.getAlerts();
-	setInterval(function() { incrementTime(5); }, 5000);
-	setInterval(function() { ajax.getAlerts() }, 1000*60*5);
 	
 }
 
@@ -81,6 +79,45 @@ incrementTime = function(inc) {
 		
 		$(e).html(text);
 		
+	});
+	
+	$("#voidTimer").each(function(i, e) {
+	
+		var t = $(e).html();
+		
+		t = t.split(/[a-z] /);
+		//t[3] = t[3].substring(0,t[3].length-1);
+		
+		for (var i = 0; i < t.length; i++) {
+			t[i] = parseInt(t[i]);
+		}
+		
+		t[3] -= inc;
+		
+		while (t[3] < 0) {
+			t[2] -= 1;
+			t[3] += 60;
+		}
+		
+		while (t[2] < 0) {
+			t[1] -= 1;
+			t[2] += 60;
+		}
+		
+		while (t[1] < 0) {
+			t[0] -= 1;
+			t[1] += 60;
+		}
+		
+		if (t[0] < 0) {
+			$(e).css("display","none");
+			return;
+		}
+		
+		var text = t[0]+'d '+t[1]+'h '+t[2]+'m '+t[3]+'s ';
+		
+		$(e).html(text);
+	
 	});
 
 }
