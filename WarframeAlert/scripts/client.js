@@ -3,6 +3,7 @@ moduLoad("staticnodes");
 moduLoad("parse");
 moduLoad("ExportManifest");
 moduLoad("languages");
+moduLoad("DateC");
 
 moduLoad.ready = function() {
 	
@@ -51,7 +52,7 @@ incrementTime = function(inc) {
 		if (t ==  "Expired") { $(e).parent().fadeOut(5000,function() { $(this).remove(); }); return; }
 		
 		t = t.split(/[a-z] /);
-		t[2] = t[2].substring(0,t[2].length-1);
+		//t[2] = t[2].substring(0,t[2].length-1);
 		
 		for (var i = 0; i < t.length; i++) {
 			t[i] = parseInt(t[i]);

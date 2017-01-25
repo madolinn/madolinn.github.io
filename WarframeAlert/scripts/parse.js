@@ -151,7 +151,7 @@ parse.findRealName = function(name) {
 
 }
 
-parse.parseExpire = function(expire, days = false) {
+/*parse.parseExpire = function(expire, days = false) {
 
 	var ex = new Date(expire*1000);
 	var ti = new Date();
@@ -167,6 +167,19 @@ parse.parseExpire = function(expire, days = false) {
 	}
 
 	return expireText;
+
+}*/
+
+parse.parseExpire = function(expire, days = false) {
+
+	var comp = new DateC("now",expire);
+	if (comp.expired) {
+		return "Expired";
+	}
+	
+	var format = (!days) ? comp.compare("h m s") : comp.compare("d h m s");
+	
+	return format;
 
 }
 
