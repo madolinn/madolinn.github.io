@@ -90,7 +90,7 @@ parse.parseReward = function(reward, rssData) {
 	var itemCount = 1;
 	var rewardText = parseInt(reward.credits).toLocaleString();
 	
-	console.log(reward);
+	console.log(reward.hasOwnProperty('countedItems'));
 	
 	if (reward.hasOwnProperty('countedItems')) {
 		fullItem = reward.countedItems.ItemType;
