@@ -28,7 +28,6 @@ parse.parseAlert = function(data, rssData) {
 	entry.mode = tryProp('missionType', data.MissionInfo) || 'TestMode';
 	entry.faction = tryProp('faction', data.MissionInfo) || 'TestFaction';
 	entry.reward = tryProp('missionReward', data.MissionInfo) || 'TestReward';
-	console.log(entry.reward);
 	entry.expire = tryProp('sec', data.Expiry) || 'Test';
 	entry.seed = tryProp('seed', data.MissionInfo) || 'TestSeed';
 	
@@ -90,8 +89,6 @@ parse.parseReward = function(reward, rssData) {
 	var itemCount = 1;
 	var rewardText = parseInt(reward.credits).toLocaleString();
 	
-	console.log(reward.hasOwnProperty('countedItems'));
-	
 	if (reward.hasOwnProperty('countedItems')) {
 		fullItem = reward.countedItems.ItemType;
 		itemCount = reward.countedItems.ItemCount;
@@ -104,9 +101,9 @@ parse.parseReward = function(reward, rssData) {
 	type = ( type != null ) ? type[type.length-1] : false;
 	
 	var i = fullItem.lastIndexOf("/");
-	item = fullItem.substr(Math.max(0,i+1));
+	item = fullItem.substr(i+1);
 	
-	console.log(fullItem);
+	console.log(i);
 	
 	if (item.includes("Blueprint")) {
 		item = item.replace("Blueprint","");
