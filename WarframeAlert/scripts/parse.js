@@ -103,9 +103,7 @@ parse.parseReward = function(reward, rssData) {
 	var i = fullItem.lastIndexOf("/");
 	item = fullItem.substr(i+1);
 	
-	console.log(i);
-	
-	if (item.includes("Blueprint")) {
+	if (item.search("Blueprint") > -1) {
 		item = item.replace("Blueprint","");
 		item = item.replace("StatlessV2","");
 		item = item.replace("Statless","");
@@ -153,7 +151,7 @@ parse.parseReward = function(reward, rssData) {
 		}
 	}
 	
-	if (!rewardText.includes(' + ')) {
+	if (rewardText.search(/\+ /) === -1) {
 		image = "./images/creditsBig.png";
 	}
 	
