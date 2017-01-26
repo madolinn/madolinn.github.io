@@ -103,6 +103,8 @@ parse.parseReward = function(reward, rssData) {
 	var i = fullItem.lastIndexOf("/");
 	item = fullItem.substr(i+1);
 	
+	console.log(item);
+	
 	if (item.includes("Blueprint")) {
 		item = item.replace("Blueprint","");
 		item = item.replace("StatlessV2","");
