@@ -18,7 +18,7 @@ parse.parseVoidTrader = function(data) {
 parse.parseAlert = function(data, rssData) {
 
 	//if (!rssData) { console.warn("No RSS Feed"); return; }
-	console.log(data, rssData);
+	parse.cons = data;
 
 	var entry = {};
 	
