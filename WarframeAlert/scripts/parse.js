@@ -28,6 +28,7 @@ parse.parseAlert = function(data, rssData) {
 	entry.mode = tryProp('missionType', data.MissionInfo) || 'TestMode';
 	entry.faction = tryProp('faction', data.MissionInfo) || 'TestFaction';
 	entry.reward = tryProp('missionReward', data.MissionInfo) || 'TestReward';
+	console.log(entry.reward);
 	entry.expire = tryProp('sec', data.Expiry) || 'Test';
 	entry.seed = tryProp('seed', data.MissionInfo) || 'TestSeed';
 	
@@ -89,7 +90,7 @@ parse.parseReward = function(reward, rssData) {
 	var itemCount = 1;
 	var rewardText = parseInt(reward.credits).toLocaleString();
 	
-	console.log("Reward",reward);
+	console.log(reward);
 	
 	if (reward.hasOwnProperty('countedItems')) {
 		fullItem = reward.countedItems.ItemType;
