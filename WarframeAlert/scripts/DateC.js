@@ -34,9 +34,10 @@ DateC.minute = function() {
 	return 60;
 }
 
-DateC.prototype.compare = function(format) {
+DateC.prototype.compare = function(format, suffix) {
 
 	format = format || "h m s";
+	if (suffix == undefined) { suffix = true; }
 
 	//"d h m s"
 	var timeList = [DateC.year(), DateC.month(), DateC.day(), DateC.hour(), DateC.minute(), 1];
@@ -65,7 +66,9 @@ DateC.prototype.compare = function(format) {
 	for (var i = 0; i < frame.length; i++) {
 		for (var x = 0; x < fullFrame.length; x++) {
 			if (fullFrame[x] == frame[i]) {
-				string += ind[x]+fullFrame[x]+' ';
+				string += ind[x];
+				if (suffix) { string+=fullFrame[x]; }
+				if (x < fullFrame.length-1) { string += " "; }
 			}
 		}
 	}

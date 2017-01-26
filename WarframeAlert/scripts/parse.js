@@ -8,15 +8,17 @@ parse.parseVoidTrader = function(data) {
 		$("#voidTimer.voidArrive").css("display","none");
 	}
 	
-	$("#voidTimer.voidArrive").html(arrival);
-	$("#voidTimer.voidDepart").html(depart);
+	$(".voidTimer.voidArrive").attr("data-time",arrival);
+	$(".voidTimer.voidDepart").attr("data-time",depart);
 
+	refreshTime();
+	
 }
 
 parse.parseAlert = function(data, rssData) {
 
-	if (!rssData) { return; }
-	console.log(data, rssData);
+	//if (!rssData) { console.warn("No RSS Feed"); return; }
+	//console.log(data, rssData);
 
 	var entry = {};
 	
@@ -38,6 +40,8 @@ parse.parseAlert = function(data, rssData) {
 	entry.reward = reward[0];
 	entry.image = reward[1];
 	entry.blueprint = reward[2];
+	
+	entry.rss = rssData.hasOwnProperty("title");
 	
 	addEntry(entry, 'alert');
 
@@ -118,17 +122,32 @@ parse.parseReward = function(reward, rssData) {
 	if (parse.items.hasOwnProperty(item)) {
 		rewardText += ' + ' + parse.items[item].text.replace(/\%c/g,itemCount);
 	} else {
-		var rssText = rssData.title;
-		rssText = rssText.split(" - ");
-		if (rssText[rssText.length-1].search(/\d+?cr/) == -1) {
-			var formattedText = rssText[rssText.length-1];
-			if (formattedText.search(/\d+?x /) > -1) {
-				formattedText = formattedText.replace(/\d+?x /,"");
-				formattedText += " ("+itemCount+")";
+	
+		var rssText = tryProp("title", rssData);
+		
+		if (!rssText) {
+			
+			if (item) {
+				rewardText += ' + ' + item.toUpperCase();
+				if (itemCount > 1) {
+					rewardText += ' ('+itemCount+')';
+				}
 			}
-			formattedText = formattedText.replace(/\(Blueprint\)/,"Blueprint");
-			formattedText = formattedText.replace(/\(Resource\)/,"");
-			rewardText += ' + ' +formattedText.toUpperCase();
+			
+		} else {
+		
+			rssText = rssText.split(" - ");
+			if (rssText[rssText.length-1].search(/\d+?cr/) == -1) {
+				var formattedText = rssText[rssText.length-1];
+				if (formattedText.search(/\d+?x /) > -1) {
+					formattedText = formattedText.replace(/\d+?x /,"");
+					formattedText += " ("+itemCount+")";
+				}
+				formattedText = formattedText.replace(/\(Blueprint\)/,"Blueprint");
+				formattedText = formattedText.replace(/\(Resource\)/,"");
+				rewardText += ' + ' +formattedText.toUpperCase();
+			}
+			
 		}
 	}
 	
@@ -179,7 +198,7 @@ parse.parseExpire = function(expire, days) {
 		return "Expired";
 	}
 	
-	var format = (!days) ? comp.compare("h m s") : comp.compare("d h m s");
+	var format = (!days) ? comp.compare("h m s",false) : comp.compare("d h m s",false);
 	
 	return format;
 
@@ -191,6 +210,7 @@ parse.items["VoidTearDrop"] = { text : "VOID TRACES (%c)" };
 parse.items["ArgonCrystal"] = { text : "ARGON CRYSTAL (%c)" };
 parse.items["AlloyPlate"] = { text : "ALLOY PLATE (%c)" };
 parse.items["Neurode"] = { text : "NEURODE (%c)" };
+parse.items["OxiumAlloy"] = { text : "OXIUM (%c)" };
 parse.items["AlertFusionBundleLarge"] = { text : '<img class = "inlineImage" src = "./images/endo.png">150' };
 parse.items["AlertFusionBundleMedium"] = { text : '<img class = "inlineImage" src = "./images/endo.png">100' };
 parse.items["AlertFusionBundleSmall"] = { text : '<img class = "inlineImage" src = "./images/endo.png">80' };

@@ -855,7 +855,7 @@ TnoGunbladeAutomatic:{"textureLocation":"/Lotus/Interface/Icons/Store/TnoGunblad
 GreatSword:{"textureLocation":"/Lotus/Interface/Icons/Store/GreatSword.png","fileTime":131266470770069969},
 TnTeshinGlaiveWep:{"textureLocation":"/Lotus/Interface/Icons/Store/TeshinGlaive.png","fileTime":131266470830910359},
 PrimeGlaiveWeapon:{"textureLocation":"/Lotus/Interface/Icons/Store/PrimeGlaive.png","fileTime":131266470810006225},
-LightGlaiveWeapon:{"textureLocation":"/Lotus/Interface/Icons/Store/GlaiveLight.png","fileTime":131266470769601966},
+Glaive:{"textureLocation":"/Lotus/Interface/Icons/Store/GlaiveLight.png","fileTime":131266470769601966},
 BoomerangWeapon:{"textureLocation":"/Lotus/Interface/Icons/Store/Boomerang.png","fileTime":131266470750569844},
 Gauntlet:{"textureLocation":"/Lotus/Interface/Icons/Store/TennoGauntlet.png","fileTime":131266470830286355},
 PrimeAnkyros:{"textureLocation":"/Lotus/Interface/Icons/Store/PrimeAnkyros.png","fileTime":131266470809538222},

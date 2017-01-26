@@ -8,6 +8,8 @@ moduLoad("DateC");
 moduLoad.ready = function() {
 	
 	ajax.getAlerts();
+	setInterval(function() { incrementTime(5); }, 5000);
+	setInterval(function() { ajax.getAlerts() }, 1000*60*5);
 	
 }
 
@@ -20,16 +22,22 @@ addEntry = function(data, kind) {
 	var wrap = $("<div>", { "class" : "alertDataWrapper" }).appendTo(elem);
 	var blue = $("<div>", { "class" : "alertImageBlueprint" }).css("background",data.blueprint).appendTo(wrap);
 	$("<div>", { "class" : "alertImage" }).css("background","url('"+data.image+"')").appendTo(blue);
-	$("<div>", { "class" : "alertFaction" }).css("background","url('./images/"+data.faction.toLowerCase()+".png')").appendTo(wrap);
+	var faction = $("<div>", { "class" : "alertFaction" }).css("background","url('./images/"+data.faction.toLowerCase()+".png')").appendTo(wrap);
 	$("<div>", { "class" : "alertData" ,
 		html : '<span class = "bold">'+data.planet+'</span> Level '+data.levelmin+'-'+data.levelmax+'<br><span class = "bold">'+data.mode+' - '+data.faction+'</span><br>Reward: <img class = "inlineImage" src = "./images/credits.png">'+data.reward
 	}).appendTo(wrap);
-	$("<div>", { "class" : "alertExpireTime" , html : data.expire }).appendTo(elem);
+	$("<div>", { "class" : "alertExpireTime" , "data-time" : data.expire }).appendTo(elem);
 	
 	if (kind == "alert") {
 		elem.appendTo($("#alertContainer"));
 	}
 
+	if (data.rss == false) {
+		$("<span>", { "class" : "noRSSData" , html : "RSS Missing" }).appendTo(faction);
+	}
+	
+	refreshTime();
+	
 }
 
 tryProp = function(prop, obj) {
@@ -42,7 +50,109 @@ tryProp = function(prop, obj) {
 
 }
 
+refreshTime = function() {
+
+	$(".alertExpireTime").each(function(i, e) {
+	
+		var t = $(e).attr("data-time");
+		if (t == undefined) { return; }
+		
+		if (t ==  "Expired") { $(e).parent().fadeOut(5000,function() { $(this).remove(); }); return; }
+		
+		t = t.split(" ");
+
+		$(e).html(t[0]+'h '+t[1]+'m '+t[2]+'s');
+		
+	});
+	
+	$(".voidTimer").each(function(i, e) {
+	
+		var t = $(e).attr("data-time");
+		if (t == undefined) { return; }
+		
+		if (t == "Expired") { $(".voidTimer").css("display","inline");	$(e).css("display","none"); return; }
+		
+		t = t.split(" ");
+		
+		$(e).html(t[0]+'d '+t[1]+'h '+t[2]+'m '+t[3]+'s');
+
+	});
+}
+
 incrementTime = function(inc) {
+
+	$(".alertExpireTime").each(function(i, e) {
+	
+		var t = $(e).attr("data-time");
+		if (t == undefined) { return; }
+		
+		if (t == "Expired") { $(e).parent().fadeOut(5000,function() { $(this).remove(); }); return; }
+		
+		t = t.split(" ");
+		
+		for (var i = 0; i < t.length; i++) {
+			t[i] = parseInt(t[i]);
+		}
+		
+		t[2] -= inc;
+		
+		for (var i = t.length-1; i > -1; i--) {
+			if (t[i] < 0) {
+				if (i-1 > 0) {
+					t[i-1] -= 1;
+					t[i] += 60;
+				} else {
+					$(e).html("Expired");
+					$(e).parent().fadeOut(5000,function() { $(this).remove(); });
+					return;
+				}
+			}
+		}
+		
+		$(e).attr("data-time", t.join(" "));
+		
+		$(e).html(t[0]+'h '+t[1]+'m '+t[2]+'s');
+	
+	});
+	
+	$(".voidTimer").each(function(i, e) {
+	
+		var frames = [30,24,60,60];
+		var t = $(e).attr("data-time");
+		if (t == undefined) { return; }
+		
+		if (t == "Expired") { $(".voidTimer").css("display","inline");	$(e).css("display","none"); return; }
+		
+		t = t.split(" ");
+		
+		for (var i = 0; i < t.length; i++) {
+			t[i] = parseInt(t[i]);
+		}
+		
+		t[3] -= inc;
+		
+		for (var i = t.length-1; i > -1; i--) {
+			if (t[i] < 0) {
+				if (i-1 > 0) {
+					t[i-1] -= 1;
+					t[i] += frames[i];
+				} else {
+					$(".voidTimer").css("display","inline");
+					$(e).css("display","none");
+					return;
+				}
+			}
+		}
+		
+		$(e).attr("data-time", t.join(" "));
+		
+		$(e).html(t[0]+'d '+t[1]+'h '+t[2]+'m '+t[3]+'s');
+	
+	});
+
+}
+
+/*incrementTime = function(inc) {
 
 
 	$(".alertExpireTime").each(function(i, e) {
@@ -121,4 +231,4 @@ incrementTime = function(inc) {
 	
 	});
 
-}
+}*/

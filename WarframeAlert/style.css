@@ -63,6 +63,7 @@ body {
 	background:black;
 	float:right;
 	opacity:.5;
+	text-align:center;
 }
 
 .alertDataWrapper {
@@ -117,4 +118,11 @@ body {
 
 .voidDepart {
 	display:none;
+}
+
+.noRSSData {
+	line-height:78px;
+	color:rgba(255,255,255,.5);
+	background:rgba(0,0,0,.5);
+	padding:5px;
 }
