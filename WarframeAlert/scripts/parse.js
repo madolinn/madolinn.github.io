@@ -104,7 +104,7 @@ parse.parseReward = function(reward, rssData) {
 	type = ( type != null ) ? type[type.length-1] : false;
 	
 	var i = fullItem.lastIndexOf("/");
-	item = fullItem.substr(i+1);
+	item = fullItem.substr(Math.max(0,i+1));
 	
 	console.log(fullItem);
 	
