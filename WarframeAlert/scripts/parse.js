@@ -103,7 +103,7 @@ parse.parseReward = function(reward, rssData) {
 	var i = fullItem.lastIndexOf("/");
 	item = fullItem.substr(i+1);
 	
-	console.log(item);
+	console.log(fullItem);
 	
 	if (item.includes("Blueprint")) {
 		item = item.replace("Blueprint","");
@@ -171,25 +171,6 @@ parse.findRealName = function(name) {
 	return realName;
 
 }
-
-/*parse.parseExpire = function(expire, days = false) {
-
-	var ex = new Date(expire*1000);
-	var ti = new Date();
-	
-	if (ti > ex) { return "Expired"; }
-	
-	var dif = new Date(ex-ti);
-	
-	if (!days) {
-		var expireText = Math.max(dif.getHours()-19,0)+'h '+dif.getMinutes()+'m '+dif.getSeconds()+'s';
-	} else {
-		var expireText = Math.max(dif.getDay()-4,0)+'d '+Math.max(dif.getHours()-19,0)+'h '+dif.getMinutes()+'m '+dif.getSeconds()+'s';
-	}
-
-	return expireText;
-
-}*/
 
 parse.parseExpire = function(expire, days) {
 
