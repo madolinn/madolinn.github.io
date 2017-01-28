@@ -5053,7 +5053,7 @@ Stache04:{"textureLocation":"/Lotus/Interface/Icons/Store/Auxiliary/Stache04.png
 Stache03:{"textureLocation":"/Lotus/Interface/Icons/Store/Auxiliary/Stache03.png","fileTime":131266470746045815},
 Stache02:{"textureLocation":"/Lotus/Interface/Icons/Store/Auxiliary/Stache02.png","fileTime":131266470746045815},
 Stache:{"textureLocation":"/Lotus/Interface/Icons/Store/Auxiliary/Stache01.png","fileTime":131266470745889814},
-MonkeyKingAltHelmet:{"textureLocation":"/Lotus/Interface/Icons/Store/WukongAltHelmet.png","fileTime":131266470838086405},
+WukongAltHelmet:{"textureLocation":"/Lotus/Interface/Icons/Store/WukongAltHelmet.png","fileTime":131266470838086405},
 HuntsmanSoma:{"textureLocation":"/Lotus/Interface/Icons/Store/HuntsmanSomaSkin.png","fileTime":131266470778338022},
 ValaPrimeMeleeDangle:{"textureLocation":"/Lotus/Interface/Icons/Store/ValaSugatraPrime.png","fileTime":131266470834654383},
 TennoMeleeDangle:{"textureLocation":"/Lotus/Interface/Icons/Store/TennoMeleeDangle.png","fileTime":131266470830598357},

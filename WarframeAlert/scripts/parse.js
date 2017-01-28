@@ -13,12 +13,36 @@ parse.parseVoidTrader = function(data) {
 
 	refreshTime();
 	
+	/*if (data.hasOwnProperty("Manifest")) {
+		$(".traderEntry").remove();
+		for (var i = 0; i < data.Manifest.length; i++) {
+			parse.parseTrader(data.Manifest[i]);
+		}
+		$("#voidExpand").html("-");
+	}*/
+	
+}
+
+parse.parseTrader = function(data) {
+
+	var entry = {};
+	
+	var image = tryProp('ItemType', data);
+	
+	var i = image.lastIndexOf("/");
+	item = image.substr(i+1);
+	
+	entry.item = item;
+	entry.ducats = tryProp('PrimePrice',data);
+	entry.credits = parseInt(data.RegularPrice).toLocaleString();;
+	
+	addTraderEntry(entry);
+	
 }
 
 parse.parseAlert = function(data, rssData) {
 
 	//if (!rssData) { console.warn("No RSS Feed"); return; }
-	parse.cons = data;
 
 	var entry = {};
 	

@@ -28,15 +28,23 @@ addEntry = function(data, kind) {
 	}).appendTo(wrap);
 	$("<div>", { "class" : "alertExpireTime" , "data-time" : data.expire }).appendTo(elem);
 	
-	if (kind == "alert") {
-		elem.appendTo($("#alertContainer"));
-	}
+	elem.appendTo($("#alertContainer"));
 
 	if (data.rss == false) {
 		$("<span>", { "class" : "noRSSData" , html : "RSS Missing" }).appendTo(faction);
 	}
 	
 	refreshTime();
+	
+}
+
+addTraderEntry = function(data) {
+
+	var elem = $("<div>", { "class" : "traderEntry" });
+	$("<div>", { "class" : "traderImage"}).css("background","url('"+data.image+"')").appendTo(elem);
+	$("<div>", { "class" : "traderCost" , html : '<img class = "inlineImage" src = "./images/ducats.png">'+data.ducats+' + <img class = "inlineImage" src = "./images/credits.png">'+data.credits}).appendTo(elem);
+
+	elem.appendTo($("#voidContainer"));
 	
 }
 
