@@ -105,6 +105,7 @@ a:link, a:visited {
 	float:left;
 	clear:left;
 	background:#333;
+	min-height:21px;
 
 }
 
