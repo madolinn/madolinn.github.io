@@ -1,0 +1,58 @@
+body {
+	background:black;
+}
+
+#startupMenu {
+	width:500px;
+	min-height:350px;
+	background:black;
+	border:1px solid #CCC;
+	color:#CCC;
+	text-align:center;
+	font-family:Tahoma;
+	font-size:20px;
+	margin:auto;
+}
+
+.startupEntry {
+	width:400px;
+	height:40px;
+	border:1px solid #CCC;
+	text-align:center;
+	color:#CCC;
+	font-family:Tahoma;
+	font-size:30px;
+	margin:auto;
+	cursor:pointer;
+}
+
+#content {
+	width:500px;
+	margin:auto;
+	position:relative;
+}
+
+#content > img {
+	max-width:500px;
+	display:block;
+	margin:auto;
+}
+
+#goLeft {
+	width:250px;
+	height:100%;
+	position:absolute;
+	top:0px;
+	float:left;
+	display:none;
+}
+
+#goRight {
+	width:250px;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:250px;
+	float:left;
+	display:none;
+}
