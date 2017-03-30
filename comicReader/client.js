@@ -25,6 +25,7 @@ bindSides = function() {
 			if (_g.chapter > 1) {
 				_g.chapter--;
 				fetchComic();
+				window.scrollTo(0,0);
 				_g.timeout = 1;
 				setTimeout(function() { _g.timeout = 0; }, 2000);
 			}
@@ -36,6 +37,7 @@ bindSides = function() {
 		if (_g.timeout == 0) {
 			_g.chapter++;
 			fetchComic();
+			window.scrollTo(0,0);
 			_g.timeout = 1;
 			setTimeout(function() { _g.timeout = 0; }, 2000);
 		}
