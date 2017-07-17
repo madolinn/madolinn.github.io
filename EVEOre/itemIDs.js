@@ -1,0 +1,115 @@
+itemIDs = [
+
+22,
+1223,
+1225,
+1232,
+1229,
+21,
+1231,
+1226,
+20,
+11396,
+1227,
+18,
+1224,
+1228,
+19,
+1230,
+16262,
+16263,
+16264,
+16265,
+16266,
+16267,
+16268,
+16269
+
+]
+
+itemData = {
+
+22 : { name : "Arkonor", volume : "16.00" },
+1223 : { name : "Bistot", volume : "16.00" },
+1225 : { name : "Crokite", volume : "16.00" },
+1232 : { name : "Dark Ochre", volume : "8.00" },
+1229 : { name : "Gneiss", volume : "5.00" },
+21 : { name : "Hedbergite", volume : "3.00" },
+1231 : { name : "Hemorphite", volume : "3.00" },
+1226 : { name : "Jaspet", volume : "2.00" },
+20 : { name : "Kernite", volume : "1.20" },
+11396 : { name : "Mercoxit", volume : "40.00" },
+1227 : { name : "Omber", volume : "0.60" },
+18 : { name : "Plagioclase", volume : "0.35" },
+1224 : { name : "Pyroxeres", volume : "0.30" },
+1228 : { name : "Scordite", volume : "0.15" },
+19 : { name : "Spodumain", volume : "16.00" },
+1230 : { name : "Veldspar", volume : "0.10" },
+16262 : { name : "Clear Icicle", volume : "1000" },
+16263 : { name : "Glacial Mass", volume : "1000" },
+16264 : { name : "Blue Ice", volume : "1000" },
+16265 : { name : "White Glaze", volume : "1000" },
+16266 : { name : "Glare Crust", volume : "1000" },
+16267 : { name : "Dark Glitter", volume : "1000" },
+16268 : { name : "Gelidus", volume : "1000" },
+16269 : { name : "Krystallos", volume : "1000" },
+
+}
+/*
+itemNames = [
+
+"Arkonor",
+"Bistot",
+"Crokite",
+"Dark Ochre",
+"Gneiss",
+"Hedbergite",
+"Hemorphite",
+"Jaspet",
+"Kernite",
+"Mercoxit",
+"Omber",
+"Plagioclase",
+"Pyroxeres",
+"Scordite",
+"Spodumain",
+"Veldspar",
+"Clear Icicle",
+"Glacial Mass",
+"Blue Ice",
+"White Glaze",
+"Glare Crust",
+"Dark Glitter",
+"Gelidus",
+"Krystallos"
+
+]
+
+itemVolumes = [
+
+"16.00",
+"16.00",
+"16.00",
+"8.00",
+"5.00",
+"3.00",
+"3.00",
+"2.00",
+"1.20",
+"40.00",
+"0.60",
+"0.35",
+"0.30",
+"0.15",
+"16.00",
+"0.10",
+"1000",
+"1000",
+"1000",
+"1000",
+"1000",
+"1000",
+"1000",
+"1000"
+
+]*/

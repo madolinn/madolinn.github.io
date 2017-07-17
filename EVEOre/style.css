@@ -1,0 +1,136 @@
+body {
+	background:black;
+	overflow-y:scroll;
+}
+
+hr {
+	width:1000px;
+	margin:50px auto;
+	border:0px;
+	border-top:1px solid #666;
+}
+
+#controlBox {
+	width:1000px;
+	margin:auto;
+	color:#CCC;
+	font-family:Tahoma;
+	font-size:12px;
+}
+
+.tableEntryHider {
+	font-size:12px;
+	float:right;
+	border:1px solid #333;
+	padding:2px 5px;
+	cursor:pointer;
+}
+
+#miningSpeed {
+	background:none;
+	color:#CCC;
+	border:1px solid #666;
+}
+
+.tableHeader {
+	background:#222;
+}
+
+#table {
+	width:1000px;
+	min-height:348px;
+	background:black;
+	color:#CCC;
+	font-family:Tahoma;
+	font-size:16px;
+	margin:auto;
+}
+
+#table::after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+#tableDesc {
+	width:988px;
+	border:1px solid #666;
+	border-top:0px;
+	padding:5px;
+}
+
+#tableAnoms {
+	width:1000px;
+	min-height:348px;
+	background:black;
+	color:#CCC;
+	font-family:Tahoma;
+	font-size:16px;
+	margin:auto;
+}
+
+.tableEntry {
+	width:498px;
+	height:28px;
+	border-bottom:1px solid #666;
+	border-right:1px solid #666;
+	color:#CCC;
+	font-family:Tahoma;
+	font-size:12px;
+	margin:auto;
+}
+
+.tableGroup {
+	float:left;
+	border-left:1px solid #666;
+	margin-bottom:25px;
+}
+
+.tableEntryName {
+	border-right:1px solid #666;
+	float:left;
+	width:100px;
+	padding:5px;
+}
+
+.tableEntryVolume {
+	text-align:right;
+	border-right:1px solid #666;
+	width:50px;
+	float:left;
+	padding:5px;
+}
+
+.tableEntryPrice {
+	text-align:right;
+	border-right:1px solid #666;
+	width:100px;
+	float:left;
+	padding:5px;
+}
+
+.tableEntryPerV {
+	text-align:right;
+	border-right:1px solid #666;
+	width:50px;
+	float:left;
+	padding:5px;
+}
+
+.tableEntryTime {
+	text-align:right;
+	width:125px;
+	float:left;
+	padding:5px;
+}
+
+#tableAnoms > .tableGroup > .tableGroupContainer > .tableEntry > .tableEntryVolume {
+	width:100px;
+}
+
+.tableAnomName {
+	width:488px;
+	padding:5px;
+	border-bottom:1px solid #666;
+	border-right:1px solid #666;
+}
