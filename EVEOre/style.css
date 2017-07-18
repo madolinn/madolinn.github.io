@@ -10,6 +10,44 @@ hr {
 	border-top:1px solid #666;
 }
 
+#editBox {
+	display:none;
+	position:fixed;
+	top:0px;
+	left:0px;
+	background:rgba(0,0,0,.75);
+	width:100%;
+	height:100%;
+}
+
+#editContainer {
+	position:relative;
+	top:49%;
+	margin:auto;
+	width:300px;
+	text-align:center;
+	color:#CCC;
+	border:1px solid #333;
+	padding:5px;
+	background:black;
+}
+
+#editTitle {
+	display:block;
+	font-family:Tahoma;
+	font-size:16px;
+	margin-bottom:5px;
+}
+
+#editContainer > button {
+	background:black;
+	color:#CCC;
+	border:1px solid #333;
+	margin:0px 5px;
+	width:60px;
+	text-align:center;
+}
+
 #controlBox {
 	width:1000px;
 	margin:auto;
@@ -26,7 +64,7 @@ hr {
 	cursor:pointer;
 }
 
-#miningSpeed {
+input {
 	background:none;
 	color:#CCC;
 	border:1px solid #666;
@@ -117,6 +155,13 @@ hr {
 	padding:5px;
 }
 
+.tableEntryPerM {
+	text-align:right;
+	width:125px;
+	float:left;
+	padding:5px;
+}
+
 .tableEntryTime {
 	text-align:right;
 	width:125px;
@@ -126,6 +171,11 @@ hr {
 
 #tableAnoms > .tableGroup > .tableGroupContainer > .tableEntry > .tableEntryVolume {
 	width:100px;
+}
+
+#tableAnoms > .tableGroup > .tableGroupContainer > .tableEntry[typeid] > .tableEntryVolume:hover {
+	box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,0.50);
+	cursor:pointer;
 }
 
 .tableAnomName {

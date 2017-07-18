@@ -27,5 +27,19 @@ market.fillTable = function() {
 			$(this).html(price.toLocaleString("en", {minimumFractionDigits:2, maximumFractionDigits:2}));
 		});
 	}
+	
+	$(".tableEntry[anomid]").each(function() {
+	
+		var tot = 0;
+	
+		$(this).siblings("[typeid]").each(function() {
+			tot += parseFloat($(this).children(".tableEntryPrice").text().replace(/,/g,""))
+		});
+	
+		$(this).children(".tableEntryPrice").text(tot.toLocaleString("en", {minimumFractionDigits:2, maximumFractionDigits:2}))
+	
+	});
+	
+	calcMiningSpeed();
 
 }
