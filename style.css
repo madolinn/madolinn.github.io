@@ -2,8 +2,18 @@ body {
 	background:#000;
 }
 
+a, a.visited, a.hover, a.link {
+	color:inherit;
+	font-decoration:underline;
+}
+
 #header {
 	height:100px;
+	text-align:center;
+	color:#CCC;
+	line-height:100px;
+	font-size:20px;
+	font-family:Tahoma;
 }
 
 #wrapper {
@@ -18,4 +28,9 @@ canvas {
 	position:absolute;
 	top:0px;
 	left:0px;
+}
+
+#debug {
+	text-align:center;
+	color:#999;
 }
