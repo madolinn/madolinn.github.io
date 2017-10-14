@@ -9,22 +9,10 @@
 
 <div id = "header"></div>
 
-<div id = "wrapper" oncontextmenu = "return false;"><canvas width = 650 height = 500></canvas><canvas width = 650 height = 500></canvas></div>
+<div id = "wrapper" oncontextmenu = "return false;"><canvas width = 500 height = 300></canvas><canvas width = 500 height = 300></canvas></div>
 
-<div id = "grabme" style="smokewhite"></div>
-<script>
-    setInterval(function(){
-      var ddd = "";
-      for (var key in creature.attr) {
-        ddd += key + " : ";
-        ddd += creature.attr[key].toFixed(2);
-        ddd += "<br>";
-      }
-      $("#grabme").html(ddd);
-    },5000);
-</script>
+<div id = "debug"><div class = "floater"></div><div class = "floater"></div></div>
 
-<canvas width = 50 height = 50 style = "display:block;"></canvas>
 <canvas width = 50 height = 50 style = "display:block;"></canvas>
 
 </body>
