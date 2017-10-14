@@ -21,7 +21,7 @@ a, a.visited, a.hover, a.link {
 	border:0px solid #999;
 	margin:auto;
 	width:650px;
-	height:300px;
+	height:650px;
 }
 
 canvas {
@@ -31,14 +31,6 @@ canvas {
 }
 
 #debug {
-	margin:auto;
-	position:relative;
-	width:650px;
-	text-align:left;
+	text-align:center;
 	color:#999;
-}
-
-.floater {
-	float:left;
-	width:200px;
 }

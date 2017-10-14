@@ -4,7 +4,7 @@ moduLoad("physics")
 //moduLoad("draw")
 //moduLoad("celestials")
 
-_g = { fps : 60 , cwidth : 0, cheight : 0 };
+_g = { fps : 60 };
 
 _cv.setupAll = function() {
 	$("canvas").each(function(ind) {
@@ -16,9 +16,6 @@ _cv.setupAll = function() {
 moduLoad.ready = function() {
 	
 	_cv.setupAll();
-	
-	_g.cwidth = _cv[0].canvas.width;
-	_g.cheight = _cv[0].canvas.height;
 	
 	map.create();
 	creature.create();
@@ -39,7 +36,14 @@ step = function() {
 
 drawScreen = function() {
 
-	_cv[0].clearRect(0,0,map.attr.size[0],map.attr.size[1]);
+	_cv[0].fillStyle = "rgb(0,0,0)";
+	_cv[0].fillRect(0,0,map.attr.size[0],map.attr.size[1]);
+	
+	_cv[0].fillStyle = "rgb(30,30,90)";
+	_cv[0].fillRect(map.attr.finish[0]-5,map.attr.finish[1]-5,10,10);
+	
+	_cv[0].fillStyle = "rgb(170,30,30)";
+	_cv[0].drawImage(creature.image.canvas, creature.pos[0]-25, creature.pos[1]-25);
 	
 	_cv[0].beginPath()
 	_cv[0].strokeStyle = "rgb(170,30,30)";
@@ -47,17 +51,8 @@ drawScreen = function() {
 	_cv[0].rect(0,0,map.attr.size[0],map.attr.size[1]);
 	_cv[0].stroke();
 	
-	_cv[0].fillStyle = "rgb(170,30,30)";
-	_cv[0].fillRect(200,150,100,100);
 	
 	_cv[1].clearRect(0,0,650,650);
-	
-	_cv[1].fillStyle = "rgb(30,30,90)";
-	_cv[1].fillRect(map.attr.finish[0]-5,map.attr.finish[1]-5,10,10);
-	
-	_cv[1].fillStyle = "rgb(170,30,30)";
-	_cv[1].drawImage(creature.image.canvas,creature.pos[0]-25,creature.pos[1]-25);
-	
 	_cv[1].beginPath();
 	_cv[1].strokeStyle = "rgba(255,0,0)";
 	_cv[1].moveTo(creature.pos[0],creature.pos[1]);
@@ -74,9 +69,6 @@ map.create = function() {
 	map.attr.size = [500,300];
 	map.attr.start = [50,150];
 	map.attr.finish = [400,150];
-	
-	_g.xoffset = (_g.cwidth-map.attr.size[0])/2;
-	_g.yoffset = (_g.cheight-map.attr.size[1])/2;
 
 }
 
@@ -90,7 +82,6 @@ creature.create = function() {
 	creature.image = _cv[2];
 	_cv[2].fillStyle = "rgb(170,30,30)";
 	_cv[2].fillRect(14,14,22,22);
-	creature.createCollisionData();
 	creature.attr.mass = 484;
 	
 	creature.attr.laziness = .1;
@@ -105,7 +96,6 @@ creature.create = function() {
 	
 	creature.mutateRate = 600;
 	
-	creature.scores = [];
 	creature.score = 0;
 	creature.highscore = 0;
 	
@@ -140,42 +130,8 @@ creature.step = function() {
 	creature.applyForces();
 	creature.doFriction();
 	
-	var precision = Math.max(1,Math.min(3,Math.floor(creature.vel[0])));
-	
-	for (var i = 0; i < precision; i++) {
-		var xtest = creature.pos[0] + (Math.cos(creature.vel[1])*creature.vel[0]/creature.attr.mass/precision);
-		var ytest = creature.pos[1] + (Math.sin(creature.vel[1])*creature.vel[0]/creature.attr.mass/precision);
-		
-		var xpass = true;
-		var ypass = true;
-		
-		var mapData = _cv[0].getImageData(Math.round(xtest)-25,Math.round(creature.pos[1])-25,50,50).data;
-		for (var t = 0; t < creature.collisionData.length; t++) {
-			if (mapData[creature.collisionData[t]] != 0) {
-				xpass = false;
-				break;
-			}
-		}
-		
-		if (xpass) {
-			creature.pos[0] = xtest;
-		}
-		
-		var mapData = _cv[0].getImageData(Math.round(creature.pos[0])-25,Math.round(ytest)-25,50,50).data;
-		for (var t = 0; t < creature.collisionData.length; t++) {
-			if (mapData[creature.collisionData[t]] != 0) {
-				ypass = false;
-				break;
-			}
-		}
-		
-		if (ypass) {
-			creature.pos[1] = ytest;
-		} else if (!xpass) {
-			creature.vel = [0,0];
-		}
-		
-	}
+	creature.pos[0] += Math.cos(creature.vel[1])*creature.vel[0]/creature.attr.mass;
+	creature.pos[1] += Math.sin(creature.vel[1])*creature.vel[0]/creature.attr.mass;
 	creature.forces = [];
 	
 	creature.checkFinished();
@@ -185,14 +141,8 @@ creature.step = function() {
 creature.mutate = function(attr) {
 
 	console.log("Mutating");
-	
-	var avgScore = 0;
-	for (var i = 0; i < creature.scores.length; i++) {
-		avgScore += creature.scores[i];
-	}
-	avgScore = avgScore/creature.scores.length;
-	
-	if (avgScore < creature.highscore*(1+creature.attr.laziness)) {
+
+	if (creature.score < creature.highscore*(1+creature.attr.laziness)) {
 		if (creature.previousMutate != "") {
 			if (Math.random() > creature.attr.laziness) {
 				console.log("Bad Mutation, reverting.");
@@ -200,16 +150,15 @@ creature.mutate = function(attr) {
 				if (creature.previousMutate == "mass") {
 					creature.image.clearRect(0,0,creature.image.canvas.width,creature.image.canvas.height);
 					creature.image.putImageData(creature.previousMutateData,0,0);
-					creature.createCollisionData()
 				}
 			} else {
 				console.log("Lazy, didn't mutate.");
 			}
 		} else {
-			creature.highscore = avgScore;
+			creature.highscore = creature.score;
 		}
 	} else {
-		creature.highscore = avgScore;
+		creature.highscore = creature.score;
 	}
 	
 	var r = Math.floor(Math.random()*Object.keys(creature.attr).length);
@@ -262,31 +211,14 @@ creature.mutate = function(attr) {
 		
 		creature.image.clearRect(0,0,creature.image.canvas.width,creature.image.canvas.height);
 		creature.image.putImageData(new ImageData(newImage,creature.image.canvas.width,creature.image.canvas.height),0,0);
-		creature.createCollisionData()
 		
 	}
 	
 	creature.pos = [map.attr.start[0], map.attr.start[1]];
 	creature.score = 0;
-	creature.scores = new Array();
 	creature.vel = [0,0];
 	
 	console.log(creature.attr);
-
-}
-
-creature.createCollisionData = function() {
-
-	var imageData = creature.image.getImageData(0,0,50,50);
-	var collisionData = [];
-	for (var i = 0; i < imageData.data.length; i+=4) {
-	
-		if (imageData.data[i] != 0) {
-			collisionData.push(i);
-		}
-	
-	}
-	creature.collisionData = collisionData;
 
 }
 
@@ -310,25 +242,9 @@ creature.checkFinished = function() {
 		console.log("Score: " + creature.score + " | High: " + creature.highscore + " (" + (1+creature.attr.laziness)*creature.highscore + ")");
 		clearTimeout(creature.failSafe);
 		creature.failSafe = setTimeout(function() { creature.mutate(); }, 1000*creature.mutateRate);
-		creature.pos = [map.attr.start[0],map.attr.start[1]];
-		creature.scores.push(creature.score);
-		creature.score = 0;
-		if (creature.scores.length >= 5) {
-			creature.mutate();
-		}
+		creature.mutate();
+		creature.pos = [map.attr.start[0]-25,map.attr.start[1]-25];
 	}
-	
-	var printout = "";
-    for (var key in creature.attr) {
-		printout += key + " : " + creature.attr[key].toFixed(2) + "<br>";
-    }
-    $(".floater").eq(0).html(printout);
-	
-	var printout = "Highscore : " + creature.highscore + "<br>";
-	for (var i = 0; i < creature.scores.length; i++) {
-		printout += "Score["+i+"] : " + creature.scores[i] + "<br>";
-	}
-	$(".floater").eq(1).html(printout);
 
 }
 
