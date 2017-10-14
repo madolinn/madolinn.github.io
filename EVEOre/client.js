@@ -13,7 +13,9 @@ moduLoad.ready = function() {
 	market.getPrices();
 	bindElements();
 	
+	//$("#toolbarContainer").toggle();
 	$(".tableEntryHider").parent().next().toggle();
+	calcLockTime();
 	
 }
 
@@ -68,6 +70,27 @@ bindElements = function() {
 			$(this).hide();
 		}
 	});
+	
+	$("#toolbarExpander").click(function() {
+	
+		$("#toolbarContainer").toggle();
+	
+	});
+	
+	$("#toolbarRes").change(function() { calcLockTime(); });
+	$("#toolbarSig").change(function() { calcLockTime(); });
+}
+
+calcLockTime = function() {
+
+	var res = parseInt($("#toolbarRes").val());
+	var sig = parseInt($("#toolbarSig").val());
+	
+	if (isNaN(res)) { return; }
+	if (isNaN(sig)) { return; }
+	
+	$("#toolbarLockTime").html((((40000/res)/(Math.pow(Math.asinh(sig),2)))*(1-5*0.05)).toLocaleString("en", {minimumFractionDigits:2, maximumFractionDigits:2})+"s");
+
 }
 
 createTableEntries = function() {

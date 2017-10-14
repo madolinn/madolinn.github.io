@@ -1,0 +1,31 @@
+<meta charset="UTF-8"> 
+<html>
+<head>
+<title>Madoland</title>
+<link rel='stylesheet' type='text/css' href='style.css'>
+<script src='../hosted/corejs.js' type = "text/javascript" main = 'client' dir = 'scripts'></script>
+</head>
+<body>
+
+<div id = "header"></div>
+
+<div id = "wrapper" oncontextmenu = "return false;"><canvas width = 650 height = 500></canvas><canvas width = 650 height = 500></canvas></div>
+
+<div id = "grabme" style="smokewhite"></div>
+<script>
+    setInterval(function(){
+      var ddd = "";
+      for (var key in creature.attr) {
+        ddd += key + " : ";
+        ddd += creature.attr[key].toFixed(2);
+        ddd += "<br>";
+      }
+      $("#grabme").html(ddd);
+    },5000);
+</script>
+
+<canvas width = 50 height = 50 style = "display:block;"></canvas>
+<canvas width = 50 height = 50 style = "display:block;"></canvas>
+
+</body>
+</html>

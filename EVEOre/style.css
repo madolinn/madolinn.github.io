@@ -184,3 +184,31 @@ input {
 	border-bottom:1px solid #666;
 	border-right:1px solid #666;
 }
+
+#toolbarBox {
+	position:fixed;
+	top:100px;
+	left:0px;
+}
+
+#toolbarExpander {
+	float:right;
+	width:25px;
+	height:102px;
+	font-size:16px;
+	font-family:Tahoma;
+	line-height:100px;
+	text-align:center;
+	border:1px solid #666;
+	color:#CCC;
+	cursor:pointer;
+}
+
+#toolbarContainer {
+	border:1px solid #666;
+	border-left:0px;
+	color:#CCC;
+	width:175px;
+	display:none;
+	padding-left:5px;
+}
