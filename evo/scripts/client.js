@@ -55,7 +55,7 @@ createObstacleUp = function(e) {
 		_g.clickPos = [];
 	} else {
 		if (_g.clickPos.length == 2) {
-			map.attr.obstacles.push([_g.clickPos[0],_g.clickPos[1],e.offsetX-_g.clickPos[0],e.offsetY-_g.clickPos[1]]);
+			map.attr.obstacles.push([Math.min(_g.clickPos[0],e.offsetX),Math.min(_g.clickPos[1],e.offsetY),Math.abs(e.offsetX-_g.clickPos[0]),Math.abs(e.offsetY-_g.clickPos[1])]);
 			creature.highscore = 0;
 			_g.clickPos = [];
 		}
