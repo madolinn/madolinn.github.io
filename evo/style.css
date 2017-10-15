@@ -24,6 +24,10 @@ a, a.visited, a.hover, a.link {
 	height:300px;
 }
 
+#fps {
+	color:#999;
+}
+
 canvas {
 	position:absolute;
 	top:0px;

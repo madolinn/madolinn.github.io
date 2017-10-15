@@ -4,7 +4,7 @@ moduLoad("physics")
 //moduLoad("draw")
 //moduLoad("celestials")
 
-_g = { fps : 60 , cwidth : 0, cheight : 0 };
+_g = { fps : 200 , timestamp : Date.now()*0.001, frames : 0, cwidth : 0, cheight : 0};
 
 _cv.setupAll = function() {
 	$("canvas").each(function(ind) {
@@ -17,20 +17,63 @@ moduLoad.ready = function() {
 	
 	_cv.setupAll();
 	
+	$("canvas").eq(1).mousedown(function(e) { createObstacleDown(e); });
+	$(document).mouseup(function(e) { createObstacleUp(e); });
+	
 	_g.cwidth = _cv[0].canvas.width;
 	_g.cheight = _cv[0].canvas.height;
 	
 	map.create();
 	creature.create();
 	
+	step();
+	
 	setInterval(function() { step(); },1000/_g.fps);//step();
 	
+}
+
+createObstacleDown = function(e) {
+	if (e.button == 0) {
+		_g.clickPos = [e.offsetX,e.offsetY];
+	} else {
+		for (var i = 0; i < map.attr.obstacles.length; i++) {
+		
+			var oarr = map.attr.obstacles[i];
+		
+			if (e.offsetX > oarr[0] && e.offsetX < oarr[0]+oarr[2]) {
+				if (e.offsetY > oarr[1] && e.offsetY < oarr[1]+oarr[3]) {
+					map.attr.obstacles.splice(i,1);
+					break;
+				}	
+			}
+		}
+	}
+}
+
+createObstacleUp = function(e) {
+	if (e.target.nodeName != "CANVAS") {
+		_g.clickPos = [];
+	} else {
+		if (_g.clickPos.length == 2) {
+			map.attr.obstacles.push([_g.clickPos[0],_g.clickPos[1],e.offsetX-_g.clickPos[0],e.offsetY-_g.clickPos[1]]);
+			creature.highscore = 0;
+			_g.clickPos = [];
+		}
+	}
 }
 
 step = function() {
 	
 	creature.step();
 	drawScreen();
+	
+	_g.frames++;
+	if (_g.frames >= 60) {
+		var tstamp = Date.now()*0.001;
+		$("#fps").html("FPS: " + (_g.frames/(tstamp - _g.timestamp)).toFixed(1));
+		_g.timestamp = tstamp;
+		_g.frames = 0;
+	}
 	
 }
 
@@ -48,7 +91,10 @@ drawScreen = function() {
 	_cv[0].stroke();
 	
 	_cv[0].fillStyle = "rgb(170,30,30)";
-	_cv[0].fillRect(200,150,100,100);
+	//_cv[0].fillRect(200,150,100,100);
+	for (var i = 0; i < map.attr.obstacles.length; i++) {
+		_cv[0].fillRect(map.attr.obstacles[i][0],map.attr.obstacles[i][1],map.attr.obstacles[i][2],map.attr.obstacles[i][3]);
+	}
 	
 	_cv[1].clearRect(0,0,650,650);
 	
@@ -75,6 +121,12 @@ map.create = function() {
 	map.attr.start = [50,150];
 	map.attr.finish = [400,150];
 	
+	map.attr.obstacles = [];
+	map.attr.obstacles.push([200,165,100,100]);
+	map.attr.obstacles.push([300,0,100,100]);
+	map.attr.obstacles.push([150,100,25,25]);
+	map.attr.obstacles.push([300,100,25,25]);
+	
 	_g.xoffset = (_g.cwidth-map.attr.size[0])/2;
 	_g.yoffset = (_g.cheight-map.attr.size[1])/2;
 
@@ -98,12 +150,13 @@ creature.create = function() {
 	creature.attr.force = 2000;
 	creature.attr.forceCD = 1;
 	creature.attr.angleVariance = Math.PI/2;
+	creature.attr.angleDominance = 0;
 	creature.cforceCD = 0;
 	
 	creature.vel = [0,0];
 	creature.attr.friction = 0.15;
 	
-	creature.mutateRate = 600;
+	creature.mutateRate = 300;
 	
 	creature.scores = [];
 	creature.score = 0;
@@ -114,8 +167,6 @@ creature.create = function() {
 	creature.previousMutateData = 0;
 	
 	console.log(creature.attr);
-	
-	creature.failSafe = setTimeout(function() { creature.mutate(); }, 1000*creature.mutateRate);
 
 }
 
@@ -123,24 +174,28 @@ creature.step = function() {
 
 	creature.score--;
 
+	if (creature.score <= -5000) {
+		creature.checkFinished(true);
+	}
+	
 	var cat = creature.attr;
 	
 	if (creature.cforceCD <= 0) {
 	
 		var dir = Math.atan2((map.attr.finish[1]-creature.pos[1]),(map.attr.finish[0]-creature.pos[0]));
-		var fangle = dir-(cat.angleVariance/2)+(Math.random()*cat.angleVariance);
+		var fangle = dir-(cat.angleVariance/2)+(Math.random()*cat.angleVariance)+cat.angleDominance;
 		
 		creature.forces.push([cat.force,fangle]);
 		creature.cforceCD = cat.forceCD;
 		
 	} else {
-		creature.cforceCD -= 1/_g.fps;
+		creature.cforceCD -= 1/60;
 	}
 	
 	creature.applyForces();
 	creature.doFriction();
 	
-	var precision = Math.max(1,Math.min(3,Math.floor(creature.vel[0])));
+	var precision = Math.ceil(Math.max(1,Math.max(Math.abs(Math.cos(creature.vel[1])*creature.vel[0]/creature.attr.mass),Math.abs(Math.sin(creature.vel[1])*creature.vel[0]/creature.attr.mass))));
 	
 	for (var i = 0; i < precision; i++) {
 		var xtest = creature.pos[0] + (Math.cos(creature.vel[1])*creature.vel[0]/creature.attr.mass/precision);
@@ -149,11 +204,29 @@ creature.step = function() {
 		var xpass = true;
 		var ypass = true;
 		
-		var mapData = _cv[0].getImageData(Math.round(xtest)-25,Math.round(creature.pos[1])-25,50,50).data;
+		/*var mapData = _cv[0].getImageData(Math.round(xtest)-25,Math.round(creature.pos[1])-25,50,50).data;
 		for (var t = 0; t < creature.collisionData.length; t++) {
 			if (mapData[creature.collisionData[t]] != 0) {
 				xpass = false;
 				break;
+			}
+		}*/
+		
+		for (var obs = 0; obs < map.attr.obstacles.length; obs++) {
+		
+			var oarr = map.attr.obstacles[obs];
+		
+			if (xtest+25 > oarr[0] && xtest-25 < oarr[0]+oarr[2]) {
+				if (creature.pos[1]+25 > oarr[1] && creature.pos[1]-25 < oarr[1]+oarr[3]) {
+					for (var t = 0; t < creature.collisionData.length; t+=2) {
+						if (xtest-25+creature.collisionData[t] > oarr[0] && xtest-25+creature.collisionData[t] < oarr[0]+oarr[2]) {
+							if (creature.pos[1]-25+creature.collisionData[t+1] > oarr[1] && creature.pos[1]-25+creature.collisionData[t+1] < oarr[1]+oarr[3]) {
+								xpass = false;
+								break;
+							}
+						}
+					}
+				}
 			}
 		}
 		
@@ -161,11 +234,21 @@ creature.step = function() {
 			creature.pos[0] = xtest;
 		}
 		
-		var mapData = _cv[0].getImageData(Math.round(creature.pos[0])-25,Math.round(ytest)-25,50,50).data;
-		for (var t = 0; t < creature.collisionData.length; t++) {
-			if (mapData[creature.collisionData[t]] != 0) {
-				ypass = false;
-				break;
+		for (var obs = 0; obs < map.attr.obstacles.length; obs++) {
+		
+			var oarr = map.attr.obstacles[obs];
+		
+			if (creature.pos[0]+25 > oarr[0] && creature.pos[0]-25 < oarr[0]+oarr[2]) {
+				if (ytest+25 > oarr[1] && ytest-25 < oarr[1]+oarr[3]) {
+					for (var t = 0; t < creature.collisionData.length; t+=2) {
+						if (creature.pos[0]-25+creature.collisionData[t] > oarr[0] && creature.pos[0]-25+creature.collisionData[t] < oarr[0]+oarr[2]) {
+							if (ytest-25+creature.collisionData[t+1] > oarr[1] && ytest-25+creature.collisionData[t+1] < oarr[1]+oarr[3]) {
+								ypass = false;
+								break;
+							}
+						}
+					}
+				}
 			}
 		}
 		
@@ -179,7 +262,8 @@ creature.step = function() {
 	creature.forces = [];
 	
 	creature.checkFinished();
-
+	
+	//setTimeout(function() { step(); },1000/_g.fps);
 }
 
 creature.mutate = function(attr) {
@@ -218,7 +302,11 @@ creature.mutate = function(attr) {
 	creature.previousMutate = key;
 	creature.previousMutateValue = creature.attr[key];
 	
-	creature.attr[key] = creature.attr[key]*(1-((Math.random()-0.5)/5));
+	if (creature.attr[key] != 0) {
+		creature.attr[key] = creature.attr[key]*(1-((Math.random()-0.5)/5));
+	} else {
+		creature.attr[key] += (Math.random()*.1)-0.05;
+	}
 	
 	if (creature.previousMutate == "mass") {
 		creature.previousMutateData = creature.image.getImageData(0,0,creature.image.canvas.width,creature.image.canvas.height);
@@ -277,17 +365,26 @@ creature.mutate = function(attr) {
 
 creature.createCollisionData = function() {
 
-	var imageData = creature.image.getImageData(0,0,50,50);
+	/*var imageData = creature.image.getImageData(0,0,50,50);
 	var collisionData = [];
 	for (var i = 0; i < imageData.data.length; i+=4) {
 	
 		if (imageData.data[i] != 0) {
-			collisionData.push(i);
+			collisionData.push([(i%(50*4))/4,Math.floor(i/(50*4))]);
 		}
 	
+	}*/
+	
+	var collisionPoints = creature.getReductionPoints();
+	var collisionData = [];
+	for (var i = 0; i < collisionPoints.length; i++) {
+		collisionData.push((collisionPoints[i]%(50*4))/4);
+		collisionData.push(Math.floor(collisionPoints[i]/(50*4)));
+		var mirror = (50*50*4)-(((Math.floor(collisionPoints[i]/(50*4)))+1)*(50*4))+(collisionPoints[i]%(50*4));
+		collisionData.push((mirror%(50*4))/4);
+		collisionData.push(Math.floor(mirror/(50*4)));
 	}
-	creature.collisionData = collisionData;
-
+	console.log(creature.collisionData = collisionData);
 }
 
 creature.applyForces = function() {
@@ -303,13 +400,13 @@ creature.doFriction = function() {
 
 }
 
-creature.checkFinished = function() {
+creature.checkFinished = function(forced) {
+
+	forced = forced || false;
 
 	var d = Math.sqrt((Math.pow(map.attr.finish[0]-creature.pos[0],2)+Math.pow(map.attr.finish[1]-creature.pos[1],2)));
-	if (d < 8*(1+creature.attr.laziness)) {
+	if (d < 8*(1+creature.attr.laziness) || forced) {
 		console.log("Score: " + creature.score + " | High: " + creature.highscore + " (" + (1+creature.attr.laziness)*creature.highscore + ")");
-		clearTimeout(creature.failSafe);
-		creature.failSafe = setTimeout(function() { creature.mutate(); }, 1000*creature.mutateRate);
 		creature.pos = [map.attr.start[0],map.attr.start[1]];
 		creature.scores.push(creature.score);
 		creature.score = 0;
