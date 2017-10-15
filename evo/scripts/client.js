@@ -4,7 +4,7 @@ moduLoad("physics")
 //moduLoad("draw")
 //moduLoad("celestials")
 
-_g = { fps : 200 , timestamp : Date.now()*0.001, frames : 0, cwidth : 0, cheight : 0};
+_g = { fps : 200 , timestamp : Date.now()*0.001, frames : 0, cwidth : 0, cheight : 0, clickPos : []};
 
 _cv.setupAll = function() {
 	$("canvas").each(function(ind) {
@@ -40,8 +40,8 @@ createObstacleDown = function(e) {
 		
 			var oarr = map.attr.obstacles[i];
 		
-			if (e.offsetX > oarr[0] && e.offsetX < oarr[0]+oarr[2]) {
-				if (e.offsetY > oarr[1] && e.offsetY < oarr[1]+oarr[3]) {
+			if (e.offsetX >= oarr[0] && e.offsetX <= oarr[0]+oarr[2]) {
+				if (e.offsetY >= oarr[1] && e.offsetY <= oarr[1]+oarr[3]) {
 					map.attr.obstacles.splice(i,1);
 					break;
 				}	
@@ -216,11 +216,11 @@ creature.step = function() {
 		
 			var oarr = map.attr.obstacles[obs];
 		
-			if (xtest+25 > oarr[0] && xtest-25 < oarr[0]+oarr[2]) {
-				if (creature.pos[1]+25 > oarr[1] && creature.pos[1]-25 < oarr[1]+oarr[3]) {
+			if (xtest+25 >= oarr[0] && xtest-25 <= oarr[0]+oarr[2]) {
+				if (creature.pos[1]+25 >= oarr[1] && creature.pos[1]-25 <= oarr[1]+oarr[3]) {
 					for (var t = 0; t < creature.collisionData.length; t+=2) {
-						if (xtest-25+creature.collisionData[t] > oarr[0] && xtest-25+creature.collisionData[t] < oarr[0]+oarr[2]) {
-							if (creature.pos[1]-25+creature.collisionData[t+1] > oarr[1] && creature.pos[1]-25+creature.collisionData[t+1] < oarr[1]+oarr[3]) {
+						if (xtest-25+creature.collisionData[t] >= oarr[0] && xtest-25+creature.collisionData[t] <= oarr[0]+oarr[2]) {
+							if (creature.pos[1]-25+creature.collisionData[t+1] >= oarr[1] && creature.pos[1]-25+creature.collisionData[t+1] <= oarr[1]+oarr[3]) {
 								xpass = false;
 								break;
 							}
@@ -238,11 +238,11 @@ creature.step = function() {
 		
 			var oarr = map.attr.obstacles[obs];
 		
-			if (creature.pos[0]+25 > oarr[0] && creature.pos[0]-25 < oarr[0]+oarr[2]) {
-				if (ytest+25 > oarr[1] && ytest-25 < oarr[1]+oarr[3]) {
+			if (creature.pos[0]+25 >= oarr[0] && creature.pos[0]-25 <= oarr[0]+oarr[2]) {
+				if (ytest+25 >= oarr[1] && ytest-25 <= oarr[1]+oarr[3]) {
 					for (var t = 0; t < creature.collisionData.length; t+=2) {
-						if (creature.pos[0]-25+creature.collisionData[t] > oarr[0] && creature.pos[0]-25+creature.collisionData[t] < oarr[0]+oarr[2]) {
-							if (ytest-25+creature.collisionData[t+1] > oarr[1] && ytest-25+creature.collisionData[t+1] < oarr[1]+oarr[3]) {
+						if (creature.pos[0]-25+creature.collisionData[t] >= oarr[0] && creature.pos[0]-25+creature.collisionData[t] <= oarr[0]+oarr[2]) {
+							if (ytest-25+creature.collisionData[t+1] >= oarr[1] && ytest-25+creature.collisionData[t+1] <= oarr[1]+oarr[3]) {
 								ypass = false;
 								break;
 							}
@@ -276,18 +276,22 @@ creature.mutate = function(attr) {
 	}
 	avgScore = avgScore/creature.scores.length;
 	
-	if (avgScore < creature.highscore*(1+creature.attr.laziness)) {
-		if (creature.previousMutate != "") {
-			if (Math.random() > creature.attr.laziness) {
-				console.log("Bad Mutation, reverting.");
-				creature.attr[creature.previousMutate] = creature.previousMutateValue;
-				if (creature.previousMutate == "mass") {
-					creature.image.clearRect(0,0,creature.image.canvas.width,creature.image.canvas.height);
-					creature.image.putImageData(creature.previousMutateData,0,0);
-					creature.createCollisionData()
+	if (avgScore != 0) {
+		if (avgScore < creature.highscore*(1+creature.attr.laziness)) {
+			if (creature.previousMutate != "") {
+				if (Math.random() > creature.attr.laziness) {
+					console.log("Bad Mutation, reverting.");
+					creature.attr[creature.previousMutate] = creature.previousMutateValue;
+					if (creature.previousMutate == "mass") {
+						creature.image.clearRect(0,0,creature.image.canvas.width,creature.image.canvas.height);
+						creature.image.putImageData(creature.previousMutateData,0,0);
+						creature.createCollisionData()
+					}
+				} else {
+					console.log("Lazy, didn't reverse mutation.");
 				}
 			} else {
-				console.log("Lazy, didn't mutate.");
+				creature.highscore = avgScore;
 			}
 		} else {
 			creature.highscore = avgScore;
@@ -408,6 +412,7 @@ creature.checkFinished = function(forced) {
 	if (d < 8*(1+creature.attr.laziness) || forced) {
 		console.log("Score: " + creature.score + " | High: " + creature.highscore + " (" + (1+creature.attr.laziness)*creature.highscore + ")");
 		creature.pos = [map.attr.start[0],map.attr.start[1]];
+		creature.vel = [0,0];
 		creature.scores.push(creature.score);
 		creature.score = 0;
 		if (creature.scores.length >= 5) {
