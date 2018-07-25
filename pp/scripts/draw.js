@@ -18,6 +18,7 @@ draw.renderLoop = function() {
 	}
 	
 	game.bin.drawBin();
+	game.bin.drawHand();
 
 }
 

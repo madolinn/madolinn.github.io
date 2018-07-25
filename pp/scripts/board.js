@@ -1,6 +1,6 @@
 'use strict';
 
-import { _cv, _g } from './client.js';
+import { _cv, _g, isWithin } from './client.js';
 import { game } from './game.js';
 
 class bin {
@@ -62,12 +62,16 @@ class bin {
 			
 				this.pieces[i].drawShape(mpos);
 				
-			} else {
-			
-				this.pieces[i].drawShape([(Math.floor(game.mousePos[0]/16)*16)-(Math.floor(this.pieces[i].layout[0].length/2)*16),(Math.floor(game.mousePos[1]/16)*16)-(Math.floor(this.pieces[i].layout.length/2)*16)]);
-			
 			}
 		
+		}
+	
+	}
+	
+	drawHand() {
+	
+		if (game.inHand != undefined) {
+			game.inHand.drawShape([(Math.floor(game.mousePos[0]/16)*16)-(Math.floor(game.inHand.layout[0].length/2)*16),(Math.floor(game.mousePos[1]/16)*16)-(Math.floor(game.inHand.layout.length/2)*16)]);
 		}
 	
 	}
@@ -173,6 +177,34 @@ class board {
 			this.checkCompletion();
 			return true;
 		} else { return false; }
+	
+	}
+	
+	undoPiece() {
+	
+		if (!this.accepting) { return false; }
+		
+		var pos = this.pieces[this.pieces.length-1].boardPos;
+		var shape = this.pieces[this.pieces.length-1];
+		
+		for (var y = 0; y < shape.layout.length; y++) {
+			for (var x = 0; x < shape.layout[0].length; x++) {
+			
+				if (shape.layout[y][x] != 0) {
+				
+					if (pos[0]+x >= 0 && pos[0]+x < this.layout[0].length) {
+						if (pos[1]+y >= 0 && pos[1]+y < this.layout.length) {
+							if (this.layout[pos[1]+y][pos[0]+x] != 0) {
+							
+								this.layout[pos[1]+y][pos[0]+x]--;
+							
+							}
+						}
+					}
+				
+				}
+			}
+		}	
 	
 	}
 	
@@ -295,6 +327,32 @@ class shape {
 	
 	drawShape(bpos) {
 	
+		var s = _cv[0].fillStyle;
+	
+		_cv[0].fillStyle = "rgba(0,0,0,1)";
+	
+		for (var y = 0; y < this.layout.length; y++) {
+			for (var x = 0; x < this.layout[0].length; x++) {
+				
+				if (this.layout[y][x] == 1) {
+					_cv[0].fillRect(bpos[0]+(this.boardPos[0]*16)+(x*16)-1,bpos[1]+(this.boardPos[1]*16)+(y*16)-1,18,18);
+				}
+				
+			}
+		}
+		
+		_cv[0].fillStyle = s;
+		
+		if (this.board != -1 && this.held) {
+		
+			if (!isWithin(game.mousePos, _g.boffsets[this.board], [320,320])) {
+			
+				_cv[0].fillStyle = "rgba(200,50,50,.5)";
+			
+			}
+		
+		}
+		
 		for (var y = 0; y < this.layout.length; y++) {
 			for (var x = 0; x < this.layout[0].length; x++) {
 				

@@ -1,6 +1,6 @@
 'use strict';
 
-import { _g } from './client.js';
+import { _g, isWithin } from './client.js';
 import { draw } from './draw.js';
 import { board, shape, bin } from './board.js';
 
@@ -9,6 +9,8 @@ var game = {
 	boards : [],
 	
 	inHand : undefined,
+	
+	lastPlaced : undefined,
 	
 	mousePos : [0,0],
 	
@@ -45,27 +47,44 @@ game.newBoard = function(b) {
 
 game.grabPiece = function(slot) {
 
-	game.inHand = game.bin.pieces[slot];
+	if (slot != undefined) {
 
-	game.bin.pieces[slot].held = true;
+		game.inHand = game.bin.pieces[slot];
+
+		game.bin.pieces[slot].held = true;
+		
+	} else {
+	
+		game.boards[game.lastPlaced].undoPiece();
+	
+		var p = game.boards[game.lastPlaced].pieces.pop();
+	
+		game.inHand = p;
+		p.boardPos = [0,0];
+		p.held = true;
+	
+	}
 
 }
 
 game.dropPiece = function() {
 
-	game.inHand = undefined;
+	if (game.inHand == undefined) { return; }
+
+	if (game.inHand.board == -1) {
 	
-	for (var i = 0; i < game.bin.pieces.length; i++) {
-	
-		game.bin.pieces[i].held = false;
+		game.inHand.held = false;
+		game.inHand = undefined;
 		
 	}
-
+	
 }
 
 game.placePiece = function(b, e) {
 
 	if (game.inHand == undefined) { return; }
+	
+	if (game.inHand.board != -1 && game.inHand.board != b) { return; }
 
 	var pos = [0,0];
 	pos[0] = Math.floor((game.mousePos[0]-_g.boffsets[b][0])/16)-(Math.floor(game.inHand.layout[0].length/2));
@@ -78,6 +97,7 @@ game.placePiece = function(b, e) {
 		game.inHand.held = false;
 		game.boards[b].pieces.push(game.inHand);
 		game.inHand = undefined;
+		game.lastPlaced = b;
 		
 		game.bin.newPiece();
 	
@@ -153,8 +173,24 @@ game.mouseClick = function(e) {
 			
 				if (isWithin([e.offsetX,e.offsetY], l[i], [320,320])) {
 				
-					game.placePiece(i,e);
-				
+					if (game.inHand != undefined) {
+						game.placePiece(i,e);
+					} else {
+					
+						if (game.lastPlaced == i) {
+					
+							var ps = l[i].slice();
+							ps[0] += game.boards[game.lastPlaced].pieces[game.boards[game.lastPlaced].pieces.length-1].boardPos[0]*16;
+							ps[1] += game.boards[game.lastPlaced].pieces[game.boards[game.lastPlaced].pieces.length-1].boardPos[1]*16;
+						
+							if (isWithin([e.offsetX,e.offsetY], ps, [game.boards[game.lastPlaced].pieces[game.boards[game.lastPlaced].pieces.length-1].layout[0].length*16,game.boards[game.lastPlaced].pieces[game.boards[game.lastPlaced].pieces.length-1].layout.length*16])) {
+							
+								game.grabPiece();
+							
+							}
+						
+						}
+					}
 				}
 			
 			}
@@ -162,16 +198,6 @@ game.mouseClick = function(e) {
 		}
 		
 	}
-}
-
-function isWithin(pos, bound, size)  {
-
-	if (pos[0] >= bound[0] && pos[0] <= bound[0]+size[0] && pos[1] >= bound[1] && pos[1] <= bound[1]+size[1]) {
-		return true;
-	}
-	
-	return false;
-
 }
 
 export { game };
