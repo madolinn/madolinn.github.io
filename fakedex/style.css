@@ -1,0 +1,161 @@
+:root {
+
+	--c0:#000000;
+	--c1:#5f5750;
+	--c2:#82759a;
+	--c3:#c0c1c5;
+	--c4:#fff0e7;
+	--c5:#7d2953;
+	--c6:#ff074e;
+	--c7:#ff76a6;
+	--c8:#a95238;
+	--c9:#ffa108;
+	--c10:#feeb2c;
+	--c11:#ffcaa8;
+	--c12:#008551;
+	--c13:#00e339;
+	--c14:#222e53;
+	--c15:#2cabfe;
+
+}
+
+body {
+	background:black;
+}
+
+#wrapper {
+	float:left;
+	color:var(--c2);
+	position:relative;
+	width:550px;
+	height:100%;
+}
+
+.header {
+	color:var(--c15);
+	font-family:Tahoma;
+	font-weight:bold;
+	border:1px solid var(--c12);
+	border-bottom:1px solid var(--c13);
+	width:100%;
+	padding:5px;
+	text-align:center;
+}
+
+.pokemonEntry {
+
+	color:var(--c8);
+	border:1px solid var(--c8);
+	height:30px;
+	width:100%;
+	padding:5px;
+	border-top:0px;
+
+}
+
+.pokemonEntryImage {
+
+	float:left;
+	width:40px;
+	height:30px;
+	background-image:url("./q7KcXUN.png");
+
+}
+
+.pokemonEntryName {
+
+	float:left;
+	width:150px;
+	overflow:hidden;
+	border-right:1px solid var(--c11);
+	height:20px;
+	padding:5px;
+
+}
+
+#overlay {
+
+	float:left;
+	width:400px;
+	height:100%;
+	background-color:rgba(0,0,0,.4);
+	margin-left:50px;
+
+}
+
+.type1, .type2, .route {
+
+	position:relative;
+	color:#CCC;
+	float:left;
+	width:100px;
+	height:20px;
+	border-right:1px solid var(--c11);
+	padding:5px;
+	text-align:center;
+
+}
+
+.normal::after, .fighting::after, .flying::after, .poison::after, .ground::after, .rock::after, .bug::after, .ghost::after, .steel::after, .question::after, .fire::after, .water::after, .grass::after, .electric::after, .psychic::after, .ice::after, .dragon::after, .dark::after {
+
+	content:"";
+	position:absolute;
+	top:-1px;
+	left:22px;
+	width:64px;
+	height:32px;
+	display:block;
+	background-image:url("./64370_2x.png");
+
+}
+
+.normal::after { background-position:0px 0px; } 
+.fighting::after { background-position:-64px 0px; } 
+.flying::after { background-position:-128px 0px; } 
+.poison::after { background-position:-192px 0px; } 
+.ground::after { background-position:0px -32px; } 
+.rock::after { background-position:-64px -32px; } 
+.bug::after { background-position:-128px -32px; } 
+.ghost::after { background-position:-192px -32px; } 
+.steel::after { background-position:0px -64px; } 
+.question::after { background-position:-64px -64px; } 
+.fire::after { background-position:-128px -64px; } 
+.water::after { background-position:-192px -64px; } 
+.grass::after { background-position:0px -96px; } 
+.electric::after { background-position:-64px -96px; } 
+.psychic::after { background-position:-128px -96px; } 
+.ice::after { background-position:-192px -96px; } 
+.dragon::after { background-position:0px -128px; } 
+.dark::after { background-position:-64px -128px; }
+
+
+.type1:hover, .type2:hover, .route:hover {
+
+	box-shadow: inset 0px 0px 1px 1px rgba(255,244,33,1);
+
+}
+
+.MEGAHIDE {
+
+	display: none !important;
+
+}
+
+#chartLink {
+
+	color:var(--c7);
+	border:1px solid var(--c7);
+	cursor:pointer;
+	padding:2px;
+	margin-left:5px;
+
+}
+
+#chart {
+
+	background-image:url("./chart.png");
+	width:697px;
+	height:667px;
+	display:none;
+
+}
