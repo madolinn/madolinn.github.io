@@ -34,3 +34,28 @@ canvas {
 	text-align:center;
 	color:#999;
 }
+
+.projectEntry {
+
+	width:700px;
+	color:#999;
+	margin:auto;
+	border:1px solid #999;
+	padding:5px;
+	margin-bottom:10px;
+
+}
+
+.projectTitle {
+
+	color:#CCC;
+	font-size:20px;
+	font-family:Tahoma;
+
+}
+
+.projectText {
+
+	padding:10px;
+
+}

@@ -2,6 +2,15 @@ body {
 	background:url('./images/background.png');
 }
 
+#warning {
+
+	text-align:center;
+	width:100%;
+	font-size:20px;
+	color:red;
+
+}
+
 .bold {
 	font-weight:bold;
 }

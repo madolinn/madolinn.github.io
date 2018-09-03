@@ -45,7 +45,7 @@ input {
 	width:150px;
 	height:50px;
 	border:1px solid #CCC;
-	display:inline-block;
+	float:left;
 	margin:10px 20px;
 }
 
@@ -67,7 +67,7 @@ input {
 }
 
 #mergedClass {
-	display:flex;
+	display:block;
 	width:130px;
 	margin:auto;
 	color:#CCC;

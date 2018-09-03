@@ -3,6 +3,15 @@ body {
 	overflow-y:scroll;
 }
 
+#warning {
+
+	text-align:center;
+	width:100%;
+	font-size:20px;
+	color:red;
+
+}
+
 hr {
 	width:1000px;
 	margin:50px auto;

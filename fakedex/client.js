@@ -14,6 +14,7 @@ function start() {
 	
 	$("#searchBox").val("");
 	$("#chartLink").click(function() { $("#chart").toggle(); });
+	$("#deleteDB").click(function() { deleteDB(); });
 	
 	$(document).on("click", ".type1, .type2, .route", function(e) { editField(e); });
 	$("#searchBox").change(function(e) { useSearch(e); });
@@ -23,6 +24,21 @@ function start() {
 	req.onupgradeneeded = function(e) { updateDB(e); }
 	req.onerror = function(e) { console.log(e); }
 	req.onsuccess = function(e) { dbOpened(e); }
+
+}
+
+function deleteDB() {
+
+	console.log(db);
+
+	var p = confirm("Are you sure you want to delete all the information?");
+	
+	if (p) {
+	
+		window.indexedDB.deleteDatabase("FakedexDB");
+		window.location.reload(true);
+	
+	}
 
 }
 
@@ -157,7 +173,7 @@ function readDB() {
 		
 		const t = i;
 		
-		r.onsuccess = function(e) { _g.fields[t] = e.explicitOriginalTarget.result.split(","); populateFields(); }
+		r.onsuccess = function(e) { var rr = e.explicitOriginalTarget.result; if (rr == undefined) { rr = ",,"; } _g.fields[t] = rr.split(","); populateFields(); }
 		
 	}
 

@@ -151,6 +151,19 @@ body {
 
 }
 
+#deleteDB {
+
+	position:absolute;
+	top:7px;
+	right:50px;
+	color:var(--c7);
+	border:1px solid var(--c7);
+	cursor:pointer;
+	padding:2px;
+	margin-left:5px;
+
+}
+
 #chart {
 
 	background-image:url("./chart.png");
