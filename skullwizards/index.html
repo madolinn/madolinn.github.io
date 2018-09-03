@@ -1,0 +1,133 @@
+<html>
+<meta charset="UTF-8">
+<head>
+<title>Skull Wizards Play Sheets</title>
+<link rel='stylesheet' type='text/css' href='style.css'>
+<!-- <script src='http://madolinn.github.io/scripts/corejs.js' type = "text/javascript" main = 'client' dir = 'scripts'></script> -->
+<script src='../hosted/jquery.min.js' type = "text/javascript"></script>
+<script src='./client.js' type = "module"></script>
+</head>
+<body>
+
+<div id = "wrapper">
+
+<div id = "dmContainer">
+
+<div id = "configContainer">
+
+<div class = "configEntry"><span class = "configText">Nouns : </span><span class = "configRange" data-min = 4 data-max = 6></span></div>
+<div class = "configEntry"><span class = "configText">Things : </span><span class = "configRange" data-min = 2 data-max = 3></span></div>
+<div class = "configEntry"><span class = "configText">Verbs Ending in -ing : </span><span class = "configRange" data-min = 8 data-max = 12></span></div>
+<div class = "configEntry"><span class = "configText">Personality/Emotions : </span><span class = "configRange" data-min = 2 data-max = 3></span></div>
+<div class = "configEntry"><span class = "configText">Jobs : </span><span class = "configRange" data-min = 2 data-max = 3></span></div>
+<div class = "configEntry"><span class = "configText">Adjectives : </span><span class = "configRange" data-min = 2 data-max = 3></span></div>
+<div class = "configEntry"><span class = "configText">Monsters : </span><span class = "configRange" data-min = 2 data-max = 3></span></div>
+<div class = "configEntry"><span class = "configText">Dice Rolls : </span><span class = "configRange" data-min = 1 data-max = 1></span></div>
+
+<button id = "buttonRandomize">Rand Indexes</button>
+<button id = "buttonParse">Parse Players</button>
+<button id = "buttonConfigOut">O</button>
+<button id = "buttonConfigIn">I</button>
+<span id = "indexesCount">-</span>
+
+</div>
+
+<div id = "readoutContainer">
+
+<div class = "readoutEntry"><span class = "readoutText smallText">Classes : </span><span class = "readoutValue smallText"></span></div>
+<div class = "readoutEntry"><span class = "readoutText">Class : </span><span class = "readoutValue"></span></div>
+<div class = "readoutEntry"><span class = "readoutText">Race : </span><span class = "readoutValue"></span></div>
+<div class = "readoutEntry"><span class = "readoutText">Background : </span><span class = "readoutValue"></span></div>
+<div class = "readoutEntry"><span class = "readoutText">Weapon : </span><span class = "readoutValue"></span></div>
+<div class = "readoutEntry"><span class = "readoutText">Skills : </span><span class = "readoutValue"></span></div>
+
+</div>
+
+<div id = "encounterContainer">
+
+<button id = "buttonEncounter">New Encounter</button><button id = "buttonMonster">New Monster</button><div id = "encounterCompleteIndicator">Done!</div>
+<div class = "playerDivider"></div>
+
+<div id = "encounterHeader">You have encountered... <span id = "encounterType"></span></div>
+
+<div id = "encounterDoor" class = "encounter">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 3></div>
+</div>
+
+<div id = "encounterHazard" class = "encounter">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 3></div>
+</div>
+
+<div id = "encounterTrap" class = "encounter">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 3></div>
+</div>
+
+<div id = "encounterFork" class = "encounter">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 3></div>
+<button id = "buttonFork">Randomize</button>
+<div class = "forkEntry">
+<span class = "forkValue">-</span><br>
+<span class = "forkValue">-</span>
+</div>
+</div>
+
+<div id = "encounterTreasure" class = "encounter">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 3></div>
+</div>
+
+<div id = "encounterShopkeeper" class = "encounter">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 9></div>
+<button id = "buttonShopkeeper">Randomize</button><input id = "shopkeeperQuality" type = "number" min = "-5" max = "5"></input>
+<div class = "shopkeeperEntry"><span class = "shopkeeperEntryItem purchased">-</span><span class = "shopkeeperEntryCost purchased"></span></div>
+<div class = "shopkeeperEntry"><span class = "shopkeeperEntryItem purchased">-</span><span class = "shopkeeperEntryCost purchased"></span></div>
+<div class = "shopkeeperEntry"><span class = "shopkeeperEntryItem purchased">-</span><span class = "shopkeeperEntryCost purchased"></span></div>
+<div class = "shopkeeperEntry"><span class = "shopkeeperEntryItemPotion">Potions</span><span class = "shopkeeperEntryCost">1G</span></div>
+</div>
+
+<div id = "monsterContainer">
+<div class = "configHealth" data-min = 0 data-max = 9 data-default = 3></div><br><br>
+<div id = "monsterName">-</div>
+</div>
+
+</div>
+
+</div>
+
+<div id = "playersContainer">
+
+<div id = "playersBumperBar"><button id = "buttonAddPlayer">Add Player</button></div>
+
+<div class = "playerEntry">
+
+<input type = "text" class = "playerName"></input><input type = "text" class = "playerInput"></input><br>
+<div class = "playerDivider"></div>
+<div class = "playerClassContainer">Class : <span class = "playerClass"></span></div>
+<div class = "playerRaceContainer">Race : <span class = "playerRace"></span></div>
+<div class = "playerEmploymentContainer">Employment : <span class = "playerEmployment"></span></div>
+<div class = "playerWeaponContainer">Ancestral Weapon : <span class = "playerWeapon"></span></div>
+<div class = "playerDivider"></div>
+<div class = "playerSkillContainer">Skills :
+<input class = "playerSkill"></input><br>
+<input class = "playerSkill"></input><br>
+<input class = "playerSkill"></input><br><br>
+</div>
+<div class = "playerDivider"></div>
+<div class = "playerHealthContainer">Health : <span class = "configHealth" data-min = 0 data-max = 9 data-default = 3 data-softmax = 3></span></div>
+<div class = "playerMoneyContainer">Gold : <span class = "configRange playerRange" data-min = 0 data-max = 99></span></div>
+<div class = "playerExpContainer">Exp : <span class = "configRange playerRange" data-min = 0 data-max = 99></span></div>
+<div class = "playerDivider"></div>
+<div class = "playerInventoryContainer">Inventory : <input class = "playerInventory"></input></div>
+</div>
+
+</div>
+
+</div>
+
+<div id = "overlay">
+
+
+
+</div>
+
+</body>
+</html>

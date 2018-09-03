@@ -105,10 +105,21 @@ function applyColor(search) {
 
 function editField(e) {
 
-	var p = prompt("Edit","");
+	var def = "";
+
+	if (e.currentTarget.className == "route") {
+	
+		def = e.currentTarget.innerText;
+	
+	}
+
+	var p = prompt("Edit",def);
 	
 	if (p != null) {
-		p = p.substr(0,1).toUpperCase() + p.substr(1).toLowerCase();
+	
+		if (def == "") {
+			p = p.substr(0,1).toUpperCase() + p.substr(1).toLowerCase();
+		}
 		
 		e.currentTarget.textContent = p;
 		applyColor(e.currentTarget);
