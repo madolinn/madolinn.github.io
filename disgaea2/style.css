@@ -69,6 +69,16 @@ a:link, a:visited {
     min-height: 21px;
 }
 
+.tableCellExtra {
+    padding: 5px 5px 5px 15px;
+    width: 50px;
+    border-right: 1px solid #CCC;
+    color: #CCC;
+    float: left;
+    background: #333;
+    min-height: 21px;
+}
+
 .tableCellText {
     padding: 5px 5px 5px 15px;
     width: 150px;
@@ -89,6 +99,7 @@ a:link, a:visited {
     background: #333;
     min-height: 21px;
 }
+
 
 .tableCellMissName {
     padding: 5px 5px 5px 15px;
@@ -114,8 +125,9 @@ a:link, a:visited {
 }
 
 .tableCellSpacer {
-    width: 281px;
-    padding: 5px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     height: 10px;
     float: left;
     clear: both;
