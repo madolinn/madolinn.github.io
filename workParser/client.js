@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 
 import * as DATAA from './exportedData.js';
@@ -635,3 +636,4 @@ $(function() {
 
 });
 
+>>>>>>> fa06a25019505fad403f667f3c5c4474dfa7360b
