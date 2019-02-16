@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // https://github.com/Scipion/interesting-javascript-codes //
 
 Array.prototype.timsort = function(comp){
@@ -1342,5 +1341,4 @@ function arraycopy(s,spos,d,dpos,len){
     while(len--){
         d[dpos+len]=a[len];
     }
->>>>>>> fa06a25019505fad403f667f3c5c4474dfa7360b
 }
