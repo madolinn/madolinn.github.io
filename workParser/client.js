@@ -77,6 +77,9 @@ function drawGraph() {
 				
 				} else if (_g.graphData.colorGrid[key].edge == 0) {
 					_g.graphData.colorGrid[key].edge = EDGE;
+					if (EDGE == 0) {
+						_g.graphData.colorGrid[key].edge = 0.01;
+					}
 					EDGE += ((1000*_g.graphData.xScale)/_g.graphData.xSize);
 				}
 			
