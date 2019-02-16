@@ -1,0 +1,134 @@
+body {
+
+	background-color:#000;
+	
+}
+
+#graphContainer {
+
+	margin-left:25px;
+	width:1000px;
+	height:400px;
+	background-color:#222;
+	position:relative;
+	float:left;
+
+}
+
+#legendWrapper {
+
+	margin-left:5px;
+	width:225px;
+	height:398px;
+	border:1px solid #555;
+	float:left;
+
+}
+
+#legendContainer {
+
+	height:calc(100% - 23px);
+	overflow:auto;
+
+}
+
+#tooltip {
+
+	width:150px;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	font-family:Tahoma;
+	color:#EEE;
+	
+	border:1px solid #AAA;
+	background-color:#222;
+	
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+	
+	text-align:center;
+	
+	z-index:10;
+
+}
+
+.strikeout {
+
+	text-decoration:line-through;
+
+}
+
+.legendEntry {
+
+	font-family:Tahoma;
+	font-size:12px;
+	float:left;
+	width:100px;
+	cursor:pointer;
+
+}
+
+.graphPoint {
+
+	width:5px;
+	height:5px;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	border:1px solid #CCC;
+	background-color:#555;
+	z-index:2;
+
+}
+
+.graphPoint:hover {
+
+	background-color:#CC5;
+	z-index:5;
+
+}
+
+.graphXLabelContainer {
+
+	width:200px;
+	height:20px;
+	color:#CCC;
+	bottom:0px;
+	left:0px;
+	position:absolute;
+
+}
+
+.graphXLabel {
+
+	position:relative;
+	left:-85px;
+	transform: rotate(-80deg);
+	font-size:12px;
+	font-family:Small Fonts;
+}
+
+.graphXAxis {
+
+	height:400px;
+	width:1px;
+	background-color:#555;
+	position:absolute;
+	top:0px;
+	left:0px;
+
+}
+
+.graphYAxis {
+
+	height:1px;
+	width:1000px;
+	background-color:#555;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+
+}
