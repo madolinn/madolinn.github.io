@@ -2,9 +2,9 @@
 :root {
 	--primary: #09F;
 	--text: #DDD;
-	--mbackground: rgb(41, 42, 49);
-	--mbackground-elevated: rgb(51, 51,58);
-	--color-highlight: rgb(43, 107, 149);
+	--mbackground: #111;
+	--mbackground-elevated: #222;
+	--color-highlight: rgb(0, 0, 0);
 
 	/* These should be less important: */
 	--mbackground-hover: rgba(255, 255, 255, 0.1);
@@ -229,7 +229,11 @@ ts-jumper input[type="text"],
 
 .p-channel_sidebar__channel--selected:link,
 .p-channel_sidebar__channel--selected {
-	background: var(--color-highlight)
+	background: var(--color-highlight);
+	border-top-right-radius:50%;
+	border-bottom-right-radius:50%;
+	border-color: rgb(26, 155, 252);
+	color: rgb(26, 155, 252);
 }
 
 .p-channel_sidebar__channel:hover,
