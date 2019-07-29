@@ -2167,6 +2167,6 @@ ts-jumper .p-jumper__help {
 	}
 }
 
-.p-classic_nav__team_header, .p-workspace--classic-nav .p-workspace__sidebar {
+.p-classic_nav__team_header, .p-workspace--classic-nav .p-workspace__sidebar, nav.p-channel_sidebar {
 	background: var(--mbackground-elevated)!important;
 }
