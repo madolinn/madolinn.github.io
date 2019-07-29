@@ -3,7 +3,7 @@
 	--primary: #09F;
 	--text: #DDD;
 	--mbackground: #111;
-	--mbackground-elevated: #222;
+	--mbackground-elevated: #333;
 	--color-highlight: rgb(0, 0, 0);
 
 	/* These should be less important: */
@@ -230,10 +230,10 @@ ts-jumper input[type="text"],
 .p-channel_sidebar__channel--selected:link,
 .p-channel_sidebar__channel--selected {
 	background: var(--color-highlight);
-	border-top-right-radius:50%;
-	border-bottom-right-radius:50%;
-	border-color: rgb(26, 155, 252);
-	color: rgb(26, 155, 252);
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+	border: 1px solid rgb(26, 155, 252);
+	color: rgb(26, 155, 252)!important;
 }
 
 .p-channel_sidebar__channel:hover,
@@ -2165,4 +2165,8 @@ ts-jumper .p-jumper__help {
 	to {
 		background: transparent
 	}
+}
+
+.p-classic_nav__team_header, .p-workspace--classic-nav .p-workspace__sidebar {
+	background: var(--mbackground-elevated)!important;
 }
