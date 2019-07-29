@@ -3,7 +3,7 @@
 	--primary: #09F;
 	--text: #DDD;
 	--mbackground: #111;
-	--mbackground-elevated: #222;
+	--mbackground-elevated: #333;
 	--color-highlight: rgb(0, 0, 0);
 
 	/* These should be less important: */
@@ -2169,4 +2169,5 @@ ts-jumper .p-jumper__help {
 
 .p-classic_nav__team_header, .p-workspace--classic-nav .p-workspace__sidebar, nav.p-channel_sidebar {
 	background: var(--mbackground-elevated)!important;
+	background-color: var(--mbackground-elevated)!important
 }
