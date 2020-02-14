@@ -7,7 +7,7 @@ var _g = {};
 
 function start() {
 
-	_g.dataset = Array.concat(DATAA.dataset, DATAB.dataset);
+	_g.dataset = DATAA.dataset.concat(DATAB.dataset);
 	//_g.dataset = DATAB.dataset;
 	_g.low = 0;
 	_g.high = _g.dataset.length;
