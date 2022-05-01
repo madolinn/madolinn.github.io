@@ -1,0 +1,382 @@
+<html>
+<head>
+<style>
+.car {
+	background-image:url('assets/carts_cut_color.png');
+	width:26px;
+	height:26px;
+	position:absolute;
+}
+
+.obstacle {
+	background-color:#555;
+	position:absolute;
+	border-radius:50%;
+}
+
+.checkpoint {
+	background-color:#F55;
+	color:#fff;
+	text-align:center;
+}
+</style>
+
+<script>
+
+var playerCar = null;
+var cars = [];
+var obstacles = [];
+var checkpoints = [   {     "pos": [       334,       154     ],     "radius": 36   },   {     "pos": [       180,       134     ],     "radius": 29   },   {     "pos": [       89,       239     ],     "radius": 32.5   },   {     "pos": [       128,       381     ],     "radius": 34   },   {     "pos": [       297,       406     ],     "radius": 43.5   },   {     "pos": [       397,       318     ],     "radius": 21   },   {     "pos": [       431,       148     ],     "radius": 32.5   },   {     "pos": [       607,       136     ],     "radius": 31.5   },   {     "pos": [       695,       246     ],     "radius": 43.5   },   {     "pos": [       673,       369     ],     "radius": 33   },   {     "pos": [       545,       423     ],     "radius": 29.5   },   {     "pos": [       441,       388     ],     "radius": 26.5   },   {     "pos": [       378,       253     ],     "radius": 29.5   } ];
+var mousePos = { x: -1, y: -1};
+var obastaclePrev;
+
+var pooledMemeory = [];
+var pooledScore = 0;
+var usePooling = true;
+
+function addObstacle(x, y, r) {
+	var sprite = document.createElement("div");
+	sprite.className = "obstacle";
+	sprite.style.width = r*2+"px";
+	sprite.style.height = r*2+"px";
+	sprite.style.left = x+"px";
+	sprite.style.top = y+"px";
+	
+	document.querySelector("#obstacleWrap").append(sprite);
+
+	var obstacle = {
+		pos: [x, y],
+		radius: r
+	}
+	
+	obstacles.push(obstacle);
+}
+
+function addCheckpoint(x, y, r) {
+	var sprite = document.createElement("div");
+	sprite.className = "obstacle checkpoint";
+	sprite.style.width = r*2+"px";
+	sprite.style.height = r*2+"px";
+	sprite.style.left = x+"px";
+	sprite.style.top = y+"px";
+	sprite.innerHTML = checkpoints.length+1;
+	
+	document.querySelector("#checkpointWrap").append(sprite);
+
+	var checkpoint = {
+		pos: [x, y],
+		radius: r
+	}
+	
+	checkpoints.push(checkpoint);
+}
+
+function createCheckpoints() {
+	for (var i = 0; i < checkpoints.length; i++) {
+		var sprite = document.createElement("div");
+		sprite.className = "obstacle checkpoint";
+		sprite.style.width = checkpoints[i].radius*2+"px";
+		sprite.style.height = checkpoints[i].radius*2+"px";
+		sprite.style.left = checkpoints[i].pos[0]+"px";
+		sprite.style.top = checkpoints[i].pos[1]+"px";
+		sprite.innerHTML = i+1;
+		
+		document.querySelector("#checkpointWrap").append(sprite);
+	}
+}
+
+function addCar() {
+	var sprite = document.createElement("div");
+	sprite.className = "car";
+	sprite.id = "car-"+cars.length;
+	sprite.style.backgroundPosition = "0 "+Math.floor(Math.random()*7)*26+"px";
+	sprite.style.filter = "hue-rotate("+Math.floor(Math.random()*360)+"deg)";
+	
+	document.querySelector("#carWrap").append(sprite);
+
+	var car = {
+		failures: 0,
+		bestMemory: [],
+		bestScore: 0,
+		sprite: sprite,
+		gasAccel: 0.25,
+		turnAccel: 0.5,
+	}
+	
+	resetCar(car);
+	
+	cars.push(car);
+	
+	if (playerCar === null) {
+		playerCar = cars[0];
+	}
+}
+
+function resetCar(car) {
+	car.pos = [400, 320];
+	car.angle = 270;
+	car.speed = 0;
+	car.memory = [];
+	car.score = 0;
+	car.checkpoint = 0;
+	car.checkpointTime = 0;
+	car.gas = 0;
+	car.turn = 0;
+	car.turnRate = 0;
+	
+	if (car.failures > car.bestMemory.length) {
+		car.failures = 0;
+	}
+}
+
+function calculateScore(car) {
+	var score = car.checkpoint * 1000;
+	if (car.checkpoint < checkpoints.length) {
+		score += 1000 / Math.sqrt(Math.pow((checkpoints[car.checkpoint].pos[0]+checkpoints[car.checkpoint].radius) - car.pos[0], 2) + Math.pow((checkpoints[car.checkpoint].pos[1]+checkpoints[car.checkpoint].radius) - car.pos[1], 2));
+	} else {
+		score += 1000;
+	}
+	if (usePooling) {
+		if (score + car.score > pooledScore) {
+			pooledMemeory = JSON.parse(JSON.stringify(car.memory));
+			car.bestMemory = JSON.parse(JSON.stringify(car.memory));
+			car.bestScore = score + car.score;
+			pooledScore = score + car.score;
+			car.failures = 0;
+		} else {
+			car.bestMemory = JSON.parse(JSON.stringify(pooledMemeory));
+			car.failures += Math.max(2, Math.floor(pooledMemeory.length / 50));
+		}	
+	} else {
+		if (score + car.score > car.bestScore) {
+			car.bestMemory = JSON.parse(JSON.stringify(car.memory));
+			car.bestScore = score + car.score;
+			car.failures = 0;
+		} else {
+			car.failures += 2;
+		}
+	}
+}
+
+function bindControls() {
+	document.addEventListener('keydown', function(e) {
+		if (e.key === "ArrowUp") {
+			playerCar.gas = 1;
+		} else if (e.key === "ArrowLeft") {
+			playerCar.turn = -1;
+		} else if (e.key === "ArrowRight") {
+			playerCar.turn = 1;
+		}
+	});
+	document.addEventListener('keyup', function(e) {
+		if (e.key === "ArrowUp") {
+			playerCar.gas = 0;
+		} else if (e.key === "ArrowLeft") {
+			playerCar.turn = 0;
+		} else if (e.key === "ArrowRight") {
+			playerCar.turn = 0;
+		}
+	});
+	document.addEventListener('mousedown', function(e) {
+		mousePos.x = e.pageX;
+		mousePos.y = e.pageY;
+	});
+	document.addEventListener('mouseup', function(e) {
+		if (mousePos.x > -1 && mousePos.y > -1) {
+			if (Math.max(e.pageX - mousePos.x, e.pageY - mousePos.y)/2 > 5) {
+				addCheckpoint(mousePos.x, mousePos.y, Math.max(e.pageX - mousePos.x, e.pageY - mousePos.y)/2);
+			}
+		}
+	});
+}
+
+function gameLoop() {
+	doChoices();
+	doPhysics();
+}
+
+function doChoices() {
+	for (var i = 0; i < cars.length; i++) {
+	
+		var car = cars[i];
+		
+		var memIndex = car.memory.length;
+		car.memory[memIndex] = [];
+		
+		var bestMemoryConfidence = car.bestMemory.length - car.failures - 1;
+		
+		if (memIndex > bestMemoryConfidence) {
+		
+			var gasChance = Math.random()*100;
+			if (gasChance > 40) {
+				car.memory[memIndex].push("gasOn");
+				car.gas = 1;
+			} else {
+				car.memory[memIndex].push("gasOff");
+				car.gas = 0;
+			}
+			
+			var turnChance = Math.random()*100;
+			if (turnChance < 40) {
+				car.memory[memIndex].push("turnLeft");
+				car.turn = -1;
+			} else if (turnChance > 60) {
+				car.memory[memIndex].push("turnRight");
+				car.turn = 1;
+			} else {
+				car.memory[memIndex].push("turnOff");
+				car.turn = 0;
+			}
+			
+		} else {
+			
+			if (car.bestMemory[memIndex][0] == "gasOn") {
+				car.memory[memIndex].push("gasOn");
+				car.gas = 1;
+			} else {
+				car.memory[memIndex].push("gasOff");
+				car.gas = 0;
+			}
+			
+			if (car.bestMemory[memIndex][1] == "turnLeft") {
+				car.memory[memIndex].push("turnLeft");
+				car.turn = -1;
+			} else if (car.bestMemory[memIndex][1] == "turnRight") {
+				car.memory[memIndex].push("turnRight");
+				car.turn = 1;
+			} else {
+				car.memory[memIndex].push("turnOff");
+				car.turn = 0;
+			}
+			
+		}
+	
+	}
+}
+
+function doPhysics() {
+	for (var i = 0; i < cars.length; i++) {
+	
+		var car = cars[i];
+		
+		if (car.gas > 0) {
+			car.speed += car.gasAccel;
+		}
+		if (car.turn > 0) {
+			car.turnRate += car.turnAccel;
+		} else if (car.turn < 0) {
+			car.turnRate -= car.turnAccel;
+		} else if (car.turn == 0) {
+			car.turnRate = 0;
+		}
+		
+		if (car.speed > 0) {
+			car.speed -= car.gasAccel / 2;
+			if (car.speed < 0) { car.speed = 0; }
+			if (car.speed > 20) { car.speed = 5; }
+		}
+		
+		car.angle += car.turnRate;
+		
+		car.pos[0] += Math.cos((car.angle) * (Math.PI/180)) * car.speed;
+		car.pos[1] += Math.sin((car.angle) * (Math.PI/180)) * car.speed;
+		
+		car.sprite.style.left = car.pos[0]-18+"px";
+		car.sprite.style.top = car.pos[1]-18+"px";
+		car.sprite.style.transform = "rotateZ("+(car.angle+90)+"deg)";
+		
+		if (car.pos[0] < 0 || car.pos[1] < 0 || car.pos[0] > 800 || car.pos[1] > 600) {
+			calculateScore(car);
+			resetCar(car);
+		}
+		
+		for (var o = 0; o < obstacles.length; o++) {
+			if (Math.sqrt(Math.pow((obstacles[o].pos[0]+obstacles[o].radius) - car.pos[0], 2) + Math.pow((obstacles[o].pos[1]+obstacles[o].radius) - car.pos[1], 2)) < obstacles[o].radius) {
+				calculateScore(car);
+				resetCar(car);
+			}
+		}
+		
+		if (car.checkpoint < checkpoints.length) {
+			if (Math.sqrt(Math.pow((checkpoints[car.checkpoint].pos[0]+checkpoints[car.checkpoint].radius) - car.pos[0], 2) + Math.pow((checkpoints[car.checkpoint].pos[1]+checkpoints[car.checkpoint].radius) - car.pos[1], 2)) < checkpoints[car.checkpoint].radius) {
+				car.checkpoint++;
+				car.score += 1000 / car.checkpointTime;
+				car.checkpointTime = 0;
+				if (car.checkpoint > checkpoints.length - 1) {
+					calculateScore(car);
+					resetCar(car);
+				}
+			}
+		}
+		
+		car.checkpointTime++;
+		if (car.checkpointTime > 200) {
+			calculateScore(car);
+			resetCar(car);
+		}
+	}
+}
+
+window.addEventListener('load', function() {
+	bindControls();
+	addObstacle(160, 200, 100);
+	addObstacle(460, 200, 100);
+	createCheckpoints();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	addCar();
+	setInterval(function() { gameLoop(); }, 10);
+});
+
+</script>
+
+</head>
+<body>
+<div id="wrap">
+	<div id="obstacleWrap">
+	
+	</div>
+	<div id="checkpointWrap">
+	
+	</div>
+		<div id="carWrap">
+		
+	</div>
+</div>
+</body>
