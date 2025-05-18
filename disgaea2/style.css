@@ -1,149 +1,136 @@
 body {
-
-	background:black;
-	color:#CCC;
-	font-family:Tahoma;
-	font-size:16px;
-	
+    background: black;
+    color: #CCC;
+    font-family: Tahoma, serif;
+    font-size: 16px;
 }
 
 header {
-
-	position:fixed;
-	top:0px;
-	right:0px;
-	padding:5px 5px 5px 15px;
-	background:black;
-	width:100px;
-	
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 5px 5px 5px 15px;
+    background: black;
+    width: 100px;
 }
 
 a:link, a:visited {
-	color:#CCC;
+    color: #CCC;
 }
 
 .header {
-
-	font-size:2em;
-
+    font-size: 2em;
 }
 
 .clearfix:after {
-	content:"";
-	display:table;
-	clear:both;
-	padding:10px;
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
 }
 
 .contentFloatWrapper {
-
-	float:left;
-	min-width:250px;
-	
+    float: left;
+    min-width: 250px;
 }
 
 .contentWrapper {
-
-	border-top:1px solid #CCC;
-	padding-top:10px;
-	
+    border-top: 1px solid #CCC;
+    padding-top: 10px;
 }
 
 .contentWrapper:after {
-	content:"";
-	display:table;
-	clear:both;
-	padding:10px;
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
 }
 
 .tableContainer {
-	
-	border:1px solid #CCC;
-	
-	float:left;
-	margin:10px;
-	
+    border: 1px solid #CCC;
+    float: left;
+    margin: 10px;
 }
 
 .tableContainer:after {
-	content:"";
-	display:table;
-	clear:both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .tableCellName {
+    padding: 5px 5px 5px 15px;
+    width: 100px;
+    border-right: 1px solid #CCC;
+    color: #CCC;
+    float: left;
+    clear: left;
+    background: #333;
+    min-height: 21px;
+}
 
-	padding:5px 5px 5px 15px;
-	width:100px;
-	border-right:1px solid #CCC;
-	color:#CCC;
-	float:left;
-	clear:left;
-	background:#333;
-	min-height:21px;
-
+.tableCellExtra {
+    padding: 5px 5px 5px 15px;
+    width: 50px;
+    border-right: 1px solid #CCC;
+    color: #CCC;
+    float: left;
+    background: #333;
+    min-height: 21px;
 }
 
 .tableCellText {
-	
-	padding:5px 5px 5px 15px;
-	width:150px;
-	color:#CCC;
-	float:left;
-	text-align:left;
-	background:#111;
-	min-height:21px;
-	
+    padding: 5px 5px 5px 15px;
+    width: 150px;
+    color: #CCC;
+    float: left;
+    text-align: left;
+    background: #111;
+    min-height: 21px;
 }
 
 .tableCellRank {
-
-	padding:5px 5px 5px 15px;
-	width:25px;
-	border-right:1px solid #CCC;
-	color:#CCC;
-	float:left;
-	clear:left;
-	background:#333;
-	min-height:21px;
-
+    padding: 5px 5px 5px 15px;
+    width: 25px;
+    border-right: 1px solid #CCC;
+    color: #CCC;
+    float: left;
+    clear: left;
+    background: #333;
+    min-height: 21px;
 }
 
+
 .tableCellMissName {
-
-	padding:5px 5px 5px 15px;
-	width:100px;
-	border-right:1px solid #CCC;
-	color:#CCC;
-	float:left;
-	clear:left;
-	background:#333;
-	min-height:21px;
-	font-size:.8em;
-
+    padding: 5px 5px 5px 15px;
+    width: 100px;
+    border-right: 1px solid #CCC;
+    color: #CCC;
+    float: left;
+    clear: left;
+    background: #333;
+    min-height: 21px;
+    font-size: .8em;
 }
 
 .tableCellMissText {
-	
-	padding:5px 5px 5px 15px;
-	width:350px;
-	color:#CCC;
-	float:left;
-	text-align:left;
-	background:#111;
-	min-height:21px;
-	font-size:.8em;
-	
+    padding: 5px 5px 5px 15px;
+    width: 350px;
+    color: #CCC;
+    float: left;
+    text-align: left;
+    background: #111;
+    min-height: 21px;
+    font-size: .8em;
 }
 
 .tableCellSpacer {
-
-	width:281px;
-	padding:5px;
-	height:10px;
-	float:left;
-	clear:both;
-	border-top:1px solid #CCC;
-	border-bottom:1px solid #CCC;
-
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 10px;
+    float: left;
+    clear: both;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
 }

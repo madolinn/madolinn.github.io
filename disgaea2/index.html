@@ -1,945 +1,1536 @@
 <html>
 <head>
-<link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
 
 <header>
-<a href = "#Specialists">Specialists</a><br>
-<a href = "#Fists">Fists</a><br>
-<a href = "#Swords">Swords</a><br>
-<a href = "#Spears">Spears</a><br>
-<a href = "#Bows">Bows</a><br>
-<a href = "#Guns">Guns</a><br>
-<a href = "#Axes">Axes</a><br>
-<a href = "#Staves">Staves</a><br>
-<a href = "#Monster ATK">Monster ATK</a><br>
-<a href = "#Monster INT">Monster INT</a><br>
-<a href = "#Armors">Armors</a><br>
-<a href = "#Accessories">Accessories</a><br>
-<a href = "#Missables">Missables</a><br>
-<a href = "#Rarity 0">Rarity 0</a><br>
+    <a href="#Specialists">Specialists</a><br>
+    <a href="#Fists">Fists</a><br>
+    <a href="#Swords">Swords</a><br>
+    <a href="#Spears">Spears</a><br>
+    <a href="#Bows">Bows</a><br>
+    <a href="#Guns">Guns</a><br>
+    <a href="#Axes">Axes</a><br>
+    <a href="#Staves">Staves</a><br>
+    <a href="#Monster ATK">Monster ATK</a><br>
+    <a href="#Monster INT">Monster INT</a><br>
+    <a href="#Armors">Armors</a><br>
+    <a href="#Accessories">Accessories</a><br>
+    <a href="#Missables">Missables</a><br>
+    <a href="#Rarity 0">Rarity 0</a><br>
 </header>
 
-<span class = "header" id = "Specialists">Specialists</span>
-<div class = "contentWrapper">
-<!-- Stats -->
-
-<div class = "tableContainer">
-
-<div class = "tableCellName">Gladiator</div><div class = "tableCellText">Increase ATK</div>
-<div class = "tableCellName">Sentry</div><div class = "tableCellText">Increase DEF</div>
-<div class = "tableCellName">Dietician</div><div class = "tableCellText">Increase HP</div>
-<div class = "tableCellName">Tutor</div><div class = "tableCellText">Increase INT</div>
-<div class = "tableCellName">Marksman</div><div class = "tableCellText">Increase HIT</div>
-<div class = "tableCellName">Physician</div><div class = "tableCellText">Increase RES</div>
-<div class = "tableCellName">Coach</div><div class = "tableCellText">Increase SPD</div>
-<div class = "tableCellName">Master</div><div class = "tableCellText">Increase SP</div>
-
-<div class = "tableCellSpacer"></div>
-
-<div class = "tableCellName">Sniper</div><div class = "tableCellText">Increases ATK & HIT</div>
-<div class = "tableCellName">Muscleman</div><div class = "tableCellText">Increase ATK & HP </div>
-<div class = "tableCellName">Hard Worker</div><div class = "tableCellText">Increase ATK & INT</div>
-<div class = "tableCellName">Sprinter</div><div class = "tableCellText">Increase ATK & SPD</div>
-<div class = "tableCellName">Nerd</div><div class = "tableCellText">Increase INT & SP</div>
-<div class = "tableCellName">Patient</div><div class = "tableCellText">Increase DEF & RES</div>
+<span class="header" id="Specialists">Specialists</span>
+<div class="contentWrapper">
+    <!-- Stats -->
 
-</div>
-
-<!-- Status Ailments -->
-
-<div class = "tableContainer">
-
-<div class = "tableCellName">Alchemists</div><div class = "tableCellText" style = "font-size:.9em;">Add Poison to attack.</div>
-<div class = "tableCellName">Hypnotist</div><div class = "tableCellText" style = "font-size:.9em;">Add Sleep to attack.</div>
-<div class = "tableCellName">Witch Doctor</div><div class = "tableCellText" style = "font-size:.9em;">Add Paralysis to attack.</div>
-<div class = "tableCellName">Amnesiac</div><div class = "tableCellText" style = "font-size:.9em;">Add Forget to attack.</div>
-<div class = "tableCellName">Gangster</div><div class = "tableCellText" style = "font-size:.9em;">Add Deprave to attack.</div>
-
-<div class = "tableCellSpacer"></div>
-
-<div class = "tableCellName">Coffee Maker</div><div class = "tableCellText">Resistance to Sleep</div>
-<div class = "tableCellName">Medicine Man</div><div class = "tableCellText" style = "font-size:.9em;">Resistance to Paralysis</div>
-<div class = "tableCellName">Pharmacist</div><div class = "tableCellText">Resistance to Poison</div>
-<div class = "tableCellName">Psychologist</div><div class = "tableCellText">Resistance to Forget</div>
-<div class = "tableCellName">Social Worker</div><div class = "tableCellText" style = "font-size:.9em;">Resistance to Deprave</div>
-
-<div class = "tableCellSpacer"></div>
-
-<div class = "tableCellName">Firefighter</div><div class = "tableCellText" style = "font-size:.8em;">Increases Fire Resistance</div>
-<div class = "tableCellName">Aeronaut</div><div class = "tableCellText" style = "font-size:.75em;">Increases Wind Resistance</div>
-<div class = "tableCellName">Cryophile</div><div class = "tableCellText" style = "font-size:.8em;">Increases Ice Resistance</div>
-
-</div>
-
-<!-- Etc -->
-
-<div class = "tableContainer">
-
-<div class = "tableCellName">Professional</div><div class = "tableCellText" style = "font-size:.8em;">Increases Critical Chance.</div>
-
-<div class = "tableCellSpacer"></div>
-
-<div class = "tableCellName">Broker</div><div class = "tableCellText">Increase HL gain.</div>
-<div class = "tableCellName">Manager</div><div class = "tableCellText">Increase Mana gain.</div>
-<div class = "tableCellName">Armsmaster</div><div class = "tableCellText" style = "font-size:.75em;">Improve Weapon Mastery.</div>
-<div class = "tableCellName">Mentor</div><div class = "tableCellText" style = "font-size:.9em;">Increase Skill EXP gain.</div>
-
-<div class = "tableCellSpacer"></div>
-
-<div class = "tableCellName">Collector</div><div class = "tableCellText">Increase Rarity</div>
-<div class = "tableCellName" style = "height:32px;">Mediator</div><div class = "tableCellText" style = "font-size:.8em; height:32px;">Chance to create dual-stat specialists.</div>
-<div class = "tableCellName" style = "height:30px;">Teacher</div><div class = "tableCellText" style = "font-size:.7em; height:30px;">Increase the level of a specialist by 5%.</div>
-<div class = "tableCellName">Bailiff</div><div class = "tableCellText">Felony Courtroom</div>
-<div class = "tableCellName">Lover</div><div class = "tableCellText"><a href = "http://disgaea.wikia.com/wiki/Lover">Class Dependent</a></div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Fists">Fist Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Worn Gloves</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Hustle Gloves</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Double Slap</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Knuckles</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Beat Down</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Playful Punch</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Boxing Gloves</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Finger Snap</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Father's Fist</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Spiked Glove</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Slap Back</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Iron Nails</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Hoodlum Fist</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Iron Punch</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Massager</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Love Spankin</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">White Tiger</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Karate Chop</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Knuckle Bomber</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Flick</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Gank</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Pata</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Sumo Punch</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Bagh Nakh</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Cross Counter</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Butcher Hand</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Poison Hand</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Bich'wa</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Burning Rage</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Hell Strike</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Death Gauntlet</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Fist of Anger</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">7 Year Kill</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Macho Fist</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Paradise Blow</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Golden Fist</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">100 Fists</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Star Shatter</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">God's Hand</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Ultimus</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Swords">Sword Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Lazy Sword</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Broadsword</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Rapier</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Dragon Blade</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Shamshir</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Knight Sword</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Spatha</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Katana</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Bastard Sword</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Heavy Sword</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Kunoichi Blade</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Ninja Blade</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Bekatwa</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Katzbalger</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Berserker</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Evil Buster</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Krishmald</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Falchion</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Bloodlust</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Nightmare</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Warlord Blade</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Damascus</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Rune Sabre</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Executioner</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Crystal Sword</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Rasetsu</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Sesshoumaru</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Kagero</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Laser Blade</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Nine Blades</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Dragon Buster</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Durandal</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Balmung</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Tilfang</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Bushin Blade</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Muramasa</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Sunrise Sword</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Infernal Sword</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Excalibur</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Yoshitsuna</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Spears">Spear Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Replica Spear</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Cross Spear</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Pike</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Naginata</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Obsidian Spear</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Ashigaru</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Beckdograban</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Du Sanga</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Shogun Spear</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Scorpion</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Trident</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Bone Spear</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Benkei's Glaive</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Benten</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Shovsri</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Daimyo Spear</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Carbon Spear</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Demon Spear</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Twin Lancer</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Halberd</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Brave Lance</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Bloody Cross</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Valkyrie Spear</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Elder Spear</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Hell Fork</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Death Spear</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Thunder Spear</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Triton Lance</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Primeval Spear</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Singularity</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Lucifer's Spear</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Emerald Lance</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Bruenack</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Gungnir</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Infernal Spear</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Pinaka</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Gaea Spear</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Beam Javelin</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Holy Longinus</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Drill Emperor</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Bows">Bow Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Toy Bow</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Wooden Bow</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Long Bow</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Silver Bow</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Elven Bow</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Assassin Bow</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Yggdrasil Bow</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Jewelled Bow</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Composite Bow</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Exorcist Bow</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Golden Bow</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Skeleton Bow</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Crystal Bow</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Demon Bow</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Angel Bow</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Temptation</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Forest Bow</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Hunter Bow</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Moonlight Bow</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Sylphid</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Dark Bow</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Heavenly Bow</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Beast Killer</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Master Bow</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Deadly Bow</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Platinum Bow</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Soul Eater</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Salamander</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Illusion Bow</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Evil Hunter</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Raijin Bow</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Glutton Bow</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Luminous Bow</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Red Moon Bow</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Drake Hunter</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Ragnarok</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Diabolic Bow</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Seraphic Bow</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Artemis</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Lovely Cupid</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Guns">Gun Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">BB Gun</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Handgun</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Trumpet</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Steam Gun</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">.44 Magnum</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Pulse Gun</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Antique Gun</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Laser Rifle</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Mk. II</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Twin Blaster</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">HG4</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Flamethrower</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Sledgehammer</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Godfather</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Ray Gun</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Spray Gun</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Photon Gun</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Paralyzer</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Sacred</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Prism Cannon</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Old Glory</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Discharger</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Ion Blaster</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Peace Maker</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Intoccabile</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Space Gun</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Crisis</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Takemikazuchi</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Noble Rose</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Cosmo Gun</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Gjallarhorn</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Requiem</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Simurgh</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Dragoon</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Prometheus</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Rolling Thunder</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Heroic Gun</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Dead Whisper</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Megiddo Cannon</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Etoile</div>
-
-
-</div>
-
-</div>
-
-<span class = "header" id = "Axes">Axe Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Cheap Axe</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Iron Axe</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Gang Axe</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Primitive Axe</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Hammer</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Battle Axe</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Viking Axe</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Guillotine</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Heavy Hammer</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Masakari</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Tomahawk</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Dwarven Axe</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Heavy Axe</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Giant Axe</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Savage Axe</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Guilty Axe</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Demon Smasher</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Metal Basher</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Kill All</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Serial Axe</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Morning Star</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Winged Edge</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Enforcer</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Great Axe</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Avenger</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Holy Hammer</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Master Axe</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Earth Quaker</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Emperor's Axe</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Holy Axe</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Gigaton Mace</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Beastmaster</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">El Dorado</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Sacrifice</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Hell Star</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Death Scythe</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Saint's Axe</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Diabolic Axe</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Beam Axe</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Apocalypse</div>
-
-</div>
-
-</div>
+    <div class="tableContainer">
 
-<span class = "header" id = "Staves">Staff Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Training Staff</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Wooden Staff</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Bone Staff</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Magician Wand</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Pixie Wand</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Cardinal Staff</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Witch's Wand</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Crystal Rod</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Rune Staff</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Prinny Staff</div>
+        <div class="tableCellName">Gladiator</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase ATK</div>
 
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Fancy Rod</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Druid Staff</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Sorcery Rod</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Ancient Staff</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Jewel Scepter</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Evil Wand</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Earthen Staff</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Mithril Staff</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Moonlight Staff</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Fairy Staff</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Force Staff</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Demon Staff</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Chief's Staff</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Lovely Rod</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Crimson Wand</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Holy Staff</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Wizard's Rod</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Oracle Staff</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Mystery Staff</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Spirit Staff</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Doom Wand</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Sun Staff</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Venus Wand</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Prinny Stick</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Universal Staff</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Yggdrasil Stick</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Divine Staff</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Sage's Staff</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Infernal Staff</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Omniscient Rod</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Monster ATK">Monster ATK Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Paw Glove</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Pointy Bone</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Goblin Claw</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Wolf's Fang</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Slime Juice</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Crab Claw</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Scorpion Tail</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Odd Mandible</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">Bear Claw</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Viper Bite</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Bull Horn</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Spikey Shell</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Tentacle</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Poison Needle</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Rose Whip</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Mystic Horn</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Tiger Fang</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Lionheart</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Golem Punch</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Mystic Attack</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Organic Power</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Poor Orphan</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Mad Parasite</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Dark Aura</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Chimera DNA</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Pegasus Hoof</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Demon Cry</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Titan Fist</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Dragon Anger</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Demon Fang</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Death Wing</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Asura Arm</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Furious Scale</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Devil Matrix</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Insanity Eye</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Beastial Mark</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Immortal Body</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Phoenix Feather</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Satan's Motor</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Babylon Crown</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Monster INT">Monster INT Weapons</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">1</div><div class = "tableCellText">The Weak</div>
-<div class = "tableCellRank">2</div><div class = "tableCellText">The Rotten</div>
-<div class = "tableCellRank">3</div><div class = "tableCellText">The Dead</div>
-<div class = "tableCellRank">4</div><div class = "tableCellText">The Sacrifice</div>
-<div class = "tableCellRank">5</div><div class = "tableCellText">The Heretic</div>
-<div class = "tableCellRank">6</div><div class = "tableCellText">The Slave</div>
-<div class = "tableCellRank">7</div><div class = "tableCellText">The Puppet</div>
-<div class = "tableCellRank">8</div><div class = "tableCellText">The Demon</div>
-<div class = "tableCellRank">9</div><div class = "tableCellText">The Delusion</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">The Evil Eye</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">The Nightmare</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">The Accursed</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">The Dream</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">The Dismal</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Lust</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Gluttony</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Confusion</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Paranoia</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Greed</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Sloth</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">The Arcane</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Hell's Gate</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">The Phantasm</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Envy</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">The Fallen</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">The Abyss</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">The Convict</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Twilight</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Pride</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">The Conundrum</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">The Malevolent</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">The Unique</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">The Awakening</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Necronomicon</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Wrath</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Fortune</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Chaos</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Dante's Inferno</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">The King</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">The Fool</div>
-
-</div>
-
-</div>
-
-<span class = "header" id = "Armors">Armors</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">01</div><div class = "tableCellText">Old Cloth</div>
-<div class = "tableCellRank">02</div><div class = "tableCellText">Tunic</div>
-<div class = "tableCellRank">03</div><div class = "tableCellText">Buckler</div>
-<div class = "tableCellRank">04</div><div class = "tableCellText">Leather Jacket</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Light Armor</div>
-<div class = "tableCellRank">06</div><div class = "tableCellText">Jijo Outfit</div>
-<div class = "tableCellRank">07</div><div class = "tableCellText">Traveler Mantle</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Round Shield</div>
-<div class = "tableCellRank">09</div><div class = "tableCellText">China Dress</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Protector</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">11</div><div class = "tableCellText">Black Outfit</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Magical Vest</div>
-<div class = "tableCellRank">13</div><div class = "tableCellText">Fur Jacket</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Chain Mail</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Wizard Robe</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Battle Vest</div>
-<div class = "tableCellRank">17</div><div class = "tableCellText">Scale Mail</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Bushido Suit</div>
-<div class = "tableCellRank">19</div><div class = "tableCellText">Breastplate</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Large Shield</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">21</div><div class = "tableCellText">Brigandine</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Halfplate</div>
-<div class = "tableCellRank">23</div><div class = "tableCellText">Holy Dress</div>
-<div class = "tableCellRank">24</div><div class = "tableCellText">Knight Shield</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Dandy Gown</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Fullplate</div>
-<div class = "tableCellRank">27</div><div class = "tableCellText">Iron Dress</div>
-<div class = "tableCellRank">28</div><div class = "tableCellText">Battle Armor</div>
-<div class = "tableCellRank">29</div><div class = "tableCellText">Tower Shield</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Spirit Mantle</div>
-
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellRank">31</div><div class = "tableCellText">Dragon Mail</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Kamikaze Suit</div>
-<div class = "tableCellRank">33</div><div class = "tableCellText">Reflex</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Hero Mantle</div>
-<div class = "tableCellRank">35</div><div class = "tableCellText">Metal Suit</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Shield of Aegis</div>
-<div class = "tableCellRank">37</div><div class = "tableCellText">Goddess Dress</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Majin Armor</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Infernal Armor</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Super Robo Suit</div>
-
-</div>
-
-</div>
-
-<div class = "contentFloatWrapper">
-
-<span class = "header" id = "Accessories">Belts</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">02</div><div class = "tableCellText">Power Belt</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Exertion Belt</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Energy Belt</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Beastly Belt</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Aura Belt</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Spirit Belt</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Bravery Belt</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Black Belt</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Ubermensch</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Orion's Belt</div>
+        <div class="tableCellName">Sentry</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase DEF</div>
 
-</div>
-
-</div>
-
-</div>
-<div class = "contentFloatWrapper">
-
-<span class = "header">Shoes</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">04</div><div class = "tableCellText">Slippers</div>
-<div class = "tableCellRank">11</div><div class = "tableCellText">Cross-Trainers</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Ninja Tabi</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Falcon Shoes</div>
-<div class = "tableCellRank">32</div><div class = "tableCellText">Angel's Sandals</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Accelerator</div>
-
-</div>
-
-</div>
-
-</div>
-<div class = "contentFloatWrapper">
-
-<span class = "header">Orbs</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">02</div><div class = "tableCellText">Common Orb</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Psycho Orb</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Dark Orb</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Bloody Orb</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Astral Orb</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Lunar Orb</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Royal Orb</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Holy Orb</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Chaos Orb</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Universal Orb</div>
-
-</div>
-
-</div>
-
-</div>
-<div class = "contentFloatWrapper">
-
-<span class = "header">Glasses</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">02</div><div class = "tableCellText">Glasses</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Binoculars</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Nerd Glasses</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Plastic Nose</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Opera Glasses</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Nightvision</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Crosshair</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Foresight</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Destiny Lens</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Providence</div>
-
-</div>
-
-</div>
-
-</div>
-<div class = "contentFloatWrapper">
-
-<span class = "header">Muscles</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">02</div><div class = "tableCellText">Brawny Muscle</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Kung-Fu Muscle</div>
-<div class = "tableCellRank">08</div><div class = "tableCellText">Spirit Muscle</div>
-<div class = "tableCellRank">12</div><div class = "tableCellText">Fight Muscle</div>
-<div class = "tableCellRank">16</div><div class = "tableCellText">Ace Muscle</div>
-<div class = "tableCellRank">20</div><div class = "tableCellText">Victory Muscle</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Dream Muscle</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">World Muscle</div>
-<div class = "tableCellRank">36</div><div class = "tableCellText">Star Muscle</div>
-<div class = "tableCellRank">39</div><div class = "tableCellText">Cosmos Muscle</div>
-
-</div>
+        <div class="tableCellName">Dietician</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase HP</div>
 
-</div>
-
-</div>
-<div class = "contentFloatWrapper">
-
-<span class = "header">Weights</span>
-<div class = "contentWrapper">
-
-<div class = "tableContainer">
-
-<div class = "tableCellRank">05</div><div class = "tableCellText">Power Weight</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Speed Weight</div>
-<div class = "tableCellRank">05</div><div class = "tableCellText">Hit Weight</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Power Weight 2</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Speed Weight 2</div>
-<div class = "tableCellRank">15</div><div class = "tableCellText">Hit Weight 2</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Power Weight Z</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Speed Weight Z</div>
-<div class = "tableCellRank">25</div><div class = "tableCellText">Hit Weight Z</div>
+        <div class="tableCellName">Tutor</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase INT</div>
 
-</div>
-
-</div>
+        <div class="tableCellName">Marksman</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase HIT</div>
 
-</div>
-<div class = "contentFloatWrapper">
+        <div class="tableCellName">Physician</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase RES</div>
 
-<span class = "header">Emblems</span>
-<div class = "contentWrapper">
+        <div class="tableCellName">Coach</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase SPD</div>
 
-<div class = "tableContainer">
+        <div class="tableCellName">Master</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase SP</div>
 
-<div class = "tableCellRank">05</div><div class = "tableCellText">Imperial Seal</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Dark Rosary</div>
-<div class = "tableCellRank">14</div><div class = "tableCellText">Devil Ring</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Feather Token</div>
-<div class = "tableCellRank">22</div><div class = "tableCellText">Sophia's Mirror</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Pravda Pendant</div>
-<div class = "tableCellRank">30</div><div class = "tableCellText">Royal Ring</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Testament</div>
-<div class = "tableCellRank">38</div><div class = "tableCellText">Exodus</div>
-<div class = "tableCellRank">40</div><div class = "tableCellText">Arcadia</div>
+        <div class="tableCellSpacer"></div>
 
+        <div class="tableCellName">Sniper</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increases ATK & HIT</div>
 
-</div>
+        <div class="tableCellName">Muscleman</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase ATK & HP</div>
 
-</div>
+        <div class="tableCellName">Hard Worker</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase ATK & INT</div>
 
-</div>
-<div class = "contentFloatWrapper">
+        <div class="tableCellName">Sprinter</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase ATK & SPD</div>
 
-<span class = "header">Stealing Hands</span>
-<div class = "contentWrapper">
+        <div class="tableCellName">Nerd</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase INT & SP</div>
 
-<div class = "tableContainer">
+        <div class="tableCellName">Patient</div>
+        <div class="tableCellExtra">19998</div>
+        <div class="tableCellText">Increase DEF & RES</div>
 
-<div class = "tableCellRank">02</div><div class = "tableCellText">Stealing Hand</div>
-<div class = "tableCellRank">10</div><div class = "tableCellText">Plunder Hand</div>
-<div class = "tableCellRank">18</div><div class = "tableCellText">Cha-Ching</div>
-<div class = "tableCellRank">26</div><div class = "tableCellText">Bandit's Hand</div>
-<div class = "tableCellRank">34</div><div class = "tableCellText">Awesome Hand</div>
+    </div>
 
-</div>
+    <!-- Status Ailments -->
 
-</div>
+    <div class="tableContainer">
 
-</div>
-<div class = "clearfix"></div>
+        <div class="tableCellName">Alchemists</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Add Poison to attack.</div>
 
-<span class = "header" id = "Missables">Missables</span> Once per cycle
-<div class = "contentWrapper">
+        <div class="tableCellName">Hypnotist</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Add Sleep to attack.</div>
 
-<div class = "tableContainer">
+        <div class="tableCellName">Witch Doctor</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Add Paralysis to attack.</div>
 
-<div class = "tableCellMissName">Supremacy</div><div class = "tableCellMissText">Adell 6-1 (First Battle): 1 (First play only)</div>
-<div class = "tableCellMissName">Almighty Armor</div><div class = "tableCellMissText">Adell 6-1 (First Battle): 1 (First play only)</div>
-<div class = "tableCellMissName">Maxi Sandals</div><div class = "tableCellMissText">Adell 6-1 (First Battle): 1 (First play only)</div>
-<div class = "tableCellMissName">Niflheim</div><div class = "tableCellMissText">Adell 10-4 (Dead Breath): 1 (First play only)</div>
-<div class = "tableCellMissName">Niflheim</div><div class = "tableCellMissText">Adell 13-3 (Killer's Hall): 1 (First play only)</div>
-<div class = "tableCellMissName">Accelerator</div><div class = "tableCellMissText">Reward from "Defend a Defender!" (Rarity 0 Exploitable)</div>
+        <div class="tableCellName">Amnesiac</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Add Forget to attack.</div>
 
-</div>
-<div class = "tableContainer">
-
-<div class = "tableCellMissName">Gao's Spirit</div><div class = "tableCellMissText">Extra Stage - Worst Witch Ever (Marjoly): 1</div>
-<div class = "tableCellMissName">Crowdia's Charm</div><div class = "tableCellMissText">Extra Stage - Worst Witch Ever (Marjoly): 1</div>
-<div class = "tableCellMissName">Kitty's Ears</div><div class = "tableCellMissText">Extra Stage - Worst Witch Ever (Marjoly): 1</div>
-<div class = "tableCellMissName">Arcadia</div><div class = "tableCellMissText">Cave of Ordeals 5 (Ordeal 5): 1 (First play only)</div>
-<div class = "tableCellMissName">Arcadia</div><div class = "tableCellMissText">"Murdering Baal" Felony (Once per <b>save</b>)</div>
-<div class = "tableCellMissName">M-change Scroll</div><div class = "tableCellMissText">"Magichange Self" Felony (Once per <b>save</b>)</div>
+        <div class="tableCellName">Gangster</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Add Deprave to attack.</div>
 
-</div>
+        <div class="tableCellSpacer"></div>
 
-</div>
+        <div class="tableCellName">Coffee Maker</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText">Resistance to Sleep</div>
 
-<span class = "header" id = "Rarity 0">Rarity 0 Exploitables</span> Skip the cutscene the item is rewarded during
-<div class = "contentWrapper">
+        <div class="tableCellName">Medicine Man</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Resistance to Paralysis</div>
 
-<div class = "tableContainer">
+        <div class="tableCellName">Pharmacist</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText">Resistance to Poison</div>
 
-<div class = "tableCellMissName">Sexy Panties</div><div class = "tableCellMissText">Majorly's Extra Stage Finish Cutscene</div>
-<div class = "tableCellMissName">DoE ID Card</div><div class = "tableCellMissText">Kurtis's Second Extra Stage Finish Cutscene</div>
-<div class = "tableCellMissName">Postcard</div><div class = "tableCellMissText">Asagai's Extra Stage Finish Cutscene</div>
+        <div class="tableCellName">Psychologist</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText">Resistance to Forget</div>
 
-</div>
-<div class = "tableContainer">
+        <div class="tableCellName">Social Worker</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.9em;">Resistance to Deprave</div>
 
-<div class = "tableCellMissName">Makai Wars</div><div class = "tableCellMissText">Baal's Defeat Finish Cutscene</div>
-<div class = "tableCellMissName">Felicitation</div><div class = "tableCellMissText">Priere's Extra Stage Finish Cutscene</div>
-<div class = "tableCellMissName">Usagai's Journal</div><div class = "tableCellMissText">Complete Every Dark World Stage Cutscene</div>
+        <div class="tableCellSpacer"></div>
 
-</div>
+        <div class="tableCellName">Firefighter</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.8em;">Increases Fire Resistance</div>
+
+        <div class="tableCellName">Aeronaut</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.75em;">Increases Wind Resistance</div>
+
+        <div class="tableCellName">Cryophile</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.8em;">Increases Ice Resistance</div>
+
+    </div>
+
+    <!-- Etc -->
+
+    <div class="tableContainer">
+
+        <div class="tableCellName">Professional</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText" style="font-size:.8em;">Increases Critical Chance.</div>
+
+        <div class="tableCellSpacer"></div>
+
+        <div class="tableCellName">Broker</div>
+        <div class="tableCellExtra">300</div>
+        <div class="tableCellText">Increase HL gain.</div>
+
+        <div class="tableCellName">Manager</div>
+        <div class="tableCellExtra">300</div>
+        <div class="tableCellText">Increase Mana gain.</div>
+
+        <div class="tableCellName">Armsmaster</div>
+        <div class="tableCellExtra">1900</div>
+        <div class="tableCellText" style="font-size:.75em;">Improve Weapon Mastery.</div>
+
+        <div class="tableCellName">Mentor</div>
+        <div class="tableCellExtra">300</div>
+        <div class="tableCellText" style="font-size:.9em;">Increase Skill EXP gain.</div>
+
+        <div class="tableCellSpacer"></div>
+
+        <div class="tableCellName">Collector</div>
+        <div class="tableCellExtra">100</div>
+        <div class="tableCellText">Increase Rarity</div>
+
+        <div class="tableCellName" style="height:32px;">Mediator</div>
+        <div class="tableCellExtra" style="height:32px;">100</div>
+        <div class="tableCellText" style="font-size:.8em; height:32px;">Chance to create dual-stat specialists.</div>
+
+        <div class="tableCellName" style="height:30px;">Teacher</div>
+        <div class="tableCellExtra" style="height:30px;">100</div>
+        <div class="tableCellText" style="font-size:.7em; height:30px;">Increase the level of a specialist by 5%.</div>
+
+        <div class="tableCellName">Bailiff</div>
+        <div class="tableCellExtra">Varies</div>
+        <div class="tableCellText"><a href="http://disgaea.wikia.com/wiki/Bailiff">Felony Courtroom</a></div>
+
+        <div class="tableCellName">Lover</div>
+        <div class="tableCellExtra">25</div>
+        <div class="tableCellText"><a href="http://disgaea.wikia.com/wiki/Lover">Class Dependent</a></div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Fists">Fist Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Worn Gloves</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Hustle Gloves</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Double Slap</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Knuckles</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Beat Down</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Playful Punch</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Boxing Gloves</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Finger Snap</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Father's Fist</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Spiked Glove</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Slap Back</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Iron Nails</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Hoodlum Fist</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Iron Punch</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Massager</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Love Spankin</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">White Tiger</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Karate Chop</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Knuckle Bomber</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Flick</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Gank</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Pata</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Sumo Punch</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Bagh Nakh</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Cross Counter</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Butcher Hand</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Poison Hand</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Bich'wa</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Burning Rage</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Hell Strike</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Death Gauntlet</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Fist of Anger</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">7 Year Kill</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Macho Fist</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Paradise Blow</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Golden Fist</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">100 Fists</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Star Shatter</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">God's Hand</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Ultimus</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Swords">Sword Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Lazy Sword</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Broadsword</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Rapier</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Dragon Blade</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Shamshir</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Knight Sword</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Spatha</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Katana</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Bastard Sword</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Heavy Sword</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Kunoichi Blade</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Ninja Blade</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Bekatwa</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Katzbalger</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Berserker</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Evil Buster</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Krishmald</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Falchion</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Bloodlust</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Nightmare</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Warlord Blade</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Damascus</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Rune Sabre</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Executioner</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Crystal Sword</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Rasetsu</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Sesshoumaru</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Kagero</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Laser Blade</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Nine Blades</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Dragon Buster</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Durandal</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Balmung</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Tilfang</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Bushin Blade</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Muramasa</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Sunrise Sword</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Infernal Sword</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Excalibur</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Yoshitsuna</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Spears">Spear Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Replica Spear</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Cross Spear</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Pike</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Naginata</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Obsidian Spear</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Ashigaru</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Beckdograban</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Du Sanga</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Shogun Spear</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Scorpion</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Trident</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Bone Spear</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Benkei's Glaive</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Benten</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Shovsri</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Daimyo Spear</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Carbon Spear</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Demon Spear</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Twin Lancer</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Halberd</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Brave Lance</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Bloody Cross</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Valkyrie Spear</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Elder Spear</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Hell Fork</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Death Spear</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Thunder Spear</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Triton Lance</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Primeval Spear</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Singularity</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Lucifer's Spear</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Emerald Lance</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Bruenack</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Gungnir</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Infernal Spear</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Pinaka</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Gaea Spear</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Beam Javelin</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Holy Longinus</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Drill Emperor</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Bows">Bow Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Toy Bow</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Wooden Bow</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Long Bow</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Silver Bow</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Elven Bow</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Assassin Bow</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Yggdrasil Bow</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Jewelled Bow</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Composite Bow</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Exorcist Bow</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Golden Bow</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Skeleton Bow</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Crystal Bow</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Demon Bow</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Angel Bow</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Temptation</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Forest Bow</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Hunter Bow</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Moonlight Bow</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Sylphid</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Dark Bow</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Heavenly Bow</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Beast Killer</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Master Bow</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Deadly Bow</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Platinum Bow</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Soul Eater</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Salamander</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Illusion Bow</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Evil Hunter</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Raijin Bow</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Glutton Bow</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Luminous Bow</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Red Moon Bow</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Drake Hunter</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Ragnarok</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Diabolic Bow</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Seraphic Bow</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Artemis</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Lovely Cupid</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Guns">Gun Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">BB Gun</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Handgun</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Trumpet</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Steam Gun</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">.44 Magnum</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Pulse Gun</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Antique Gun</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Laser Rifle</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Mk. II</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Twin Blaster</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">HG4</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Flamethrower</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Sledgehammer</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Godfather</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Ray Gun</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Spray Gun</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Photon Gun</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Paralyzer</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Sacred</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Prism Cannon</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Old Glory</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Discharger</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Ion Blaster</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Peace Maker</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Intoccabile</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Space Gun</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Crisis</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Takemikazuchi</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Noble Rose</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Cosmo Gun</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Gjallarhorn</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Requiem</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Simurgh</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Dragoon</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Prometheus</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Rolling Thunder</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Heroic Gun</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Dead Whisper</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Megiddo Cannon</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Etoile</div>
+
+
+    </div>
+
+</div>
+
+<span class="header" id="Axes">Axe Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Cheap Axe</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Iron Axe</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Gang Axe</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Primitive Axe</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Hammer</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Battle Axe</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Viking Axe</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Guillotine</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Heavy Hammer</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Masakari</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Tomahawk</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Dwarven Axe</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Heavy Axe</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Giant Axe</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Savage Axe</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Guilty Axe</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Demon Smasher</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Metal Basher</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Kill All</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Serial Axe</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Morning Star</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Winged Edge</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Enforcer</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Great Axe</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Avenger</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Holy Hammer</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Master Axe</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Earth Quaker</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Emperor's Axe</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Holy Axe</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Gigaton Mace</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Beastmaster</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">El Dorado</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Sacrifice</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Hell Star</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Death Scythe</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Saint's Axe</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Diabolic Axe</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Beam Axe</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Apocalypse</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Staves">Staff Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Training Staff</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Wooden Staff</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Bone Staff</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Magician Wand</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Pixie Wand</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Cardinal Staff</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Witch's Wand</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Crystal Rod</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Rune Staff</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Prinny Staff</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Fancy Rod</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Druid Staff</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Sorcery Rod</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Ancient Staff</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Jewel Scepter</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Evil Wand</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Earthen Staff</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Mithril Staff</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Moonlight Staff</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Fairy Staff</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Force Staff</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Demon Staff</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Chief's Staff</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Lovely Rod</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Crimson Wand</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Holy Staff</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Wizard's Rod</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Oracle Staff</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Mystery Staff</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Spirit Staff</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Doom Wand</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Sun Staff</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Venus Wand</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Prinny Stick</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Universal Staff</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Yggdrasil Stick</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Divine Staff</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Sage's Staff</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Infernal Staff</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Omniscient Rod</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Monster ATK">Monster ATK Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Paw Glove</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Pointy Bone</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Goblin Claw</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Wolf's Fang</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Slime Juice</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Crab Claw</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Scorpion Tail</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Odd Mandible</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">Bear Claw</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Viper Bite</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Bull Horn</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Spikey Shell</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Tentacle</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Poison Needle</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Rose Whip</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Mystic Horn</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Tiger Fang</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Lionheart</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Golem Punch</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Mystic Attack</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Organic Power</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Poor Orphan</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Mad Parasite</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Dark Aura</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Chimera DNA</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Pegasus Hoof</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Demon Cry</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Titan Fist</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Dragon Anger</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Demon Fang</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Death Wing</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Asura Arm</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Furious Scale</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Devil Matrix</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Insanity Eye</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Beastial Mark</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Immortal Body</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Phoenix Feather</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Satan's Motor</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Babylon Crown</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Monster INT">Monster INT Weapons</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">1</div>
+        <div class="tableCellText">The Weak</div>
+        <div class="tableCellRank">2</div>
+        <div class="tableCellText">The Rotten</div>
+        <div class="tableCellRank">3</div>
+        <div class="tableCellText">The Dead</div>
+        <div class="tableCellRank">4</div>
+        <div class="tableCellText">The Sacrifice</div>
+        <div class="tableCellRank">5</div>
+        <div class="tableCellText">The Heretic</div>
+        <div class="tableCellRank">6</div>
+        <div class="tableCellText">The Slave</div>
+        <div class="tableCellRank">7</div>
+        <div class="tableCellText">The Puppet</div>
+        <div class="tableCellRank">8</div>
+        <div class="tableCellText">The Demon</div>
+        <div class="tableCellRank">9</div>
+        <div class="tableCellText">The Delusion</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">The Evil Eye</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">The Nightmare</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">The Accursed</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">The Dream</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">The Dismal</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Lust</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Gluttony</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Confusion</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Paranoia</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Greed</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Sloth</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">The Arcane</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Hell's Gate</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">The Phantasm</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Envy</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">The Fallen</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">The Abyss</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">The Convict</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Twilight</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Pride</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">The Conundrum</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">The Malevolent</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">The Unique</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">The Awakening</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Necronomicon</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Wrath</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Fortune</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Chaos</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Dante's Inferno</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">The King</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">The Fool</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Armors">Armors</span>
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellRank">01</div>
+        <div class="tableCellText">Old Cloth</div>
+        <div class="tableCellRank">02</div>
+        <div class="tableCellText">Tunic</div>
+        <div class="tableCellRank">03</div>
+        <div class="tableCellText">Buckler</div>
+        <div class="tableCellRank">04</div>
+        <div class="tableCellText">Leather Jacket</div>
+        <div class="tableCellRank">05</div>
+        <div class="tableCellText">Light Armor</div>
+        <div class="tableCellRank">06</div>
+        <div class="tableCellText">Jijo Outfit</div>
+        <div class="tableCellRank">07</div>
+        <div class="tableCellText">Traveler Mantle</div>
+        <div class="tableCellRank">08</div>
+        <div class="tableCellText">Round Shield</div>
+        <div class="tableCellRank">09</div>
+        <div class="tableCellText">China Dress</div>
+        <div class="tableCellRank">10</div>
+        <div class="tableCellText">Protector</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">11</div>
+        <div class="tableCellText">Black Outfit</div>
+        <div class="tableCellRank">12</div>
+        <div class="tableCellText">Magical Vest</div>
+        <div class="tableCellRank">13</div>
+        <div class="tableCellText">Fur Jacket</div>
+        <div class="tableCellRank">14</div>
+        <div class="tableCellText">Chain Mail</div>
+        <div class="tableCellRank">15</div>
+        <div class="tableCellText">Wizard Robe</div>
+        <div class="tableCellRank">16</div>
+        <div class="tableCellText">Battle Vest</div>
+        <div class="tableCellRank">17</div>
+        <div class="tableCellText">Scale Mail</div>
+        <div class="tableCellRank">18</div>
+        <div class="tableCellText">Bushido Suit</div>
+        <div class="tableCellRank">19</div>
+        <div class="tableCellText">Breastplate</div>
+        <div class="tableCellRank">20</div>
+        <div class="tableCellText">Large Shield</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">21</div>
+        <div class="tableCellText">Brigandine</div>
+        <div class="tableCellRank">22</div>
+        <div class="tableCellText">Halfplate</div>
+        <div class="tableCellRank">23</div>
+        <div class="tableCellText">Holy Dress</div>
+        <div class="tableCellRank">24</div>
+        <div class="tableCellText">Knight Shield</div>
+        <div class="tableCellRank">25</div>
+        <div class="tableCellText">Dandy Gown</div>
+        <div class="tableCellRank">26</div>
+        <div class="tableCellText">Fullplate</div>
+        <div class="tableCellRank">27</div>
+        <div class="tableCellText">Iron Dress</div>
+        <div class="tableCellRank">28</div>
+        <div class="tableCellText">Battle Armor</div>
+        <div class="tableCellRank">29</div>
+        <div class="tableCellText">Tower Shield</div>
+        <div class="tableCellRank">30</div>
+        <div class="tableCellText">Spirit Mantle</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellRank">31</div>
+        <div class="tableCellText">Dragon Mail</div>
+        <div class="tableCellRank">32</div>
+        <div class="tableCellText">Kamikaze Suit</div>
+        <div class="tableCellRank">33</div>
+        <div class="tableCellText">Reflex</div>
+        <div class="tableCellRank">34</div>
+        <div class="tableCellText">Hero Mantle</div>
+        <div class="tableCellRank">35</div>
+        <div class="tableCellText">Metal Suit</div>
+        <div class="tableCellRank">36</div>
+        <div class="tableCellText">Shield of Aegis</div>
+        <div class="tableCellRank">37</div>
+        <div class="tableCellText">Goddess Dress</div>
+        <div class="tableCellRank">38</div>
+        <div class="tableCellText">Majin Armor</div>
+        <div class="tableCellRank">39</div>
+        <div class="tableCellText">Infernal Armor</div>
+        <div class="tableCellRank">40</div>
+        <div class="tableCellText">Super Robo Suit</div>
+
+    </div>
+
+</div>
+
+<div class="contentFloatWrapper">
+
+    <span class="header" id="Accessories">Belts</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">02</div>
+            <div class="tableCellText">Power Belt</div>
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Exertion Belt</div>
+            <div class="tableCellRank">08</div>
+            <div class="tableCellText">Energy Belt</div>
+            <div class="tableCellRank">12</div>
+            <div class="tableCellText">Beastly Belt</div>
+            <div class="tableCellRank">16</div>
+            <div class="tableCellText">Aura Belt</div>
+            <div class="tableCellRank">20</div>
+            <div class="tableCellText">Spirit Belt</div>
+            <div class="tableCellRank">26</div>
+            <div class="tableCellText">Bravery Belt</div>
+            <div class="tableCellRank">30</div>
+            <div class="tableCellText">Black Belt</div>
+            <div class="tableCellRank">36</div>
+            <div class="tableCellText">Ubermensch</div>
+            <div class="tableCellRank">39</div>
+            <div class="tableCellText">Orion's Belt</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Shoes</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">04</div>
+            <div class="tableCellText">Slippers</div>
+            <div class="tableCellRank">11</div>
+            <div class="tableCellText">Cross-Trainers</div>
+            <div class="tableCellRank">18</div>
+            <div class="tableCellText">Ninja Tabi</div>
+            <div class="tableCellRank">25</div>
+            <div class="tableCellText">Falcon Shoes</div>
+            <div class="tableCellRank">32</div>
+            <div class="tableCellText">Angel's Sandals</div>
+            <div class="tableCellRank">39</div>
+            <div class="tableCellText">Accelerator</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Orbs</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">02</div>
+            <div class="tableCellText">Common Orb</div>
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Psycho Orb</div>
+            <div class="tableCellRank">08</div>
+            <div class="tableCellText">Dark Orb</div>
+            <div class="tableCellRank">12</div>
+            <div class="tableCellText">Bloody Orb</div>
+            <div class="tableCellRank">16</div>
+            <div class="tableCellText">Astral Orb</div>
+            <div class="tableCellRank">20</div>
+            <div class="tableCellText">Lunar Orb</div>
+            <div class="tableCellRank">26</div>
+            <div class="tableCellText">Royal Orb</div>
+            <div class="tableCellRank">30</div>
+            <div class="tableCellText">Holy Orb</div>
+            <div class="tableCellRank">36</div>
+            <div class="tableCellText">Chaos Orb</div>
+            <div class="tableCellRank">39</div>
+            <div class="tableCellText">Universal Orb</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Glasses</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">02</div>
+            <div class="tableCellText">Glasses</div>
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Binoculars</div>
+            <div class="tableCellRank">08</div>
+            <div class="tableCellText">Nerd Glasses</div>
+            <div class="tableCellRank">12</div>
+            <div class="tableCellText">Plastic Nose</div>
+            <div class="tableCellRank">16</div>
+            <div class="tableCellText">Opera Glasses</div>
+            <div class="tableCellRank">20</div>
+            <div class="tableCellText">Nightvision</div>
+            <div class="tableCellRank">26</div>
+            <div class="tableCellText">Crosshair</div>
+            <div class="tableCellRank">30</div>
+            <div class="tableCellText">Foresight</div>
+            <div class="tableCellRank">36</div>
+            <div class="tableCellText">Destiny Lens</div>
+            <div class="tableCellRank">39</div>
+            <div class="tableCellText">Providence</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Muscles</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">02</div>
+            <div class="tableCellText">Brawny Muscle</div>
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Kung-Fu Muscle</div>
+            <div class="tableCellRank">08</div>
+            <div class="tableCellText">Spirit Muscle</div>
+            <div class="tableCellRank">12</div>
+            <div class="tableCellText">Fight Muscle</div>
+            <div class="tableCellRank">16</div>
+            <div class="tableCellText">Ace Muscle</div>
+            <div class="tableCellRank">20</div>
+            <div class="tableCellText">Victory Muscle</div>
+            <div class="tableCellRank">26</div>
+            <div class="tableCellText">Dream Muscle</div>
+            <div class="tableCellRank">30</div>
+            <div class="tableCellText">World Muscle</div>
+            <div class="tableCellRank">36</div>
+            <div class="tableCellText">Star Muscle</div>
+            <div class="tableCellRank">39</div>
+            <div class="tableCellText">Cosmos Muscle</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Weights</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Power Weight</div>
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Speed Weight</div>
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Hit Weight</div>
+            <div class="tableCellRank">15</div>
+            <div class="tableCellText">Power Weight 2</div>
+            <div class="tableCellRank">15</div>
+            <div class="tableCellText">Speed Weight 2</div>
+            <div class="tableCellRank">15</div>
+            <div class="tableCellText">Hit Weight 2</div>
+            <div class="tableCellRank">25</div>
+            <div class="tableCellText">Power Weight Z</div>
+            <div class="tableCellRank">25</div>
+            <div class="tableCellText">Speed Weight Z</div>
+            <div class="tableCellRank">25</div>
+            <div class="tableCellText">Hit Weight Z</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Emblems</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">05</div>
+            <div class="tableCellText">Imperial Seal</div>
+            <div class="tableCellRank">10</div>
+            <div class="tableCellText">Dark Rosary</div>
+            <div class="tableCellRank">14</div>
+            <div class="tableCellText">Devil Ring</div>
+            <div class="tableCellRank">18</div>
+            <div class="tableCellText">Feather Token</div>
+            <div class="tableCellRank">22</div>
+            <div class="tableCellText">Sophia's Mirror</div>
+            <div class="tableCellRank">26</div>
+            <div class="tableCellText">Pravda Pendant</div>
+            <div class="tableCellRank">30</div>
+            <div class="tableCellText">Royal Ring</div>
+            <div class="tableCellRank">34</div>
+            <div class="tableCellText">Testament</div>
+            <div class="tableCellRank">38</div>
+            <div class="tableCellText">Exodus</div>
+            <div class="tableCellRank">40</div>
+            <div class="tableCellText">Arcadia</div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<div class="contentFloatWrapper">
+
+    <span class="header">Stealing Hands</span>
+    <div class="contentWrapper">
+
+        <div class="tableContainer">
+
+            <div class="tableCellRank">02</div>
+            <div class="tableCellText">Stealing Hand</div>
+            <div class="tableCellRank">10</div>
+            <div class="tableCellText">Plunder Hand</div>
+            <div class="tableCellRank">18</div>
+            <div class="tableCellText">Cha-Ching</div>
+            <div class="tableCellRank">26</div>
+            <div class="tableCellText">Bandit's Hand</div>
+            <div class="tableCellRank">34</div>
+            <div class="tableCellText">Awesome Hand</div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="clearfix"></div>
+
+<span class="header" id="Missables">Missables</span> Once per cycle
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellMissName">Supremacy</div>
+        <div class="tableCellMissText">Adell 6-1 (First Battle): 1 (First play only)</div>
+        <div class="tableCellMissName">Almighty Armor</div>
+        <div class="tableCellMissText">Adell 6-1 (First Battle): 1 (First play only)</div>
+        <div class="tableCellMissName">Maxi Sandals</div>
+        <div class="tableCellMissText">Adell 6-1 (First Battle): 1 (First play only)</div>
+        <div class="tableCellMissName">Niflheim</div>
+        <div class="tableCellMissText">Adell 10-4 (Dead Breath): 1 (First play only)</div>
+        <div class="tableCellMissName">Niflheim</div>
+        <div class="tableCellMissText">Adell 13-3 (Killer's Hall): 1 (First play only)</div>
+        <div class="tableCellMissName">Accelerator</div>
+        <div class="tableCellMissText">Reward from "Defend a Defender!" (Rarity 0 Exploitable)</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellMissName">Gao's Spirit</div>
+        <div class="tableCellMissText">Extra Stage - Worst Witch Ever (Marjoly): 1</div>
+        <div class="tableCellMissName">Crowdia's Charm</div>
+        <div class="tableCellMissText">Extra Stage - Worst Witch Ever (Marjoly): 1</div>
+        <div class="tableCellMissName">Kitty's Ears</div>
+        <div class="tableCellMissText">Extra Stage - Worst Witch Ever (Marjoly): 1</div>
+        <div class="tableCellMissName">Arcadia</div>
+        <div class="tableCellMissText">Cave of Ordeals 5 (Ordeal 5): 1 (First play only)</div>
+        <div class="tableCellMissName">Arcadia</div>
+        <div class="tableCellMissText">"Murdering Baal" Felony (Once per <b>save</b>)</div>
+        <div class="tableCellMissName">M-change Scroll</div>
+        <div class="tableCellMissText">"Magichange Self" Felony (Once per <b>save</b>)</div>
+
+    </div>
+
+</div>
+
+<span class="header" id="Rarity 0">Rarity 0 Exploitables</span> Skip the cutscene the item is rewarded during
+<div class="contentWrapper">
+
+    <div class="tableContainer">
+
+        <div class="tableCellMissName">Sexy Panties</div>
+        <div class="tableCellMissText">Majorly's Extra Stage Finish Cutscene</div>
+        <div class="tableCellMissName">DoE ID Card</div>
+        <div class="tableCellMissText">Kurtis's Second Extra Stage Finish Cutscene</div>
+        <div class="tableCellMissName">Postcard</div>
+        <div class="tableCellMissText">Asagai's Extra Stage Finish Cutscene</div>
+
+    </div>
+    <div class="tableContainer">
+
+        <div class="tableCellMissName">Makai Wars</div>
+        <div class="tableCellMissText">Baal's Defeat Finish Cutscene</div>
+        <div class="tableCellMissName">Felicitation</div>
+        <div class="tableCellMissText">Priere's Extra Stage Finish Cutscene</div>
+        <div class="tableCellMissName">Usagai's Journal</div>
+        <div class="tableCellMissText">Complete Every Dark World Stage Cutscene</div>
+
+    </div>
 
 </div>
 
