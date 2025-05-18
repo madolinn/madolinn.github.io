@@ -559,7 +559,7 @@ function APConnect(ev) {
 	var slot = ev.target.querySelector("[name='ap-slot']").value;
 	var pass = ev.target.querySelector("[name='ap-pass']").value;
 	
-	AP.ws = new WebSocket("ws://" + serv);
+	AP.ws = new WebSocket("wss://" + serv);
 	AP.server = serv;
 	AP.slotname = slot;
 	AP.password = pass;
