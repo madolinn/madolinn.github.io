@@ -1,0 +1,94 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Noita AP Web Tracker</title>
+	<script src="noita.js"></script>
+
+<style>
+body{background:#000;color:#fff;margin:0;font-family:"Trebuchet MS","Tahoma",sans-serif}
+#wrapper{height:100%;display:flex;flex-direction:column;padding:15px;max-height:100vh;box-sizing:border-box}
+.btn{}
+.d-grid{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.grid-1-2{grid-template-columns:1fr 2fr}
+.d-flex{display:flex}
+.w-100{width:100%;max-width:100%;flex;0 0 100%}
+.h-100{}
+.flex-100{flex:1 1 100%}
+section{position:relative}
+#noita-map{flex:1 1 100%;padding:0 5px;display:flex;flex-direction:column;overflow-y:auto}
+#noita-map>.location-container{display:flex;gap:15px;flex-wrap:wrap}
+#noita-killlist{flex:0 0 384px;border-left:1px solid #ccc;padding:0 5px;display:flex;flex-direction:column}
+#noita-killlist>.location-container{display:grid;grid-template-columns:repeat(9, 1fr);gap:3px;image-rendering:pixelated;overflow-y:auto}
+.kill-icon{background:url('animal_icons/grid_box.png');background-size:contain;background-repeat:no-repeat;padding:1px;border:0;cursor:pointer}
+.kill-icon>img{width:100%;image-rendering:pixelated}
+.location-check{display:none}
+.location-check.location-valid{display:block}
+.location-check.location-valid.location-checked{opacity:0.1}
+.text-right{text-align:right}
+.text-center{text-align:center}
+.pb-5{padding-bottom:5px}
+.pt-5{padding-top:5px}
+.bb{border-bottom:1px solid #ccc}
+.region-check{display:none;background:rgba(255, 255, 255, 0.1);padding:5px}
+.region-check>h6{margin:0 0 5px;font-size:16px}
+.region-check:has(.location-valid){display:block}
+.region-check>section{display:flex;gap:3px}
+.region-check div{display:none}
+.region-check div:has(.location-valid){display:contents}
+.grid-full-span{grid-column:1 / -1}
+.generic-icon{background:url('animal_icons/grid_box.png');background-size:contain;background-repeat:no-repeat;padding:1px;border:0;cursor:pointer;width:32px;image-rendering:pixelated}
+.generic-icon>img{width:100%;image-rendering:pixelated}
+
+#killlist-tooltip{max-width:400px}
+
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+	<div class="d-flex flex-100" style="overflow:hidden">
+		<section id="noita-map">
+			<header class="pb-5 bb">
+				<button id="ap-connect-show" class="btn">Connect to AP</button>				
+			</header>
+			<article class="location-container pt-5">
+			</article>
+		</section>
+		<aside id="noita-killlist">
+			<header class="d-grid pb-5 bb">
+				<div>Killsanity: </div>
+				<div id="noita-killlist-stats" class="text-right">
+					<span></span>/<span></span>
+				</div>
+			</header>
+			<article class="location-container pt-5"></article>
+		</aside>
+	</div>
+
+	<div id="ap-connect-dialog" popover="auto">
+		<form action="" method="" style="margin:0">
+			<div class="d-grid grid-1-2" style="margin-bottom:15px">
+				<label for="ap-connect-host">Hostname:</label>
+				<input id="ap-connect-host" name="ap-host" required>
+				<label for="ap-connect-slot">Slot:</label>
+				<input id="ap-connect-slot" name="ap-slot" required>
+				<label for="ap-connect-pass">Password:</label>
+				<input type="password" id="ap-connect-pass" name="ap-pass">
+			</div>
+			<button id="ap-connect" class="btn w-100">Connect</div>
+		</form>
+	</div>
+	
+	<div id="killlist-tooltip" popover="auto">
+		<header class="d-grid pb-5 bb">
+			<h4 style="margin:5px"></h4>
+			<div class="text-right">
+				<a href="" target="_blank">Wiki <svg width="10px" height="10px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#000000" fill-rule="evenodd" d="M18.885 2a1 1 0 00-1-1h-6a1 1 0 100 2h3.586L9.178 9.293a1 1 0 101.414 1.414l6.293-6.293V8a1 1 0 102 0V2zM3.009 3a2.012 2.012 0 00-1.998 2.218c.148 1.453.374 3.978.374 5.782 0 1.746-.212 4.17-.36 5.642a2.028 2.028 0 002.218 2.218c1.473-.148 3.896-.36 5.642-.36 1.804 0 4.33.226 5.782.374a2.012 2.012 0 002.218-1.998V12a1 1 0 10-2 0v4.878l-.003.003a.018.018 0 01-.006.003h-.006c-1.451-.147-4.068-.384-5.985-.384-1.857 0-4.37.222-5.842.37h-.008a.034.034 0 01-.012-.008.033.033 0 01-.008-.012.01.01 0 010-.002v-.006c.148-1.473.37-3.985.37-5.842 0-1.917-.237-4.534-.385-5.985v-.006l.004-.006A.016.016 0 013.007 5h4.878a1 1 0 000-2H3.009z"></path> </g></svg></a>
+			</div>
+		</header>
+		<article></article>
+	</div>
+</div>
+
+</body>
+</html>
