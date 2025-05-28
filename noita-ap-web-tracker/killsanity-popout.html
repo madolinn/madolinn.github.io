@@ -1,0 +1,122 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Noita AP Web Tracker - Killsanity Popout</title>
+
+<style>
+body{background:#000;color:#fff;margin:0;font-family:"Trebuchet MS","Tahoma",sans-serif}
+#wrapper{display:flex;flex-direction:column;padding:15px;box-sizing:border-box}
+.btn{}
+.d-grid{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.grid-1-2{grid-template-columns:1fr 2fr}
+.d-flex{display:flex}
+.w-100{width:100%;max-width:100%;flex;0 0 100%}
+.h-100{}
+.flex-100{flex:1 1 100%}
+section{position:relative}
+#noita-map{flex:1 1 100%;padding:0 5px;display:flex;flex-direction:column;overflow-y:auto}
+#noita-map>.location-container{display:flex;gap:15px;flex-wrap:wrap}
+#noita-killlist{flex:100%;padding:0 5px;display:flex;flex-direction:column}
+#noita-killlist>.location-container{display:flex;gap:3px;image-rendering:pixelated;flex-wrap:wrap}
+.kill-icon{background:url('animal_icons/grid_box.png');background-size:contain;background-repeat:no-repeat;padding:1px;border:0;cursor:pointer;flex:0 0 38px}
+.kill-icon>img{width:100%;image-rendering:pixelated;aspect-ratio:1}
+.location-check{display:none}
+.location-check.location-valid{display:block}
+.location-check.location-valid.location-checked{opacity:0.1}
+.text-right{text-align:right}
+.text-center{text-align:center}
+.pb-5{padding-bottom:5px}
+.pt-5{padding-top:5px}
+.bb{border-bottom:1px solid #ccc}
+.region-check{display:none;background:rgba(255, 255, 255, 0.1);padding:5px}
+.region-check>h6{margin:0 0 5px;font-size:16px}
+.region-check:has(.location-valid){display:block}
+.region-check>section{display:flex;gap:3px}
+.region-check div{display:none}
+.region-check div:has(.location-valid){display:contents}
+.grid-full-span{grid-column:1 / -1}
+.generic-icon{background:url('animal_icons/grid_box.png');background-size:contain;background-repeat:no-repeat;padding:1px;border:0;cursor:pointer;width:32px;image-rendering:pixelated}
+.generic-icon>img{width:100%;image-rendering:pixelated}
+
+#killlist-tooltip{max-width:400px}
+
+</style>
+
+<script>
+
+AP = {
+	locations: {
+		checked: [],
+		missing: [],
+	}
+}
+
+window.addEventListener('message', function(ev) {
+	if (ev.data.ev === "setup") {
+		ev.data.data.forEach(function(entry) {
+			var wrap = document.createElement("button");
+			wrap.id = "kill-" + entry[0];
+			wrap.dataset['locationId'] = entry[0];
+			wrap.className = "location-check kill-icon";
+			wrap.innerHTML = '<img src="' + entry[1] + '">';
+			document.querySelector("#noita-killlist>.location-container").append(wrap);
+		});
+	}
+	
+	if (ev.data.ev === "sync") {
+		AP.locations = ev.data.data;
+		updateViews();
+	}
+});
+
+function updateViews() {
+	for (var i = 0; i < AP.locations.missing.length; i++) {
+		var locId = AP.locations.missing[i];
+		document.querySelectorAll(".location-check[data-location-id='" + locId + "']").forEach(function(el) {
+			el.classList.add("location-valid");
+		});
+	}
+	
+	for (var i = 0; i < AP.locations.checked.length; i++) {
+		var locId = AP.locations.checked[i];
+		document.querySelectorAll(".location-check[data-location-id='" + locId + "']").forEach(function(el) {
+			el.classList.add("location-valid");
+			el.classList.add("location-checked");
+		});
+	}
+	
+	var totalChecks = document.querySelectorAll("#noita-killlist .location-valid").length;
+	var checked = document.querySelectorAll("#noita-killlist .location-valid.location-checked").length;
+	
+	document.querySelectorAll("#noita-killlist-stats span").forEach(function(el, i) {
+		if (i == 0) {
+			el.innerText = checked;
+		} else {
+			el.innerText = totalChecks;
+		}
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	window.opener.postMessage({ ev: "setupReq" }, "*");
+});
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+	<div class="d-flex flex-100" style="overflow:hidden">
+		<aside id="noita-killlist">
+			<header class="d-grid pb-5 bb">
+				<div>Killsanity: </div>
+				<div id="noita-killlist-stats" class="text-right">
+					<span></span>/<span></span>
+				</div>
+			</header>
+			<article class="location-container pt-5"></article>
+		</aside>
+	</div>
+</div>
+
+</body>
+</html>

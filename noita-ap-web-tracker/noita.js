@@ -416,7 +416,8 @@ var trackerData = {
 	locationIds: {},
 	locationRules: {
 		"bosses": [110670, 110649, 110651, 110669, 110656, 110650, 110648, 110652, 110655, 110657, 110653, 110647, 110671, 110646, 110654],
-	}
+	},
+	popouts: {},
 };
 
 function bindSocketEv(AP) {
@@ -637,6 +638,15 @@ function updateViews() {
 		}
 	});
 	
+	if (trackerData.popouts.killlist) {
+		trackerData.popouts.killlist.postMessage({ ev: "sync", data: AP.locations }, "*");
+	}
+}
+
+function popoutKilllist() {
+	if (!trackerData.popouts.killlist) {
+		trackerData.popouts.killlist = window.open("killsanity-popout.html", "Noita AP Web Tracker - Killsanity Popout", "popup=true");
+	}
 }
 
 function parseLocationSet(locations) {
@@ -684,6 +694,9 @@ function parseLocationSet(locations) {
 function bindButtons() {
 	document.querySelector("#ap-connect-show").addEventListener('click', function() { APConnectDialog(); });
 	document.querySelector("#ap-connect-dialog>form").addEventListener('submit', function(e) { e.preventDefault(); APConnect(e); });
+	document.querySelector("#noita-killlist-popout").addEventListener('click', function() { popoutKilllist(); });
+	
+	APConnectDirect();
 }
 
 function APLogin(AP, frame) {
@@ -703,7 +716,12 @@ function APConnect(ev) {
 	var slot = ev.target.querySelector("[name='ap-slot']").value;
 	var pass = ev.target.querySelector("[name='ap-pass']").value;
 	
-	AP.ws = new WebSocket("wss://" + serv);
+	if (serv.indexOf("localhost") === 0) {
+		AP.ws = new WebSocket("ws://" + serv);
+	} else {
+		AP.ws = new WebSocket("wss://" + serv);
+	}
+	
 	AP.server = serv;
 	AP.slotname = slot;
 	AP.password = pass;
@@ -714,10 +732,10 @@ function APConnect(ev) {
 
 function APConnectDirect(ev) {
 	var serv = "localhost:38281";
-	var slot = "Player1";
+	var slot = "Madolinn";
 	var pass = "";
 	
-	AP.ws = new WebSocket("wss://" + serv);
+	AP.ws = new WebSocket("ws://" + serv);
 	AP.server = serv;
 	AP.slotname = slot;
 	AP.password = pass;
@@ -732,4 +750,18 @@ function APConnectDialog() {
 
 document.addEventListener('DOMContentLoaded', function() {
 	bindButtons();
+	
+	window.addEventListener('message', function(ev) {
+		if (ev.data.ev === "setupReq") {
+			if (trackerData.popouts.killlist) {
+				var enemyData = [];
+				document.querySelectorAll("#noita-killlist .location-container .location-valid").forEach(function(ev) {
+					enemyData.push([ev.dataset["locationId"], ev.querySelector("img").getAttribute("src")]);
+				});
+				
+				trackerData.popouts.killlist.postMessage({ ev: "setup", data: enemyData }, "*");
+				trackerData.popouts.killlist.postMessage({ ev: "sync", data: AP.locations }, "*");
+			}
+		}
+	});
 });
